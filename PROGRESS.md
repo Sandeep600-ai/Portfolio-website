@@ -157,27 +157,30 @@ Dev server verified HTTP 200 on all endpoints.
 | 2026-11-16 16:43 | Header CTA Button Copy Updated to 'Let's Talk' with Balanced Medium Proportion | Done | Replaced 'Get in Touch' button copy with 'Let's Talk' in both sticky desktop navigation (.btn-nav) and mobile menu drawer (.btn-nav-mobile); preserved sleek medium length and rounded rectangular proportion (padding 0.42rem 0.95rem, radius 7px, warm orange #d4531f); verified HTTP 200 on all endpoints |
 | 2026-11-16 17:16 | Pre-Deployment Security Audit & Vercel Serverless Architecture | Done | Conducted full security audit across entire codebase (0 real API keys/secrets found); hardened .gitignore against .env, .env.*, .vercel/, scripts/, *.ps1, and caches; created .env.example template; deployed Vercel serverless API handlers (api/news.js, api/jobs.js, api/status.js) reading process.env.TAVILY_API_KEY and process.env.APIFY_TOKEN with automatic fallback to data/ cache; added vercel.json routing config; verified HTTP 200 on all endpoints |
 | 2026-11-16 17:22 | Markdown Security Audit & Comprehensive README.md Overhaul | Done | Audited all repository markdown files (README.md, MEMORY.md, PROGRESS.md, AGENTS.md, SKILL.md) and verified zero sensitive credentials, tokens, or personal paths exist; re-authored README.md with complete project overview, full feature showcase (3D Spline hero, dual-theme engine, 6 AI projects, /jobs Command Center, AI Pulse radar), full project structure tree, local development guide, and Vercel zero-secret deployment walkthrough |
+| 2026-11-16 19:00 | Vercel Static Deployment Optimization | Done | Cleaned package.json by removing unused Next.js dependencies and setting safe static build script; confirmed Vercel 'Other' framework preset |
+| 2026-11-16 19:44 | Public README Passcode Sanitization | Done | Removed private passcode references from README.md; documented /jobs dashboard as an authenticated private tool not accessible by the public |
 
 ---
 
-## Next Session Starting Point (Tomorrow - 2026-11-15)
+## Next Session Starting Point
 
 - **Active Files**: [`index.html`](file:///d:/Desktop/Portfolio-website/index.html) (main portfolio), [`jobs/index.html`](file:///d:/Desktop/Portfolio-website/jobs/index.html) (Job Market Command Center), [`data/jobs.json`](file:///d:/Desktop/Portfolio-website/data/jobs.json), [`data/news.json`](file:///d:/Desktop/Portfolio-website/data/news.json), and [`server.js`](file:///d:/Desktop/Portfolio-website/server.js).
 - **Current State of Website**:
   - **Main Portfolio (`index.html`)**:
     - **Hero Section**: Commanding bold title (`Sandeep Kumar.`), interactive typing terminal box (`• sandeep@ai:~$ [typewriter] ▌`), anchored 3D robot blending seamlessly into the obsidian floor via CSS gradient alpha mask + ground shadow + ambient backlight aura, compact horizontal stats row, and bouncing scroll down indicator.
-    - **Navigation & Controls**: Sticky glassmorphic top navigation with compact rounded-rectangular 'Get in Touch' button in deeper warm orange (`#d4531f`, `border-radius: 7px`) and Sun/Moon theme toggle button; floating 7-dot section navigation on the left edge with hover tooltips (`Home`, `Profile`, `Skills`, `Projects`, `Job Market`, `AI Pulse`, `Contact`); persistent vertical social sidebar on the right edge (auto-collapses on mobile).
-    - **Content Sections**: Profile / About Me, Toolkit / Skills & Tools (4 curated categories), Selected Work / Featured Projects (3 compact project cards with live status badges), Job Market teaser card (`.private-jobs-card`) with smooth passcode modal (PIN: `9999`), AI Pulse real-time 24h AI news feed (Tavily MCP live integration, 5 category filter pills, 30-min cache), and accessible Contact form with copy email action.
+    - **Navigation & Controls**: Sticky glassmorphic top navigation with compact rounded-rectangular 'Let's Talk' button in deeper warm orange (`#d4531f`, `border-radius: 7px`) and Sun/Moon theme toggle button; floating 7-dot section navigation on the left edge with hover tooltips (`Home`, `Profile`, `Skills`, `Projects`, `Job Market`, `AI Pulse`, `Contact`); persistent vertical social sidebar on the right edge (auto-collapses on mobile).
+    - **Content Sections**: Profile / About Me, Toolkit / Skills & Tools (4 curated categories), Selected Work / Featured Projects (6 real AI project cards with live status badges and interactive expanded modal), Job Market teaser card (`.private-jobs-card`) with smooth passcode modal, AI Pulse real-time 24h AI news feed (Tavily live integration with cache fallback, 5 category filter pills, 30-min cache), and accessible Contact form with copy email action.
     - **Global Theme Engine**: Complete Dark (`#0a0a0a`) and Light (`#f8fafc` / `#ffffff`) mode system with persistent `localStorage` support and instant anti-flicker loader.
   - **Job Market Command Center (`/jobs`)**:
-    - Live at `http://localhost:3000/jobs`, protected behind passcode `9999`.
+    - Standalone private dashboard, protected behind passcode gate.
     - **Dual Search Modes**:
       - `Find Jobs`: Pre-loaded mode showcasing all 45 indexed AI roles immediately with match scores and instant sorting.
-      - `Discover More Jobs`: On-demand custom domain search. Zero cards on load. Unconfigured queries display exact reference design: `"Live search isn't configured yet — add APIFY_TOKEN to the server environment."` with orange `RETRY` button.
+      - `Discover More Jobs`: On-demand custom domain search. Unconfigured queries display exact reference design: `"Live search isn't configured yet — add APIFY_TOKEN to the server environment."` with orange `RETRY` button.
     - **Full Light Mode Support**: Left sidebar (`.dashboard-sidebar`, `.nav-btn.active` 'Find Jobs'), all 4 view headers with Sun/Moon theme toggles, search inputs, platform filters, job cards, metrics, and instant anti-flicker `localStorage` sync across pages.
     - Sidebar Navigation: Overview, Find Jobs, Discover More Jobs, Saved Jobs.
     - Real Apify Multi-Platform Integration: 45 verified AI jobs across LinkedIn, Indeed, and Naukri.
     - AI Profile Skill Match Scoring: Strong Match (green), Good Match (orange), Explore (grey).
   - **Dev Server**: Running on port 3000 (`http://localhost:3000/` and `http://localhost:3000/jobs`).
+  - **Deployment Ready**: Zero hardcoded secrets, hardened `.gitignore`, Vercel serverless API routes (`api/news.js`, `api/jobs.js`, `api/status.js`), and static framework preset confirmed.
   - **Linter & Code Health**: 0 VS Code warnings, 0 TypeScript errors, 100% valid JavaScript and CSS.
 

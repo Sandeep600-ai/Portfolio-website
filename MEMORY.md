@@ -489,11 +489,19 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
 - **Context**: The user requested a complete check across all markdown files to ensure no sensitive credentials, private paths, or confidential tokens are present, and asked to update `README.md` with the full, authentic project structure tree while keeping all other website components untouched.
 - **Decision**:
   - Audited all `.md` files (`README.md`, `MEMORY.md`, `PROGRESS.md`, `AGENTS.md`, and `.agents/skills/portfolio-ui-ux-design/SKILL.md`). Verified 0 sensitive secrets, personal local paths, or private tokens exist.
-  - Rewrote `README.md` to showcase the complete production portfolio: 3D Spline robot hero, dual Dark/Light mode engine, 6 real-world AI projects with interactive modal, `/jobs` Job Market Command Center behind PIN `9999`, and AI Pulse live news radar.
+  - Rewrote `README.md` to showcase the complete production portfolio: 3D Spline robot hero, dual Dark/Light mode engine, 6 real-world AI projects with interactive modal, `/jobs` Job Market Command Center with private passcode protection, and AI Pulse live news radar.
   - Added full, accurate project structure tree covering `api/`, `assets/projects/`, `data/`, `jobs/`, `.agents/`, and core configurations.
   - Documented clean Vercel deployment with environment variable setup (`TAVILY_API_KEY`, `APIFY_TOKEN`) and graceful fallback architecture.
   - Strictly preserved all existing website files (`index.html`, `jobs/index.html`, etc.) without alterations.
 - **Outcome**: Professional, clean, and comprehensive public repository documentation with zero sensitive data exposed.
+
+### Decision 37: Vercel Static Deployment Optimization & Public Documentation Passcode Sanitization (2026-11-16)
+- **Context**: The user confirmed deployment to Vercel without Next.js. To prevent framework detection mismatches in Vercel, `package.json` was streamlined to pure static build scripts. Additionally, the user requested removing the private job market passcode from public `README.md` to ensure privacy.
+- **Decision**:
+  - Confirmed Vercel Application Preset: `Other` (static).
+  - Streamlined `package.json` to lightweight static scripts (`build: echo 'Static portfolio ready'`), removing unused Next.js dependencies without affecting any website code or assets.
+  - Sanitized `README.md` to remove all occurrences of the passcode, documenting the Job Market dashboard as an authenticated tool not accessible by the public.
+- **Outcome**: Clean, zero-warning Vercel deployment configuration and secured public documentation.
 
 ---
 
@@ -556,6 +564,7 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
   - **Header CTA Copy Refinement**: Updated desktop and mobile header CTA from 'Get in Touch' to 'Let's Talk' with sleek medium proportion (`0.42rem 0.95rem`, 7px radius, `#d4531f`).
   - **Pre-Deployment Security Audit & Vercel Serverless Architecture**: Verified zero hardcoded credentials, hardened `.gitignore`, created safe `.env.example`, created Vercel Serverless Functions (`api/news.js`, `api/jobs.js`, `api/status.js`), and added `vercel.json` rewrites.
   - **Markdown Security Audit & README.md Overhaul**: Verified zero sensitive tokens in `.md` files; rewrote `README.md` with full project structure tree, local dev guide, and zero-secret Vercel deployment walkthrough.
+  - **Vercel Static Deployment Optimization & Passcode Sanitization**: Streamlined `package.json` to pure static scripts, confirmed Vercel 'Other' preset, and sanitized `README.md` by removing private passcode references.
 - **Upcoming Milestone**:
-  - Website is 100% production-ready, fully hardened for public GitHub push and Vercel hosting, verified HTTP 200 on all endpoints (`http://localhost:3000/` and `http://localhost:3000/jobs`), and awaiting next user directions.
+  - Website is 100% production-ready, fully hardened for public GitHub push and Vercel hosting, verified HTTP 200 on all endpoints (`http://localhost:3000/` and `http://localhost:3000/jobs`), and ready for deployment.
 

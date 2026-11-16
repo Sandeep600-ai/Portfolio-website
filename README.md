@@ -19,7 +19,7 @@ Designed with an obsidian dark aesthetic (`#0a0a0a`), warm orange accents (`#e86
   6. **AI Interview Scheduling Agent**: Real-time voice agent powered by Vapi, OpenAI GPT-4.1, and ElevenLabs (Emma) with bidirectional Google Calendar booking.
 - **Interactive Project Details Modal**: Deep-dive modal presenting verified business problems, solution overviews, 6-stage workflow pipelines, business & industry use cases, key benefits, and implementation contributions.
 - **Ultra-Crisp Visual Assets**: Dedicated 16:9 widescreen high-definition visual assets (`assets/projects/`) optimized for high-DPI, Retina, and 4K displays.
-- **Job Market Command Center (`/jobs`)**: Standalone private AI job search dashboard behind passcode protection (`9999`), featuring 45 verified roles across LinkedIn, Indeed, and Naukri with AI profile match scoring.
+- **Job Market Command Center (`/jobs`)**: Standalone private AI job search dashboard protected behind authentication (private tool for owner; not accessible by the public), featuring 45 verified roles across LinkedIn, Indeed, and Naukri with AI profile match scoring.
 - **AI Pulse Live News Radar**: 24-hour real-time AI news feed with category filter pills, 30-minute caching, and Tavily search integration.
 - **Navigation & Accessibility**: Sticky glassmorphic header with compact **"Let's Talk &rarr;"** CTA, floating 7-dot left section indicator, and persistent vertical social sidebar.
 - **Vercel Serverless Architecture**: Production serverless endpoints (`/api/news.js`, `/api/jobs.js`, `/api/status.js`) reading environment variables (`TAVILY_API_KEY`, `APIFY_TOKEN`) with zero hardcoded credentials and automatic cache fallback.
@@ -95,7 +95,7 @@ node server.js
 ```
 Open your browser and navigate to:
 * **Main Portfolio**: [http://localhost:3000/](http://localhost:3000/)
-* **Job Market Dashboard**: [http://localhost:3000/jobs](http://localhost:3000/jobs) (Passcode: `9999`)
+* **Job Market Dashboard**: [http://localhost:3000/jobs](http://localhost:3000/jobs) (Protected private dashboard — not accessible by the public)
 * **API Endpoints**: `http://localhost:3000/api/news` and `http://localhost:3000/api/jobs`
 
 ---
