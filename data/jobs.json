@@ -1,0 +1,884 @@
+{
+  "lastUpdated": "2026-11-14T10:31:26.674Z",
+  "totalJobs": 45,
+  "platforms": {
+    "linkedin": 15,
+    "indeed": 15,
+    "naukri": 15
+  },
+  "jobs": [
+    {
+      "id": "li-4487884802",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Senior Applied Value Engineer",
+      "company": "Celonis",
+      "location": "Greater Bengaluru Area",
+      "datePosted": "3 days ago",
+      "url": "https://in.linkedin.com/jobs/view/senior-applied-value-engineer-at-celonis-4487884802",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Celonis focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4465113691",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Solution Engineer : Mumbai",
+      "company": "DevRev",
+      "location": "Mumbai Metropolitan Region",
+      "datePosted": "2 weeks ago",
+      "url": "https://in.linkedin.com/jobs/view/solution-engineer-mumbai-at-devrev-4465113691",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at DevRev focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4475216423",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Senior Applied Value Engineer- CPGR/CMT-NAM",
+      "company": "Celonis",
+      "location": "Greater Bengaluru Area",
+      "datePosted": "2 weeks ago",
+      "url": "https://in.linkedin.com/jobs/view/senior-applied-value-engineer-cpgr-cmt-nam-at-celonis-4475216423",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Celonis focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4481476614",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Solutions Engineer",
+      "company": "Ema",
+      "location": "Bengaluru, Karnataka, India",
+      "datePosted": "2 weeks ago",
+      "url": "https://in.linkedin.com/jobs/view/solutions-engineer-at-ema-4481476614",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Ema focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4486638234",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Specialist Solutions Architect - AI/ML",
+      "company": "FDE Times",
+      "location": "Mumbai Metropolitan Region",
+      "datePosted": "1 week ago",
+      "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-fde-times-4486638234",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at FDE Times focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4489084026",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Solutions Engineer / Solutions Architect – Neil AI Co-Worker for AP",
+      "company": "E42.ai",
+      "location": "Pune District, Maharashtra, India",
+      "datePosted": "2 days ago",
+      "url": "https://in.linkedin.com/jobs/view/solutions-engineer-solutions-architect-%E2%80%93-neil-ai-co-worker-for-ap-at-e42-ai-4489084026",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at E42.ai focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4426491213",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Specialist Solutions Architect - AI/ML",
+      "company": "Databricks",
+      "location": "Mumbai Metropolitan Region",
+      "datePosted": "1 week ago",
+      "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-databricks-4426491213",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Databricks focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4488221916",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Senior Solutions Engineer",
+      "company": "Enterprise Bot",
+      "location": "Bengaluru, Karnataka, India",
+      "datePosted": "2 days ago",
+      "url": "https://in.linkedin.com/jobs/view/senior-solutions-engineer-at-enterprise-bot-4488221916",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Enterprise Bot focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4488713934",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Digital Solution Engineering IC4",
+      "company": "Microsoft",
+      "location": "Bengaluru, Karnataka, India",
+      "datePosted": "6 days ago",
+      "url": "https://in.linkedin.com/jobs/view/digital-solution-engineering-ic4-at-microsoft-4488713934",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Microsoft focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4486624840",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Specialist Solutions Architect - AI/ML",
+      "company": "FDE Times",
+      "location": "Greater Bengaluru Area",
+      "datePosted": "1 week ago",
+      "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-fde-times-4486624840",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at FDE Times focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4426486277",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Specialist Solutions Architect - AI/ML",
+      "company": "Databricks",
+      "location": "Bengaluru, Karnataka, India",
+      "datePosted": "1 week ago",
+      "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-databricks-4426486277",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Databricks focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4468612820",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Solution Engineering",
+      "company": "Microsoft",
+      "location": "Gurgaon, Haryana, India",
+      "datePosted": "2 days ago",
+      "url": "https://in.linkedin.com/jobs/view/solution-engineering-at-microsoft-4468612820",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Microsoft focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4490786669",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Advisory AI Foundry Architect",
+      "company": "ServiceNow",
+      "location": "Bengaluru, Karnataka, India",
+      "datePosted": "12 hours ago",
+      "url": "https://in.linkedin.com/jobs/view/advisory-ai-foundry-architect-at-servicenow-4490786669",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at ServiceNow focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4470604383",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Forward Deployed Engineer",
+      "company": "NTT DATA North America",
+      "location": "Bangalore Urban, Karnataka, India",
+      "datePosted": "1 week ago",
+      "url": "https://in.linkedin.com/jobs/view/forward-deployed-engineer-at-ntt-data-north-america-4470604383",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at NTT DATA North America focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "li-4486351197",
+      "platform": "linkedin",
+      "platformLabel": "LinkedIn Jobs",
+      "platformColor": "#0a66c2",
+      "title": "Senior Presales Engineer",
+      "company": "Confidential",
+      "location": "Bengaluru, Karnataka, India",
+      "datePosted": "1 week ago",
+      "url": "https://www.linkedin.com/jobs/view/4486351197",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Leading AI role at Confidential focusing on AI Solutions, Workflow Automation."
+    },
+    {
+      "id": "ind-1",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "Electronics / Electrical – AI Trainer",
+      "company": "Chiron Data Labs",
+      "location": "Remote",
+      "datePosted": "Today",
+      "url": "https://in.indeed.com/viewjob?jk=75b9c370f76d30c4",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "*Electronics / Electrical Engineer – AI Training Projects (Remote)* *Company:* Chiron Data Labs *Job Type:* Freelance *Work Mode:* Remote *Compensation:* $30–$80 per accepted task ..."
+    },
+    {
+      "id": "ind-2",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "Ai Teacher",
+      "company": "The Edge",
+      "location": "Remote",
+      "datePosted": "2d ago",
+      "url": "https://in.indeed.com/viewjob?jk=2caec320ae04ed8b",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Python",
+        "RAG",
+        "Data Science",
+        "Machine Learning"
+      ],
+      "description": "Job Description – AI Teacher (Artificial Intelligence Teacher) *Position:* AI Teacher *Department:* Academics / Computer Science *Job Location:* As per school requirement *Salary:*..."
+    },
+    {
+      "id": "ind-3",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Transformation Manager",
+      "company": "Chiron Data Labs",
+      "location": "Remote",
+      "datePosted": "2d ago",
+      "url": "https://in.indeed.com/viewjob?jk=2e6efd52c337d48b",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Generative AI",
+        "n8n",
+        "Prompt Engineering",
+        "Workflow Automation",
+        "Webhooks"
+      ],
+      "description": "*About Talent Pravah* Talent Pravah is a recruitment and talent solutions firm helping organisations build strong teams through strategic hiring, niche talent acquisition, and camp..."
+    },
+    {
+      "id": "ind-4",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Executive",
+      "company": "As You Wish",
+      "location": "Remote",
+      "datePosted": "10d ago",
+      "url": "https://in.indeed.com/viewjob?jk=da303b4f7a6d75f8",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "n8n",
+        "Prompt Engineering",
+        "Workflow Automation"
+      ],
+      "description": "Hiring: AI Executive / AI Automation Specialist *Company:* Saru Silver Alloy Pvt. Ltd. *Location:* Remote / Work from Home *Office Visit:* Once a week at Meerut *Joining:* Immediat..."
+    },
+    {
+      "id": "ind-5",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI/ML Intern",
+      "company": "nature craft organica",
+      "location": "Remote",
+      "datePosted": "5d ago",
+      "url": "https://in.indeed.com/viewjob?jk=a1bd09042bb12635",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Generative AI",
+        "OpenAI",
+        "LLM",
+        "RAG",
+        "LangChain"
+      ],
+      "description": "*Company:* BEXO.AI *Location:* Mohali, Punjab (On-site) *Job Type:* Full-time Internship (Paid) *Duration:* 2 Months About BEXO.AI BEXO.AI is an AI-driven technology company specia..."
+    },
+    {
+      "id": "ind-6",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "Backend Developer (AI Focus)",
+      "company": "Helios Tech Labs",
+      "location": "Remote",
+      "datePosted": "1d ago",
+      "url": "https://in.indeed.com/viewjob?jk=4de48192ec8afde0",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Python",
+        "OpenAI",
+        "REST APIs",
+        "Chatbot"
+      ],
+      "description": "*Job Title:* Backend Developer (AI Focus) *Salary:* Rs 15,000 - 20,000 per month *Job Location*: Mohali (In office) *About the Role: * We are looking for a passionate and driven *B..."
+    },
+    {
+      "id": "ind-7",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "Software Engineer (AI Focused)",
+      "company": "Helios Tech Labs",
+      "location": "Remote",
+      "datePosted": "1d ago",
+      "url": "https://in.indeed.com/viewjob?jk=5a93f54c17d58cae",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Python",
+        "OpenAI",
+        "REST APIs",
+        "Chatbot"
+      ],
+      "description": "*Job Title:* Software Engineer (AI Focused) *Job Description: * We are looking for a passionate and driven *Software Engineer (AI Focused)* who has a strong interest in AI tools an..."
+    },
+    {
+      "id": "ind-8",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Generalist",
+      "company": "Think Surf Media",
+      "location": "Remote",
+      "datePosted": "1d ago",
+      "url": "https://in.indeed.com/viewjob?jk=7d7fc8a1bf870584",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "n8n",
+        "Python"
+      ],
+      "description": "ThinkSurf Media is hiring a fresher AI Generalist who will help every department work faster by using AI and automation. About the role ThinkSurf Media is a digital and performance..."
+    },
+    {
+      "id": "ind-9",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Tech Lead",
+      "company": "Induansh Private Limited",
+      "location": "Remote",
+      "datePosted": "10d ago",
+      "url": "https://in.indeed.com/viewjob?jk=c1a3f85ba2c199f7",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Python",
+        "LLM",
+        "Agentic AI",
+        "Workflow Automation"
+      ],
+      "description": "*AI Tech Lead – Agentic AI* *Experience:* 10+ Years *Contract Duration:* 6 Months (Extendable) *Working Hours:* 2:00 PM – 10:30 PM IST *Role Type:* Individual Contributor (IC) *Job..."
+    },
+    {
+      "id": "ind-10",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Operations & Automation Manager",
+      "company": "Allo Innoware",
+      "location": "Remote",
+      "datePosted": "1d ago",
+      "url": "https://in.indeed.com/viewjob?jk=929a64cb9595e77b",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "n8n"
+      ],
+      "description": "*Company:* Allo Innoware *Location:* Mumbai / Remote *Job Type:* Full-time *Reports To:* Founder *Why We Are Hiring* Allo Innoware is scaling its ecommerce operations across market..."
+    },
+    {
+      "id": "ind-11",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "MIS & IT Automation Specialist",
+      "company": "Hotel Paradise",
+      "location": "Remote",
+      "datePosted": "2d ago",
+      "url": "https://in.indeed.com/viewjob?jk=1dc443aa25b9ee25",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Workflow Automation"
+      ],
+      "description": "*Company:* Premjees *Location:* Solan, Himachal Pradesh *Job Type:* Full-time, On-site *Salary:* ₹25,000–₹40,000 per month (Negotiable based on expertise) About the Role Premjees i..."
+    },
+    {
+      "id": "ind-12",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Automation Trainer – Generative AI & Workflow Automation",
+      "company": "Secure Techies, LLC.",
+      "location": "Remote",
+      "datePosted": "13d ago",
+      "url": "https://in.indeed.com/viewjob?jk=8bb905cdce280a80",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Generative AI",
+        "n8n",
+        "Python",
+        "OpenAI",
+        "LLM"
+      ],
+      "description": "Job Title: AI Automation Trainer – Generative AI & Workflow AutomationJob Description We are looking for an experienced and passionate AI Automation Trainer to deliver practical, i..."
+    },
+    {
+      "id": "ind-13",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "Tax Manager - India & International Team",
+      "company": "Prosperl CPA",
+      "location": "Remote",
+      "datePosted": "1d ago",
+      "url": "https://in.indeed.com/viewjob?jk=07291ab42b6524c4",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "AI Solutions",
+        "Workflow Automation"
+      ],
+      "description": "Tax & Accounting Manager Seeking highly competent EA or CPA with at least 3 years of Tax Manager Experience to become part of our elite organization as part of our international te..."
+    },
+    {
+      "id": "ind-14",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "AI Developer I",
+      "company": "HCLTech",
+      "location": "Remote",
+      "datePosted": "12d ago",
+      "url": "https://in.indeed.com/viewjob?jk=2358316f9aa4775b",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Python",
+        "OpenAI",
+        "Prompt Engineering",
+        "LLM",
+        "Agentic AI"
+      ],
+      "description": "Job Summary This role is responsible for implementing advanced solutions in standard cell characterization, ensuring product and sustenance delivery meets defined technology standa..."
+    },
+    {
+      "id": "ind-15",
+      "platform": "indeed",
+      "platformLabel": "Indeed Jobs",
+      "platformColor": "#2164f3",
+      "title": "Talent Mapping & AI Automation Specialist",
+      "company": "Qrata",
+      "location": "Remote",
+      "datePosted": "4d ago",
+      "url": "https://in.indeed.com/viewjob?jk=09da481219ba74fc",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Python",
+        "Workflow Automation",
+        "Webhooks"
+      ],
+      "description": "*Job Title: Talent Mapping & AI Automation Specialist* *Role Overview* We are looking for a Talent Mapping & AI Automation Specialist to build and operate AI agents that identify t..."
+    },
+    {
+      "id": "nk-1",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Workflow Automation & Agentic AI Consultant",
+      "company": "Protiviti India",
+      "location": "Remote",
+      "datePosted": "12 Days Ago",
+      "url": "https://www.naukri.com/job-listings-workflow-automation-agentic-ai-consultant-protiviti-india-bengaluru-7-to-10-years-261026007088",
+      "type": "Remote",
+      "salary": null,
+      "skills": [
+        "Consulting",
+        "Workflow",
+        "Digital",
+        "n8n",
+        "Agentic AI"
+      ],
+      "description": "Preferred candidate profile . Minimum 7+ years of experience in Business Analysis,Process Automation,Intelligent Automation,or Technology Consulting Experience delivering automatio..."
+    },
+    {
+      "id": "nk-2",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Senior AI Architect - Generative AI",
+      "company": "GE VERNOVA",
+      "location": "Bengaluru",
+      "datePosted": "2 Days Ago",
+      "url": "https://www.naukri.com/job-listings-senior-ai-architect-generative-ai-ge-renewable-energy-technologies-private-limited-bengaluru-4-to-8-years-111126932272",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Automation",
+        "Science",
+        "Artificial Intelligence",
+        "Generative AI",
+        "OpenAI"
+      ],
+      "description": "Required Qualifications . Bachelors degree in Computer Science,Engineering,Applied Mathematics,Data Science,or a related technical field Experience with Azure OpenAI,Amazon Bedrock..."
+    },
+    {
+      "id": "nk-3",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Agentic AI Builder expert",
+      "company": "Sia Partners",
+      "location": "Mumbai",
+      "datePosted": "1 Day Ago",
+      "url": "https://www.naukri.com/job-listings-agentic-ai-builder-expert-sia-partners-mumbai-2-to-6-years-131126501191",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Operations",
+        "Packaging",
+        "Automation",
+        "LLM",
+        "Agentic AI"
+      ],
+      "description": "Bachelors or Masters degree in Computer Science,Engineering or a related field,or equivalent practical experience. . 2 to 6 years of software or AI engineering experience. . At lea..."
+    },
+    {
+      "id": "nk-4",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Sr Software Architect - AI/ML",
+      "company": "GE VERNOVA",
+      "location": "Hyderabad, Bengaluru",
+      "datePosted": "2 Days Ago",
+      "url": "https://www.naukri.com/job-listings-sr-software-architect-ai-ml-ge-renewable-energy-technologies-private-limited-hyderabad-bengaluru-15-to-20-years-131026940478",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "ai",
+        "applied mathematics",
+        "ai frameworks",
+        "Data Science"
+      ],
+      "description": "Bachelor-s degree in services,Computer Science,Applied Mathematics,Data Science,or a related technical field You will be required to provide hands on guidance and accelerate the AI..."
+    },
+    {
+      "id": "nk-5",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Senior Manager - Generative AI",
+      "company": "EY",
+      "location": "Bengaluru",
+      "datePosted": "2 Days Ago",
+      "url": "https://www.naukri.com/job-listings-senior-manager-generative-ai-ernst-young-llp-bengaluru-11-to-14-years-141026933364",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Ai",
+        "Automation",
+        "Azure",
+        "Generative AI",
+        "Python"
+      ],
+      "description": "deployment experience in Azure is preferred. Minimum of 6 years of experience working with NLG,LLM,and deep learning techniques,including neural network approaches. Minimum of 6-9 ..."
+    },
+    {
+      "id": "nk-6",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Process Automation Developer - AI & n8n (m/f/d)",
+      "company": "Flixbus",
+      "location": "Gurugram",
+      "datePosted": "1 Day Ago",
+      "url": "https://www.naukri.com/job-listings-process-automation-developer-ai-n8n-m-f-d-flix-gurugram-5-to-10-years-131126501941",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Processing",
+        "Process automation",
+        "SQL",
+        "n8n",
+        "Data Science"
+      ],
+      "description": "cloud deployment (AWS / Azure),containerization,or CI / CD experience is a bonus. Engineering / CS degree with certifications in Data Science,AI,or RPA (e.g UiPath Developer Certif..."
+    },
+    {
+      "id": "nk-7",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Process Automation Developer - AI & n8n (m/f/d)",
+      "company": "Flixbus",
+      "location": "Bengaluru",
+      "datePosted": "1 Day Ago",
+      "url": "https://www.naukri.com/job-listings-process-automation-developer-ai-n8n-m-f-d-flix-bengaluru-5-to-10-years-121126504366",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "SQL",
+        "F#",
+        "Processing",
+        "n8n",
+        "Data Science"
+      ],
+      "description": "cloud deployment (AWS / Azure),containerization,or CI / CD experience is a bonus. Engineering / CS degree with certifications in Data Science,AI,or RPA (e.g UiPath Developer Certif..."
+    },
+    {
+      "id": "nk-8",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Generative AI Developer / Engineer/Analyst",
+      "company": "SS&C Technologies",
+      "location": "Hubballi, Mangaluru, Mysuru, Bengaluru, Belagavi",
+      "datePosted": "1 Day Ago",
+      "url": "https://www.naukri.com/job-listings-generative-ai-developer-engineer-analyst-ss-c-technologies-hubballi-mangaluru-mysuru-bengaluru-belagavi-2-to-3-years-121126501978",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Architecture",
+        "Classification",
+        "Application",
+        "Generative AI",
+        "Python"
+      ],
+      "description": "SS&C is a leading provider of mission-critical, AI-powered technology and services empowering financial services and healthcare organizations to work smarter, faster, and securely...."
+    },
+    {
+      "id": "nk-9",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Applied AI and Automation engineer",
+      "company": "Shivam Proteco",
+      "location": "Dadra & Nagar Haveli",
+      "datePosted": "3 Days Ago",
+      "url": "https://www.naukri.com/job-listings-applied-ai-and-automation-engineer-shivam-proteco-dadra-nagar-haveli-2-to-4-years-300926020351",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Data Security",
+        "Workflow",
+        "OCR",
+        "Generative AI",
+        "n8n"
+      ],
+      "description": "Experience with document AI,RAG,Power Automate,n8n or FastAPI is an advantage,not a requirement DESIRABLE SKILL . Hands-on Python,API integration and SQL skills. . * Experience bui..."
+    },
+    {
+      "id": "nk-10",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "AI Agent Engineer",
+      "company": "Benzara Ecommerce",
+      "location": "Noida(Sector 132)",
+      "datePosted": "5 Days Ago",
+      "url": "https://www.naukri.com/job-listings-ai-agent-engineer-benzara-ecommerce-noida-1-to-3-years-140926004996",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Automation",
+        "Artificial Intelligence",
+        "Languages",
+        "Python",
+        "OpenAI"
+      ],
+      "description": "Experience with LLM APIs (OpenAI,Anthropic Claude,or similar) Key Skills Required Hands-on experience with agentic AI frameworks LangChain,LangGraph,CrewAI,AutoGen,or the OpenAI / ..."
+    },
+    {
+      "id": "nk-11",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Artificial Intelligence Expert",
+      "company": "Digiperform",
+      "location": "New Delhi",
+      "datePosted": "1 Day Ago",
+      "url": "https://www.naukri.com/job-listings-artificial-intelligence-expert-digiperform-new-delhi-2-to-5-years-131126012746",
+      "type": "Full-time",
+      "salary": "6-9 Lacs PA",
+      "skills": [
+        "Coding",
+        "SEO",
+        "Intelligence",
+        "n8n",
+        "Botpress"
+      ],
+      "description": "• Train on ChatGPT, Gemini & Claude • Teach SEO, GEO, Google & Meta Ads • AI Agents (n8n, Make, Botpress) • WordPress & YouTube • AI image/video tools (Firefly, Kling, Runway)..."
+    },
+    {
+      "id": "nk-12",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Agentic AI Builder Professional",
+      "company": "Sia Partners",
+      "location": "Mumbai",
+      "datePosted": "2 Days Ago",
+      "url": "https://www.naukri.com/job-listings-agentic-ai-builder-professional-sia-partners-mumbai-2-to-6-years-111126501496",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Computer",
+        "Automation",
+        "Consulting",
+        "LLM",
+        "Agentic AI"
+      ],
+      "description": "Bachelors or Masters degree in Computer Science,Engineering or a related field,or equivalent practical experience. . 2 to 6 years of software or AI engineering experience. . At lea..."
+    },
+    {
+      "id": "nk-13",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Senior Manager AI/ML Engineering - AI/ML/Generative AI",
+      "company": "Optum",
+      "location": "Bengaluru, Bengaluru",
+      "datePosted": "2 Days Ago",
+      "url": "https://www.naukri.com/job-listings-senior-manager-ai-ml-engineering-ai-ml-generative-ai-optum-global-solutions-india-private-limited-bengaluru-bengaluru-14-to-19-years-191026910918",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Algorithms",
+        "Intelligence",
+        "Computer vision",
+        "Generative AI"
+      ],
+      "description": "Required Qualifications: . Masters degree in Computer Science,Engineering,Mathematics,Statistics,or a related discipline Demonstrated experience leading and managing AI / ML teams ..."
+    },
+    {
+      "id": "nk-14",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "AI / Generative AI Engineer - Dot Net / Java (Agentic AI & Azure AI)",
+      "company": "XTGlobal",
+      "location": "Hyderabad",
+      "datePosted": "2 Days Ago",
+      "url": "https://www.naukri.com/job-listings-ai-generative-ai-engineer-dot-net-java-agentic-ai-azure-ai-xenosoft-technologies-india-pvt-ltd-hyderabad-9-to-14-years-111126504877",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Enterprise applications",
+        "Processing",
+        ".Net",
+        "Generative AI",
+        "LLM"
+      ],
+      "description": ". Work Timings: . Australia Shift : 7 AM \\- 4 PM IST The ideal candidate should have experience building AI\\-powered applications using LLMs,Retrieval\\-Augmented Generation (RAG),A..."
+    },
+    {
+      "id": "nk-15",
+      "platform": "naukri",
+      "platformLabel": "Naukri.com",
+      "platformColor": "#0077c5",
+      "title": "Site Reliability Engineer",
+      "company": "Infosys",
+      "location": "Bengaluru",
+      "datePosted": "1 Day Ago",
+      "url": "https://www.naukri.com/job-listings-site-reliability-engineer-infosys-bengaluru-3-to-5-years-280926920621",
+      "type": "Full-time",
+      "salary": null,
+      "skills": [
+        "Ai",
+        "Aws Bedrock",
+        "Golang",
+        "Generative AI",
+        "Python"
+      ],
+      "description": "Bachelor of Engineering. Service Line . Quality Experience in one or more high level programming languages like Python or Ruby or GoLang and familiar with Object Oriented Programmi..."
+    }
+  ]
+}

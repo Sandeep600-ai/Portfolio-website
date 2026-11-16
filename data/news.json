@@ -1,0 +1,376 @@
+{
+  "lastUpdated": "2026-11-14T11:43:23.297Z",
+  "categories": {
+    "all": [
+      {
+        "id": "article-all-0",
+        "title": "FAA investigating whether new AI technology contributed to nationwide ground stop",
+        "source": "Click2Houston",
+        "published": "13 hours ago",
+        "summary": "New Texas bill could make it legal with a permit Local News FAA investigating whether new AI technology contributed to nationwide ground stop Brittany Taylor, Senior Digital Content Producer Updated: November 13, 2026...",
+        "url": "https://www.click2houston.com/news/local/2026/11/13/faa-investigating-whether-new-ai-technology-contributed-to-nationwide-ground-stop",
+        "category": "all"
+      },
+      {
+        "id": "article-all-1",
+        "title": "FAA launched new AI ‘SMART’ tool to all air route traffic control centers just days before nationwide ground stop",
+        "source": "New York Post",
+        "published": "13 hours ago",
+        "summary": "A new AI-supported air traffic system was rolled out to all of FAA’s control centers three days before an extremely rare ground stop halted planes across the US Friday, according to the agency. The new technology — kn...",
+        "url": "https://nypost.com/2026/11/13/us-news/faa-launched-new-ai-smart-tool-to-all-air-route-traffic-control-centers-just-days-before-nationwide-ground-stop",
+        "category": "all"
+      },
+      {
+        "id": "article-all-2",
+        "title": "FAA expanded AI air traffic tool to all centers days before nationwide ground stop",
+        "source": "Washington Times",
+        "published": "14 hours ago",
+        "summary": "Daniel Castro, President of the Information Technology and Innovation Foundation, and J. Branch, Director of Federal AI Governance and Technology Policy at Public Citizen, join Billy Hallowell on &quot;The Dialogue.",
+        "url": "https://www.washingtontimes.com/news/2026/nov/13/faa-expanded-ai-air-traffic-tool-centers-days-nationwide-ground-stop",
+        "category": "all"
+      },
+      {
+        "id": "article-all-3",
+        "title": "Did New AI Software Just Crash the FAA's Network?",
+        "source": "IVN News",
+        "published": "12 hours ago",
+        "summary": "Three days earlier, on November 10, the FAA announced it had expanded its AI-powered SMART tool to all 22 air route traffic control centers, completing a rollout that had begun as a limited pilot in the Washington, D....",
+        "url": "https://ivn.us/did-new-ai-software-just-crash-the-faas-network",
+        "category": "all"
+      },
+      {
+        "id": "article-all-4",
+        "title": "DHS chief sees no link between Microsoft outage and FAA ground stop, doesn't rule out AI – GeekWire",
+        "source": "GeekWire",
+        "published": "13 hours ago",
+        "summary": "The FAA said Tuesday it was expanding its AI system, known as SMART, to the airspace managed by all 22 of its en route air traffic control centers. Transportation Secretary Sean Duffy said Friday’s communications prob...",
+        "url": "https://www.geekwire.com/2026/dhs-chief-sees-no-microsoft-link-to-faa-ground-stop-says-possible-ai-role-being-investigated",
+        "category": "all"
+      },
+      {
+        "id": "article-all-5",
+        "title": "FAA grounds all U.S. flights days after expanding its AI air traffic system",
+        "source": "Scientific American",
+        "published": "13 hours ago",
+        "summary": "Scientific American SubscribeSign In Read the November Issue: Social Media Addiction November 13, 2026 2min read Google Logo Add Us On GoogleAdd SciAm U. grounds flights days after Trump administration expands new AI ...",
+        "url": "https://www.scientificamerican.com/article/faa-grounds-all-u-s-flights-days-after-expanding-its-ai-air-traffic-system",
+        "category": "all"
+      },
+      {
+        "id": "article-all-6",
+        "title": "Bitcoin and AI are fighting a $350 million battle over a dam in Paraguay",
+        "source": "CoinDesk",
+        "published": "12 hours ago",
+        "summary": "Contracts that sell power to a 4% slice of the world’s bitcoin mining at $44 a megawatt-hour expire on Dec. Paraguay’s state utility calls the date final, and it has just signed a 15-year deal to power a Founders Fund...",
+        "url": "https://www.coindesk.com/tech/2026/11/13/bitcoin-miners-pay-paraguay-usd350-million-a-year-but-ai-is-pushing-them-out",
+        "category": "all"
+      },
+      {
+        "id": "article-all-7",
+        "title": "Flights halted at airports across US due to air traffic control communications problems, FAA says - Federal News Network",
+        "source": "Federal News Network",
+        "published": "14 hours ago",
+        "summary": "This 2018 photo provided by the Menlo Fire UAS shows a DJI drone with a thermal-imaging camera designed by FLIR Systems in Menlo Park, Calif. Law enforcement officers used heat-seeking drones like this to search for v...",
+        "url": "https://federalnewsnetwork.com/technology-main/2026/11/flights-are-halted-at-airports-across-the-united-states-due-to-unspecified-extraordinary-circumstances-faa-says",
+        "category": "all"
+      }
+    ],
+    "ai-tools": [
+      {
+        "id": "article-ai-tools-0",
+        "title": "ElevenLabs' new app combines meeting note-taking and dictation for teams",
+        "source": "TechCrunch",
+        "published": "21 hours ago",
+        "summary": "In the last week, the company also launched its v3 series of Scribe speech-to-text models with live transcription capabilities and the ability for companies to fine-tune models using their own data, a tool to pick the...",
+        "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-1",
+        "title": "ABB Robotics launches physical AI solution for fashion logistics",
+        "source": "Roboticsandautomationnews",
+        "published": "9 hours ago",
+        "summary": "The addition of AI Robot Trainer introduces vision-based physical AI capabilities that reduce engineering and commissioning effort by up to 75 percent, providing pre-trained, fashion-specific AI vision models, applica...",
+        "url": "https://roboticsandautomationnews.com/2026/11/14/abb-robotics-brings-industrial-grade-physical-ai-to-fashion-logistics/107087",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-2",
+        "title": "AI Applied: Successful Use-Cases in APEC's Traditional Industries",
+        "source": "Asiapacific",
+        "published": "18 hours ago",
+        "summary": "Phoenix Wings applies deep-learning perception, vision-language models for scene understanding, and a large-language-model-based flight assistant in low-altitude drone logistics. SmartMore develops IndustryGPT and ind...",
+        "url": "https://www.asiapacific.ca/publication/ai-applied-successful-use-cases-apecs-traditional-industries",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-3",
+        "title": "Block's Square Expands Agentic Platform With Squaremates & New AI Tools — TradingView News",
+        "source": "Tradingview",
+        "published": "18 hours ago",
+        "summary": "Square also introduced an improved Model Context Protocol (“MCP”) and a new Command-Line Interface (“CLI”). These tools allow sellers and developers to connect third-party AI assistants to Square accounts, automate wo...",
+        "url": "https://www.tradingview.com/news/zacks:8489883a6094b:0-block-s-square-expands-agentic-platform-with-squaremates-new-ai-tools",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-4",
+        "title": "NVIDIA, AMD and Intel Join Forces for SGLang",
+        "source": "Igorslab",
+        "published": "7 hours ago",
+        "summary": "large language models and multimodal AI systems to run as efficiently as possible on different hardware platforms. The announcement was made during the first SGLang Summit in San Francisco.",
+        "url": "https://www.igorslab.de/en/nvidia-amd-intel-establish-sglang-consortium-open-ai-inference",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-5",
+        "title": "OpenAI Launches AI Security Tools to Find and Fix Software Vulnerabilities",
+        "source": "Securityboulevard",
+        "published": "20 hours ago",
+        "summary": "OpenAI has unveiled two cybersecurity products that use AI agents to detect software vulnerabilities and prepare fixes.",
+        "url": "https://securityboulevard.com/2026/11/openai-launches-ai-security-tools-to-find-and-fix-software-vulnerabilities",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-6",
+        "title": "The Next Evolution of the Agentic SOC: Protecting Enterprise AI - Palo Alto Networks Blog",
+        "source": "Paloaltonetworks",
+        "published": "22 hours ago",
+        "summary": "AI is transforming the enterprise endpoint, introducing agents, models, and tools that execute commands, access sensitive data, and act with real user privileges. These capabilities create new attack paths as adversar...",
+        "url": "https://www.paloaltonetworks.com/blog/security-operations/protecting-enterprise-ai-with-cortex-xsiam",
+        "category": "ai-tools"
+      },
+      {
+        "id": "article-ai-tools-borrowed",
+        "title": "Flights halted at airports across US due to air traffic control communications problems, FAA says - Federal News Network",
+        "source": "Federal News Network",
+        "published": "14 hours ago",
+        "summary": "This 2018 photo provided by the Menlo Fire UAS shows a DJI drone with a thermal-imaging camera designed by FLIR Systems in Menlo Park, Calif. Law enforcement officers used heat-seeking drones like this to search for v...",
+        "url": "https://federalnewsnetwork.com/technology-main/2026/11/flights-are-halted-at-airports-across-the-united-states-due-to-unspecified-extraordinary-circumstances-faa-says",
+        "category": "ai-tools"
+      }
+    ],
+    "automation": [
+      {
+        "id": "article-automation-0",
+        "title": "AI Services Lower the Cost of Managed IT, and Opsio Says This is Only the Start",
+        "source": "Business Insider",
+        "published": "19 hours ago",
+        "summary": "Today’s savings come mostly from analytical automation. The next step is performance-based automation.",
+        "url": "https://markets.businessinsider.com/news/stocks/ai-services-lower-the-cost-of-managed-it-and-opsio-says-this-is-only-the-start-1036762292",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-1",
+        "title": "Basis Expands AI to Advance Advertising Intelligence and Automation - MarTech Cube",
+        "source": "Martechcube",
+        "published": "21 hours ago",
+        "summary": "By connecting intelligence directly to action, Compass enables advertisers to make more informed decisions, automate time-consuming processes and maintain greater visibility and control over how campaigns are planned and activated.",
+        "url": "https://www.martechcube.com/basis-expands-ai-to-advance-advertising-intelligence-and-automation",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-2",
+        "title": "Driverless tractors and AI help WA blueberry farmer's expansion plans - ABC News",
+        "source": "Abc",
+        "published": "13 hours ago",
+        "summary": "Blueberries are a popular fruit across Australia and Asia. (ABC Mid West & Wheatbelt: Chris Lewis) In short: WA's largest blueberry grower is investing in AI, automation and machine harvesting as it expands production.",
+        "url": "https://www.abc.net.au/news/2026-11-14/blueberry-grower-looks-to-ai-and-automation-worker-shortages/107373922",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-3",
+        "title": "Insilico Medicine Showcases Generative AI Drug Discovery Across Major",
+        "source": "Bioengineer",
+        "published": "10 hours ago",
+        "summary": "Biotechnology firm Insilico Medicine announced that its executive leadership will participate in high-profile international investor and technology gatherings in London and Dubai to present recent advancements in arti...",
+        "url": "https://bioengineer.org/insilico-medicine-showcases-generative-ai-drug-discovery-across-major-global-conferences",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-4",
+        "title": "Weekly Rundown: Ohio State Wexner, Microsoft ink tech deal; OpenEvidence launches free Access Intelligence tools",
+        "source": "Fiercehealthcare",
+        "published": "23 hours ago",
+        "summary": "Revenue management company R1 expanded Thursday its revenue operating system Phare OS with six connected AI solutions to bring agentic automation across pre- and post-bill healthcare operations Four of the tools are n...",
+        "url": "https://www.fiercehealthcare.com/health-tech/weekly-rundown-openevidence-launches-free-access-intelligence-tools-clinicians-r1",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-5",
+        "title": "FBI flash alert says Artex tool automating cyberattacks at ‘machine speed’",
+        "source": "Therecord",
+        "published": "15 hours ago",
+        "summary": "The penetration testing platform can translate high-level tactical goals described in words into actionable machine commands executed by AI agents, requiring minimal human interaction beyond the initial objectives. Ar...",
+        "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-6",
+        "title": "Fact Check Team: Is AI replacing American workers and how hard is it to find a new job?",
+        "source": "Katu",
+        "published": "17 hours ago",
+        "summary": "A recent report from The New York Times examines how companies are restructuring their operations around artificial intelligence as they invest more heavily in the technology. While there is no definitive count of how...",
+        "url": "https://katu.com/news/nation-world/fact-check-team-is-ai-replacing-american-workers-and-how-hard-is-it-to-find-a-new-job-operations-artificial-intelligence",
+        "category": "automation"
+      },
+      {
+        "id": "article-automation-7",
+        "title": "AMC's AI Theater Programming: Can Automation Boost EBITDA?",
+        "source": "Finance",
+        "published": "22 hours ago",
+        "summary": "AMC Entertainment Holdings, Inc. AMC is exploring artificial intelligence (AI) to improve theater programming efficiency and unlock additional earnings potential.",
+        "url": "https://finance.yahoo.com/technology/ai/articles/amcs-ai-theater-programming-automation-144000207.html",
+        "category": "automation"
+      }
+    ],
+    "llms": [
+      {
+        "id": "article-llms-0",
+        "title": "4 small but powerful local LLMs worth trying out on your computer this weekend",
+        "source": "Makeuseof",
+        "published": "16 hours ago",
+        "summary": "5-9B by DeepReinforce is an LLM purpose-built for agentic coding. 5-9B as its base model and improves on the already popular Ornith-1.",
+        "url": "https://www.makeuseof.com/small-but-powerful-local-llms-worth-trying-out-on-your-computer-this-weekend",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-1",
+        "title": "The Mathematics of AI Safety",
+        "source": "News",
+        "published": "16 hours ago",
+        "summary": "A headshot of Santosh Vempala Santosh Vempala As artificial intelligence (AI) becomes part of everyday life, ensuring it provides ethical, reliable information is paramount. New research from Georgia Tech, in partners...",
+        "url": "https://news.research.gatech.edu/2026/11/13/mathematics-ai-safety",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-2",
+        "title": "Stanford Research Open-Sources Memorilla, a Latent Memory Module for Frozen LLMs - MarkTechPost",
+        "source": "Marktechpost",
+        "published": "1 hour ago",
+        "summary": "Stanford researchers have released Memorilla, an open-source memory system for LLMs. The Memorilla memory system reads a whole document collection and hands a frozen LLM just 16 memory tokens.",
+        "url": "https://www.marktechpost.com/2026/11/14/stanford-memorilla-memory-system-16-memory-tokens",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-3",
+        "title": "Meatbags suck at spotting lying LLMs, so let AI narc on itself",
+        "source": "Theregister",
+        "published": "15 hours ago",
+        "summary": "READ MORE Another Linux kernel developer steps back from some duties due to overload Alibaba's Qwen3. 8 re-educated with a more Western worldview Google promises its new smart specs won't give creeps their ideal view ...",
+        "url": "https://www.theregister.com/offbeat/2026/11/13/meatbags-suck-at-spotting-lying-llms-so-let-ai-narc-on-itself/5309876",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-4",
+        "title": "AI models can answer differently when told they are being watched",
+        "source": "Techxplore",
+        "published": "20 hours ago",
+        "summary": "Ray, Srivastava and their colleagues performed a series of tests with LLMs. The specific AI models they examined were DeepSeek R1 Distill Llama 70B and DeepSeek R1 0528; Llama 3.",
+        "url": "https://techxplore.com/news/2026-11-ai-differently-told.html",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-5",
+        "title": "AMD Leverages AI + HRX Loom In Experiment For Quickly Porting 50 LLMs To Client GPUs - Phoronix",
+        "source": "Phoronix",
+        "published": "21 hours ago",
+        "summary": "AMD engineers Jeremy Fowers and Ben Vanik led an experiment to bring 50 popular Hugging Face models across 18 architectures over to AMD client GPUs in just three to four days. This experiment was done to show the pote...",
+        "url": "https://www.phoronix.com/news/AMD-HRX-Loom-Experiment",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-6",
+        "title": "The great Generative AI unraveling - by Gary Marcus",
+        "source": "Garymarcus",
+        "published": "18 hours ago",
+        "summary": "Training is ridiculously expensive and getting more expensive. 5 model family alone reportedly cost $10 billion to develop.",
+        "url": "https://garymarcus.substack.com/p/the-great-generative-ai-unraveling",
+        "category": "llms"
+      },
+      {
+        "id": "article-llms-7",
+        "title": "AI Writing: The Human Advantage and Earned Media — LBB",
+        "source": "Lbbonline",
+        "published": "21 hours ago",
+        "summary": "Human-written pages outperformed AI-written pages in an analysis of approximately 900,000 answers from popular AI search engines, according to 2026 Brandi research. The human-written content featured “original researc...",
+        "url": "https://lbbonline.com/news/ai-writing-and-the-human-advantage-for-earned-media",
+        "category": "llms"
+      }
+    ],
+    "business-tech": [
+      {
+        "id": "article-business-tech-0",
+        "title": "From AI Adoption to Business Value: Oracle’s Mark Hura on Enterprise Transformation",
+        "source": "Cloudwars",
+        "published": "22 hours ago",
+        "summary": "Customers Demand Real AI Outcomes: At Oracle AI World, Hura identified three major priorities shaping enterprise technology decisions: accelerating AI adoption, strengthening security, and eliminating decades of accum...",
+        "url": "https://cloudwars.com/ai/from-ai-adoption-to-business-value-oracles-mark-hura-on-enterprise-transformation-cloud-wars-live",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-1",
+        "title": "Insight Launches Agent Store to Accelerate Enterprise AI Adoption",
+        "source": "Hpcwire",
+        "published": "13 hours ago",
+        "summary": "13, 2026 — Insight Enterprises has announced the global launch of its online Agent Store, giving clients access to a growing catalog of proven AI solutions designed to deliver measurable business outcomes. The store s...",
+        "url": "https://www.hpcwire.com/aiwire/2026/11/13/insight-launches-agent-store-to-accelerate-enterprise-ai-adoption",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-2",
+        "title": "Cloudera expands enterprise AI ecosystem with four new partners",
+        "source": "Portalerp",
+        "published": "15 hours ago",
+        "summary": "The platform combines prebuilt AI agents, industry expertise and cloud infrastructure to help companies integrate and manage AI-powered processesNetSuite launches SuiteExpress to accelerate AI-powered ERP implementati...",
+        "url": "https://portalerp.com/noticia/cloudera-expands-enterprise-ai-ecosystem-with-four-new-partners",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-3",
+        "title": "Houston’s Technology Leaders Move from AI Experimentation to Enterprise Execution at HMG Strategy’s 16th Annual Houston C-Level Technology Leadership Summit",
+        "source": "Manilatimes",
+        "published": "15 hours ago",
+        "summary": "\"Houston’s technology community is driving some of the most complex enterprise transformations in the world,\" said Hunter Muller, founder and CEO of HMG Strategy. \"For executives running asset-intensive and highly reg...",
+        "url": "https://www.manilatimes.net/2026/11/14/tmt-newswire/globenewswire/houstons-technology-leaders-move-from-ai-experimentation-to-enterprise-execution-at-hmg-strategys-16th-annual-houston-c-level-technology-leadership-summit/2469849",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-4",
+        "title": "Raya Digital showcases integrated AI and automation solutions to drive enterprise performance - Egyptian Gazette",
+        "source": "Egyptian-gazette",
+        "published": "21 hours ago",
+        "summary": "“Organisations’ expectations of technology are changing. Having digital systems in place or experimenting with AI applications is no longer enough.",
+        "url": "https://egyptian-gazette.com/business/raya-digital-showcases-integrated-ai-and-automation-solutions-to-drive-enterprise-performance",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-5",
+        "title": "Inside Zoom’s Enterprise AI, Open Ecosystem & Data Strategy",
+        "source": "Technologymagazine",
+        "published": "20 hours ago",
+        "summary": "By using internal AI tools to analyse client discussions and construct bespoke return-on-investment models, Zoom establishes shared accountability between its customer success teams and enterprise buyers. “We put the ...",
+        "url": "https://technologymagazine.com/news/inside-zooms-enterprise-ai-open-ecosystem-data-strategy",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-6",
+        "title": "Can SIMO's Advanced SSD Solutions Boost Its Enterprise Storage Growth? — TradingView News",
+        "source": "Tradingview",
+        "published": "22 hours ago",
+        "summary": "Zacks Zacks Can SIMO's Advanced SSD Solutions Boost Its Enterprise Storage Growth? Silicon Motion Technology Corporation SIMO is expanding its presence in the growing artificial intelligence (AI) infrastructure market...",
+        "url": "https://www.tradingview.com/news/zacks:4877c551f094b:0-can-simo-s-advanced-ssd-solutions-boost-its-enterprise-storage-growth",
+        "category": "business-tech"
+      },
+      {
+        "id": "article-business-tech-7",
+        "title": "Austere Systems Limited Announces H1 FY27 Results",
+        "source": "Aninews",
+        "published": "2 hours ago",
+        "summary": "Pune (Maharashtra) [India], November 14: Austere Systems Limited (BSE: AUSTERE), a technology solutions and services company enabling AI-led digital...",
+        "url": "https://www.aninews.in/news/business/austere-systems-limited-announces-h1-fy27-results20261114162028",
+        "category": "business-tech"
+      }
+    ]
+  },
+  "totalArticles": 39
+}

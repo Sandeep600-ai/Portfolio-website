@@ -1,0 +1,133 @@
+# Sandeep Kumar — AI Solutions Professional Portfolio
+
+A fast, modern, and production-grade personal portfolio website for **Sandeep Kumar**, an aspiring AI Solutions Professional specializing in Generative AI, prompt engineering, agentic workflows, Model Context Protocol (MCP), and enterprise workflow automation.
+
+Designed with an obsidian dark aesthetic (`#0a0a0a`), warm orange accents (`#e8622a` / `#d4531f`), fluid glassmorphism, responsive typography via **DM Sans**, and an interactive 3D Spline robot stage.
+
+---
+
+## Key Highlights & Features
+
+- **Interactive 3D Robot Hero**: Cinematic Spline 3D robot scene anchored at natural eye-level beside the headline, interactive typewriter terminal box (`• sandeep@ai:~$ [typewriter] ▌`), and seamless obsidian floor alpha blending.
+- **Universal Dual Theme System**: Comprehensive **Dark Mode** (`#0a0a0a` / `#141414`) and **Light Mode** (`#f8fafc` / `#ffffff`) with instant anti-flicker `<head>` loader, persistent `localStorage` synchronization, and a header Sun/Moon toggle.
+- **6 Featured Real-World AI Projects**:
+  1. **LedgerAdvance — Finance Dashboard**: Centralized market analytics workstation integrating Alpha Vantage, Twelve Data, and Tavily with Netlify Functions and personal budget surplus planning.
+  2. **Customer Complaint Management Automation (n8n)**: Omnichannel support automation leveraging AI extraction, IF/Switch department routing, Google Sheets logging, and email updates.
+  3. **Custom MCP Server**: Production Model Context Protocol server built with n8n bridging Claude to Gmail, Google Calendar, Tavily, and external HTTP APIs.
+  4. **Custom RAG System**: Retrieval-Augmented Generation pipeline using n8n, OpenAI Embeddings, and Pinecone vector database for secure, hallucination-free document QA.
+  5. **Excitel Customer Support Chatbot**: Botpress Studio conversational broadband assistant for plan inquiries, billing, and connectivity troubleshooting.
+  6. **AI Interview Scheduling Agent**: Real-time voice agent powered by Vapi, OpenAI GPT-4.1, and ElevenLabs (Emma) with bidirectional Google Calendar booking.
+- **Interactive Project Details Modal**: Deep-dive modal presenting verified business problems, solution overviews, 6-stage workflow pipelines, business & industry use cases, key benefits, and implementation contributions.
+- **Ultra-Crisp Visual Assets**: Dedicated 16:9 widescreen high-definition visual assets (`assets/projects/`) optimized for high-DPI, Retina, and 4K displays.
+- **Job Market Command Center (`/jobs`)**: Standalone private AI job search dashboard behind passcode protection (`9999`), featuring 45 verified roles across LinkedIn, Indeed, and Naukri with AI profile match scoring.
+- **AI Pulse Live News Radar**: 24-hour real-time AI news feed with category filter pills, 30-minute caching, and Tavily search integration.
+- **Navigation & Accessibility**: Sticky glassmorphic header with compact **"Let's Talk &rarr;"** CTA, floating 7-dot left section indicator, and persistent vertical social sidebar.
+- **Vercel Serverless Architecture**: Production serverless endpoints (`/api/news.js`, `/api/jobs.js`, `/api/status.js`) reading environment variables (`TAVILY_API_KEY`, `APIFY_TOKEN`) with zero hardcoded credentials and automatic cache fallback.
+
+---
+
+## Project Structure
+
+```
+Portfolio-website/
+├── api/                                # Vercel Serverless Functions
+│   ├── jobs.js                         # Job catalog filtering & platform query endpoint
+│   ├── news.js                         # Tavily live AI news radar with cache fallback
+│   └── status.js                       # Service telemetry & environment status
+├── assets/                             # Static visual assets
+│   └── projects/                       # High-definition 16:9 project preview graphics
+│       ├── complaint-automation.jpg
+│       ├── complaint-automation.png
+│       ├── custom-rag.jpg
+│       ├── custom-rag.png
+│       ├── excitel-chatbot.jpg
+│       ├── excitel-chatbot.png
+│       ├── interview-agent.jpg
+│       ├── interview-agent.png
+│       ├── ledger-advance.jpg
+│       ├── ledger-advance.png
+│       ├── mcp-server.jpg
+│       └── mcp-server.png
+├── data/                               # Static catalogs & verified fallback datasets
+│   ├── jobs.json                       # 45 verified AI jobs (LinkedIn, Indeed, Naukri)
+│   └── news.json                       # Cached categorized 24h AI pulse news
+├── jobs/                               # Job Market Command Center
+│   └── index.html                      # Standalone dashboard application (/jobs)
+├── .agents/                            # Workspace agent skills & guidelines
+│   └── skills/
+│       └── portfolio-ui-ux-design/
+│           └── SKILL.md                # UI/UX design tokens & layout guidelines
+├── .env.example                        # Public environment variable template
+├── .gitignore                          # Protects secrets (.env), Vercel caches, scripts
+├── AGENTS.md                           # Antigravity development guidelines & boundaries
+├── index.html                          # Primary single-file portfolio application
+├── MEMORY.md                           # Long-term engineering log & architectural decisions
+├── package.json                        # Development configuration & dependencies
+├── PROGRESS.md                         # Live project progress ledger & activity history
+├── README.md                           # Comprehensive documentation (this file)
+├── server.js                           # Local Node.js development server
+├── tsconfig.json                       # TypeScript configuration
+└── vercel.json                         # Vercel deployment rewrites & caching rules
+```
+
+---
+
+## Quick Start & Local Development
+
+The portfolio runs on standard web technologies with zero build steps required for the main interface:
+
+### 1. Clone & Setup
+```bash
+git clone https://github.com/Sandeep600-ai/portfolio.git
+cd portfolio
+```
+
+### 2. Environment Variables (Optional for local testing)
+Copy the template to create your local `.env`:
+```bash
+copy .env.example .env
+```
+
+### 3. Launch Local Server
+Run the built-in Node.js development server:
+```bash
+node server.js
+```
+Open your browser and navigate to:
+* **Main Portfolio**: [http://localhost:3000/](http://localhost:3000/)
+* **Job Market Dashboard**: [http://localhost:3000/jobs](http://localhost:3000/jobs) (Passcode: `9999`)
+* **API Endpoints**: `http://localhost:3000/api/news` and `http://localhost:3000/api/jobs`
+
+---
+
+## Vercel Deployment
+
+The repository is pre-configured for one-click deployment on **Vercel**:
+
+1. Push this repository to your **GitHub** account.
+2. Go to **Vercel Dashboard** &rarr; **Add New Project** &rarr; Import your repository.
+3. In **Project Settings** &rarr; **Environment Variables**, add:
+   * `TAVILY_API_KEY` — Your Tavily Search API key
+   * `APIFY_TOKEN` — Your Apify API token
+4. Click **Deploy**. Vercel will automatically serve:
+   * Static assets and HTML via Global CDN.
+   * `/jobs` via clean rewrites in `vercel.json`.
+   * `/api/news` and `/api/jobs` via Serverless Functions.
+
+---
+
+## Security & Secrets Management
+
+- **Zero Hardcoded Secrets**: No API keys, credentials, or personal tokens are committed to source control.
+- **Strict Git Ignore**: `.env`, `.env.*`, `.vercel/`, local helper scripts, and system metadata are strictly ignored via `.gitignore`.
+- **Graceful Fallback**: The serverless API functions automatically fallback to cached datasets (`data/news.json`, `data/jobs.json`) if API keys are unset or rate-limited.
+
+---
+
+## Contact & Connect
+
+* **Portfolio Owner**: Sandeep Kumar
+* **Location**: New Delhi, India
+* **Email**: [sndp5432@gmail.com](mailto:sndp5432@gmail.com)
+* **GitHub**: [github.com/Sandeep600-ai](https://github.com/Sandeep600-ai)
+* **LinkedIn**: [linkedin.com/in/sandeep601](https://www.linkedin.com/in/sandeep601)

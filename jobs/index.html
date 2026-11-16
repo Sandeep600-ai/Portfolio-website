@@ -1,0 +1,4041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Market Command Center · Sandeep Kumar</title>
+  <meta name="description" content="AI Career & Job Market Command Center — Restricted Access">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Anti-flicker Theme Init Script -->
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('portfolio-theme') === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google Fonts: DM Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET
+       ========================================================================== */
+    :root {
+      --bg: #0a0a0a;
+      --bg-surface: #121212;
+      --bg-elevated: #161616;
+      --bg-input: #141414;
+      --accent: #e8622a;
+      --accent-hover: #ff753e;
+      --accent-glow: rgba(232, 98, 42, 0.25);
+      --accent-subtle: rgba(232, 98, 42, 0.12);
+      --text-primary: #f5f5f5;
+      --text-secondary: #a3a3a3;
+      --text-muted: #737373;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --border-focus: var(--accent);
+      --font-main: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --sidebar-width: 240px;
+      --sidebar-collapsed-width: 64px;
+      --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-elevated: #f1f5f9;
+      --bg-input: #ffffff;
+      --accent: #d4531f;
+      --accent-hover: #e8622a;
+      --accent-glow: rgba(212, 83, 31, 0.25);
+      --accent-subtle: rgba(212, 83, 31, 0.1);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-hover: rgba(0, 0, 0, 0.16);
+      --border-focus: var(--accent);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    /* ==========================================================================
+       PASSWORD GATE MODAL (PIN: 9999)
+       ========================================================================== */
+    .lock-gate-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .lock-gate-overlay.unlocked {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .lock-card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.75rem 2.25rem;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(232, 98, 42, 0.1);
+      position: relative;
+      animation: cardAppear 0.35s ease-out;
+    }
+
+    @keyframes cardAppear {
+      from { opacity: 0; transform: scale(0.96) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .lock-icon-wrap {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.5rem;
+      border-radius: 12px;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(232, 98, 42, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .lock-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lock-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 0.65rem;
+    }
+
+    .lock-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 1.75rem;
+    }
+
+    .lock-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .pin-input-wrap {
+      position: relative;
+    }
+
+    .pin-input {
+      width: 100%;
+      height: 52px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      letter-spacing: 0.5em;
+      text-align: center;
+      padding: 0 1rem;
+      transition: var(--transition);
+    }
+
+    .pin-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232, 98, 42, 0.18);
+    }
+
+    .btn-unlock {
+      width: 100%;
+      height: 48px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 18px rgba(232, 98, 42, 0.35);
+    }
+
+    .btn-unlock:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(232, 98, 42, 0.5);
+    }
+
+    .btn-unlock:active {
+      transform: translateY(0);
+    }
+
+    .lock-error-msg {
+      font-size: 0.82rem;
+      color: #ef4444;
+      font-family: var(--font-mono);
+      display: none;
+      animation: shake 0.35s ease-in-out;
+    }
+
+    .lock-error-msg.visible {
+      display: block;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .btn-return-home {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      transition: color 0.2s ease;
+    }
+    .btn-return-home:hover {
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       DASHBOARD WRAPPER & COLLAPSIBLE SIDEBAR
+       ========================================================================== */
+    .dashboard-layout {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar */
+    .dashboard-sidebar {
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: #0d0d0d;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .dashboard-sidebar.collapsed {
+      width: var(--sidebar-collapsed-width);
+    }
+
+    /* Sidebar Brand / User Header */
+    .sidebar-header {
+      padding: 1.25rem 1.15rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #f5f5f5;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      transition: opacity 0.2s ease;
+    }
+    .dashboard-sidebar.collapsed .brand-text {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Category Section Label */
+    .sidebar-section-label {
+      padding: 1.25rem 1.15rem 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #555555;
+      white-space: nowrap;
+      overflow: hidden;
+      transition: opacity 0.2s ease;
+    }
+
+    .dashboard-sidebar.collapsed .sidebar-section-label {
+      opacity: 0;
+    }
+
+    /* Sidebar Navigation List */
+    .sidebar-nav {
+      list-style: none;
+      padding: 0 0.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .nav-btn {
+      width: 100%;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 0.75rem;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+    }
+
+    /* Active State matching screenshot 1-to-1 */
+    .nav-btn.active {
+      background: var(--accent-subtle);
+      border-left: 2px solid var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .nav-btn-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-btn-text {
+      flex-grow: 1;
+      transition: opacity 0.2s ease;
+    }
+
+    .dashboard-sidebar.collapsed .nav-btn-text {
+      opacity: 0;
+      display: none;
+    }
+
+    .nav-btn-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 9px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #ffffff;
+      margin-left: auto;
+    }
+
+    .dashboard-sidebar.collapsed .nav-btn-badge {
+      display: none;
+    }
+
+    /* Sidebar Footer & Collapse Button */
+    .sidebar-footer {
+      padding: 0.75rem 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .btn-sidebar-action {
+      width: 100%;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 0.75rem;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-sidebar-action:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+    }
+
+    .dashboard-sidebar.collapsed .btn-sidebar-action span {
+      display: none;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT VIEWPORT
+       ========================================================================== */
+    .dashboard-main {
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: var(--bg);
+      padding: 2.25rem 3rem;
+    }
+
+    .dashboard-view {
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .dashboard-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header matching screenshot with sleek right-aligned status badge */
+    .view-header {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .view-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .view-subtitle {
+      font-size: 0.92rem;
+      color: #8e8e8e;
+      margin-top: 0.25rem;
+    }
+
+    .view-header-stats {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.95rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #a3a3a3;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .live-status-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+      animation: pulse-dot 2s infinite;
+    }
+
+    /* ==========================================================================
+       FIND JOBS VIEW (Matches screenshot 1-to-1)
+       ========================================================================== */
+    .find-jobs-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      margin-bottom: 2.25rem;
+      width: 100%;
+    }
+
+    /* Row 1: Search Input & Location Dropdown (Spans 100% with Remote on Right) */
+    .search-inputs-row {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    .search-input-box {
+      width: 100%;
+      height: 48px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.94rem;
+      padding: 0 1.15rem;
+      transition: var(--transition);
+    }
+
+    .search-input-box:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(232, 98, 42, 0.16);
+    }
+
+    .location-select-wrap {
+      position: relative;
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .location-select-box {
+      width: 100%;
+      height: 48px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0 2.2rem 0 1.1rem;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: var(--transition);
+    }
+
+    .location-select-box:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(232, 98, 42, 0.16);
+    }
+
+    .location-arrow {
+      position: absolute;
+      right: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--text-muted);
+    }
+
+    /* Row 2: Pills & Search Button */
+    .filter-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .pill-btn {
+      padding: 0.4rem 0.95rem;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #b0b0b0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pill-btn:hover {
+      border-color: var(--border-hover);
+      color: #ffffff;
+    }
+
+    .pill-btn.active {
+      background: var(--accent-subtle);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(232, 98, 42, 0.25);
+    }
+
+    /* Platform Selector Row */
+    .platform-selector-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .platform-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .platform-btn {
+      padding: 0.42rem 0.95rem;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #b0b0b0;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .platform-btn:hover {
+      border-color: var(--border-hover);
+      color: #ffffff;
+    }
+
+    .platform-btn.active {
+      background: var(--accent-subtle);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(232, 98, 42, 0.25);
+    }
+
+    .platform-btn .platform-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .platform-btn[data-platform="all"] .platform-dot { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+    .platform-btn[data-platform="linkedin"] .platform-dot { background: #0a66c2; box-shadow: 0 0 6px #0a66c2; }
+    .platform-btn[data-platform="indeed"] .platform-dot { background: #2164f3; box-shadow: 0 0 6px #2164f3; }
+    .platform-btn[data-platform="naukri"] .platform-dot { background: #0077c5; box-shadow: 0 0 6px #0077c5; }
+
+
+
+    /* Match Score Badges (Strong / Good / Explore) */
+    .job-match-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .job-match-badge .match-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .job-match-badge.strong {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      color: #34d399;
+    }
+    .job-match-badge.strong .match-dot {
+      background: #10b981;
+      box-shadow: 0 0 6px #10b981;
+    }
+
+    .job-match-badge.good {
+      background: rgba(232, 98, 42, 0.12);
+      border: 1px solid rgba(232, 98, 42, 0.35);
+      color: #ff8c5a;
+    }
+    .job-match-badge.good .match-dot {
+      background: #e8622a;
+      box-shadow: 0 0 6px #e8622a;
+    }
+
+    .job-match-badge.explore {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a3a3a3;
+    }
+    .job-match-badge.explore .match-dot {
+      background: #737373;
+    }
+
+    /* Results Meta Header: Role Count & Sort Control */
+    .results-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+      padding: 0.65rem 0.95rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+    }
+
+    .results-count-text {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 20px;
+      padding: 0 0.4rem;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(232, 98, 42, 0.35);
+      color: var(--accent);
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.74rem;
+    }
+
+    .results-sort-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .sort-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .sort-select-box-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .sort-select-box {
+      appearance: none;
+      -webkit-appearance: none;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.36rem 2rem 0.36rem 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .sort-select-box:hover, .sort-select-box:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 10px rgba(232, 98, 42, 0.2);
+    }
+
+    .sort-arrow {
+      position: absolute;
+      right: 0.65rem;
+      pointer-events: none;
+      color: var(--text-muted);
+    }
+
+    /* Platform & Salary Badges on Job Cards */
+    .job-platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .job-platform-badge.linkedin {
+      background: rgba(10, 102, 194, 0.15);
+      border: 1px solid rgba(10, 102, 194, 0.35);
+      color: #70b5f9;
+    }
+
+    .job-platform-badge.indeed {
+      background: rgba(33, 100, 243, 0.15);
+      border: 1px solid rgba(33, 100, 243, 0.35);
+      color: #82abff;
+    }
+
+    .job-platform-badge.naukri {
+      background: rgba(0, 119, 197, 0.15);
+      border: 1px solid rgba(0, 119, 197, 0.35);
+      color: #5ec2ff;
+    }
+
+    .job-salary-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* Error & Retry State */
+    .search-error-container {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      background: rgba(239, 68, 68, 0.04);
+      border: 1px dashed rgba(239, 68, 68, 0.25);
+      border-radius: 12px;
+    }
+
+    .search-error-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ef4444;
+      margin-bottom: 0.5rem;
+    }
+
+    .search-error-desc {
+      font-size: 0.88rem;
+      color: #a3a3a3;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-retry {
+      padding: 0.5rem 1.4rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .btn-retry:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Orange Search Button */
+    .btn-search-prominent {
+      height: 44px;
+      padding: 0 1.85rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 16px rgba(232, 98, 42, 0.35);
+      margin-top: 0.25rem;
+    }
+
+    .btn-search-prominent:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(232, 98, 42, 0.5);
+    }
+
+    .btn-search-prominent:active {
+      transform: translateY(0);
+    }
+
+    /* Initial State Message matching screenshot */
+    .initial-search-prompt {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      color: #666666;
+      font-size: 0.95rem;
+    }
+
+    /* Job Results Cards Grid - Compact & Professional */
+    .jobs-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .job-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .job-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), 0 0 18px rgba(232, 98, 42, 0.15);
+    }
+
+    .job-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .job-card-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .job-badges-inline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .job-company {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .job-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .job-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .job-type-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e5e5e5;
+    }
+
+    .btn-bookmark {
+      background: #181818;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-bookmark:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.08);
+    }
+
+    .btn-bookmark.saved {
+      background: var(--accent-subtle);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 10px rgba(232, 98, 42, 0.3);
+    }
+
+    .job-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+      line-height: 1.32;
+    }
+
+    .job-card:hover .job-title {
+      color: #ffffff;
+    }
+
+    .job-desc {
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      line-height: 1.48;
+      margin-bottom: 0.65rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .job-skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.25rem 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #888888;
+      margin-top: auto;
+      margin-bottom: 0.75rem;
+    }
+
+    .job-skills-row .tech-sep {
+      color: var(--accent);
+      opacity: 0.7;
+      font-weight: 700;
+    }
+
+    .job-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .job-posted-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .btn-apply-job {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.36rem 0.9rem;
+      border-radius: 5px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: transparent;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .job-card:hover .btn-apply-job {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(232, 98, 42, 0.4);
+    }
+
+    .btn-apply-job:hover {
+      background: var(--accent-hover) !important;
+      transform: translateY(-1px);
+    }
+
+    /* Discover More Jobs Prompt & Notice States */
+    .discover-initial-prompt {
+      text-align: center;
+      padding: 4.25rem 1.5rem;
+      border: 1px dashed rgba(255, 255, 255, 0.09);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.015);
+      margin-top: 0.5rem;
+    }
+
+    .discover-prompt-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.15rem;
+      border-radius: 14px;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(232, 98, 42, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 24px rgba(232, 98, 42, 0.15);
+    }
+
+    .discover-prompt-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.015em;
+    }
+
+    .discover-prompt-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .discover-notice-container {
+      text-align: center;
+      padding: 5rem 1.5rem 6rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .discover-live-msg {
+      font-family: var(--font-main);
+      font-size: 1rem;
+      color: #e5e5e5;
+      letter-spacing: -0.01em;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .btn-discover-retry {
+      height: 42px;
+      padding: 0 1.85rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: #121212;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(232, 98, 42, 0.28);
+    }
+
+    .btn-discover-retry:hover {
+      background: var(--accent-hover);
+      color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232, 98, 42, 0.45);
+    }
+
+    /* Skeleton Loading State */
+    .skeleton-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skeleton-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.55rem 1.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 250px;
+    }
+
+    .skeleton-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+      animation: skeletonShimmer 1.6s infinite;
+    }
+
+    @keyframes skeletonShimmer {
+      100% { transform: translateX(100%); }
+    }
+
+    .skeleton-bar {
+      height: 14px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .skeleton-bar.short { width: 35%; }
+    .skeleton-bar.medium { width: 65%; }
+    .skeleton-bar.title { height: 22px; width: 85%; }
+
+    /* ==========================================================================
+       OVERVIEW & METRICS VIEW
+       ========================================================================== */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+    }
+
+    .metric-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric-value {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    .metric-sub {
+      font-size: 0.8rem;
+      color: #10b981;
+      margin-top: 0.35rem;
+    }
+
+    .overview-details-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .detail-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .detail-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.15rem;
+    }
+
+    .skills-progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skill-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .skill-bar-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+    }
+
+    .skill-bar-track {
+      width: 100%;
+      height: 6px;
+      background: #1f1f1f;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    .activity-feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .activity-feed-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .activity-feed-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .activity-feed-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADJUSTMENTS
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .dashboard-layout {
+        flex-direction: column;
+      }
+      .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      .dashboard-main {
+        padding: 1.5rem 1.25rem;
+      }
+      .view-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+      .search-inputs-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .location-select-wrap {
+        width: 100%;
+      }
+      .overview-details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       THEME TOGGLE CONTROLS & LIGHT MODE ARCHITECTURE
+       ========================================================================== */
+    .view-header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .theme-toggle-btn-jobs {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #a3a3a3;
+      cursor: pointer;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .theme-toggle-btn-jobs:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(232, 98, 42, 0.1);
+    }
+
+    .theme-icon-sun {
+      display: none;
+    }
+
+    .theme-icon-moon {
+      display: block;
+    }
+
+    [data-theme="light"] .theme-icon-sun {
+      display: block;
+    }
+
+    [data-theme="light"] .theme-icon-moon {
+      display: none;
+    }
+
+    [data-theme="light"] .theme-toggle-btn-jobs {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.09);
+      color: #475569;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    [data-theme="light"] .theme-toggle-btn-jobs:hover {
+      color: #d4531f;
+      border-color: #d4531f;
+      background: rgba(212, 83, 31, 0.08);
+    }
+
+    /* Light Mode Overrides for Complete Job Market Command Center */
+    [data-theme="light"] html,
+    [data-theme="light"] body {
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+
+    /* Password Gate (PIN 9999) */
+    [data-theme="light"] .lock-gate-overlay {
+      background: rgba(248, 250, 252, 0.96) !important;
+    }
+
+    [data-theme="light"] .lock-card {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.09) !important;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08), 0 0 35px rgba(212, 83, 31, 0.1) !important;
+    }
+
+    [data-theme="light"] .lock-title {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .lock-desc {
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .pin-input {
+      background: #f8fafc !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .btn-return-home {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .btn-return-home:hover {
+      color: #d4531f !important;
+    }
+
+    /* Left Sidebar ("finds job inside part left mein") */
+    [data-theme="light"] .dashboard-sidebar {
+      background: #ffffff !important;
+      border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    [data-theme="light"] .sidebar-header {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    }
+
+    [data-theme="light"] .sidebar-brand {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .sidebar-section-label {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .nav-btn {
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .nav-btn:hover {
+      background: rgba(0, 0, 0, 0.04) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .nav-btn.active {
+      background: rgba(212, 83, 31, 0.08) !important;
+      border-left: 2px solid #d4531f !important;
+      color: #d4531f !important;
+    }
+
+    [data-theme="light"] .sidebar-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+    }
+
+    [data-theme="light"] .btn-sidebar-action {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .btn-sidebar-action:hover {
+      background: rgba(0, 0, 0, 0.04) !important;
+      color: #0f172a !important;
+    }
+
+    /* Main Viewport & Header */
+    [data-theme="light"] .dashboard-main {
+      background-color: #f8fafc !important;
+    }
+
+    [data-theme="light"] .view-title {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .view-subtitle {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .view-header-stats {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      color: #475569 !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    /* Controls: Search Inputs & Location Select */
+    [data-theme="light"] .search-input-box,
+    [data-theme="light"] .location-select-box {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      color: #0f172a !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    [data-theme="light"] .search-input-box:focus,
+    [data-theme="light"] .location-select-box:focus {
+      border-color: #d4531f !important;
+      box-shadow: 0 0 0 2px rgba(212, 83, 31, 0.16) !important;
+    }
+
+    [data-theme="light"] .location-arrow {
+      color: #64748b !important;
+    }
+
+    /* Platform & Filter Pills */
+    [data-theme="light"] .platform-label {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .pill-btn,
+    [data-theme="light"] .platform-btn {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.1) !important;
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .pill-btn:hover,
+    [data-theme="light"] .platform-btn:hover {
+      border-color: rgba(0, 0, 0, 0.22) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .pill-btn.active,
+    [data-theme="light"] .platform-btn.active {
+      background: rgba(212, 83, 31, 0.08) !important;
+      border-color: #d4531f !important;
+      color: #d4531f !important;
+      box-shadow: 0 0 10px rgba(212, 83, 31, 0.15) !important;
+    }
+
+    [data-theme="light"] .btn-search-prominent {
+      background: #d4531f !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 16px rgba(212, 83, 31, 0.3) !important;
+    }
+
+    [data-theme="light"] .btn-search-prominent:hover {
+      background: #e8622a !important;
+      box-shadow: 0 6px 22px rgba(212, 83, 31, 0.45) !important;
+    }
+
+    /* Results Meta Bar */
+    [data-theme="light"] .results-meta-bar {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    [data-theme="light"] .results-count-text {
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .count-badge {
+      background: rgba(212, 83, 31, 0.1) !important;
+      border-color: rgba(212, 83, 31, 0.35) !important;
+      color: #d4531f !important;
+    }
+
+    [data-theme="light"] .sort-label {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .sort-select-box {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .sort-arrow {
+      color: #64748b !important;
+    }
+
+    /* Job Cards */
+    [data-theme="light"] .job-card {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    [data-theme="light"] .job-card:hover {
+      border-color: #d4531f !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 14px rgba(212, 83, 31, 0.12) !important;
+    }
+
+    [data-theme="light"] .job-title {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .job-card:hover .job-title {
+      color: #d4531f !important;
+    }
+
+    [data-theme="light"] .job-company {
+      color: #334155 !important;
+    }
+
+    [data-theme="light"] .job-location {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .job-desc {
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .job-type-badge {
+      background: #f1f5f9 !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      color: #334155 !important;
+    }
+
+    [data-theme="light"] .btn-bookmark {
+      background: #f8fafc !important;
+      border-color: rgba(0, 0, 0, 0.1) !important;
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .btn-bookmark:hover {
+      border-color: #d4531f !important;
+      color: #d4531f !important;
+    }
+
+    [data-theme="light"] .btn-bookmark.saved {
+      background: rgba(212, 83, 31, 0.1) !important;
+      border-color: #d4531f !important;
+      color: #d4531f !important;
+    }
+
+    [data-theme="light"] .job-skills-row {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .job-card-footer {
+      border-top-color: rgba(0, 0, 0, 0.06) !important;
+    }
+
+    [data-theme="light"] .job-posted-date {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .btn-apply-job {
+      border-color: rgba(0, 0, 0, 0.14) !important;
+      color: #0f172a !important;
+      background: #f8fafc !important;
+    }
+
+    [data-theme="light"] .job-card:hover .btn-apply-job {
+      background: #d4531f !important;
+      border-color: #d4531f !important;
+      color: #ffffff !important;
+    }
+
+    /* Discover More Jobs Prompt */
+    [data-theme="light"] .discover-initial-prompt {
+      border-color: rgba(0, 0, 0, 0.1) !important;
+      background: #ffffff !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    [data-theme="light"] .discover-prompt-title {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .discover-prompt-desc {
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .discover-live-msg {
+      color: #334155 !important;
+    }
+
+    /* Overview Metrics & Details */
+    [data-theme="light"] .metric-card {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    [data-theme="light"] .metric-card-top {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .metric-value {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .detail-card {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    [data-theme="light"] .detail-card-title {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .skill-bar-track {
+      background: #e2e8f0 !important;
+    }
+
+    [data-theme="light"] .activity-feed-item {
+      color: #475569 !important;
+      border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+    }
+
+    /* Skeletons & Errors */
+    [data-theme="light"] .skeleton-card {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.06) !important;
+    }
+
+    [data-theme="light"] .skeleton-card::after {
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.04), transparent) !important;
+    }
+
+    [data-theme="light"] .skeleton-bar {
+      background: #e2e8f0 !important;
+    }
+
+    [data-theme="light"] .search-error-container {
+      background: rgba(239, 68, 68, 0.05) !important;
+      border-color: rgba(239, 68, 68, 0.25) !important;
+    }
+
+    [data-theme="light"] .search-error-desc {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .initial-search-prompt {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. RESTRICTED ACCESS GATE (PASSWORD: 9999)
+       ========================================================================== -->
+  <div class="lock-gate-overlay" id="lockGateOverlay">
+    <div class="lock-card">
+      <div class="lock-icon-wrap" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+      <div class="lock-eyebrow">RESTRICTED ACCESS</div>
+      <h1 class="lock-title">Job Market Command Center</h1>
+      <p class="lock-desc">Please enter your 4-digit access PIN to unlock the live AI career intelligence engine.</p>
+
+      <form class="lock-form" id="lockForm">
+        <div class="pin-input-wrap">
+          <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" autocomplete="off" autofocus aria-label="Enter PIN">
+        </div>
+        <div class="lock-error-msg" id="lockErrorMsg">Incorrect PIN. Access denied.</div>
+        <button type="submit" class="btn-unlock" id="btnUnlock">
+          <span>Unlock Dashboard &rarr;</span>
+        </button>
+      </form>
+
+      <a href="/" class="btn-return-home">&larr; Return to Sandeep Kumar Portfolio</a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. DASHBOARD COMMAND CENTER
+       ========================================================================== -->
+  <div class="dashboard-layout" id="dashboardContainer">
+    <!-- Left Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Command Center Sidebar">
+      <!-- Brand Header -->
+      <div class="sidebar-header">
+        <a href="/" class="sidebar-brand" title="Return to Portfolio">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-text">sandeep.kumar</span>
+        </a>
+      </div>
+
+      <!-- Section Label matching screenshot -->
+      <div class="sidebar-section-label">JOB MARKET</div>
+
+      <!-- Navigation Menu -->
+      <ul class="sidebar-nav">
+        <li>
+          <button type="button" class="nav-btn" data-view="overview" id="navOverview">
+            <span class="nav-btn-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </span>
+            <span class="nav-btn-text">Overview</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="nav-btn active" data-view="find-jobs" id="navFindJobs">
+            <span class="nav-btn-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <span class="nav-btn-text">Find Jobs</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="nav-btn" data-view="discover-jobs" id="navDiscoverJobs">
+            <span class="nav-btn-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            </span>
+            <span class="nav-btn-text">Discover More Jobs</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="nav-btn" data-view="saved-jobs" id="navSavedJobs">
+            <span class="nav-btn-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <span class="nav-btn-text">Saved Jobs</span>
+            <span class="nav-btn-badge" id="savedCountBadge">0</span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Bottom Controls -->
+      <div class="sidebar-footer">
+        <a href="/" class="btn-sidebar-action" title="Back to Portfolio">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Portfolio</span>
+        </a>
+        <button type="button" class="btn-sidebar-action" id="btnThemeToggleSidebar" title="Toggle Theme">
+          <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span id="themeToggleLabelJobs">Theme</span>
+        </button>
+        <button type="button" class="btn-sidebar-action" id="btnLockSession" title="Lock Dashboard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Lock Session</span>
+        </button>
+        <button type="button" class="btn-sidebar-action" id="btnToggleCollapse" title="Toggle Sidebar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+          <span id="collapseBtnText">COLLAPSE</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <main class="dashboard-main">
+
+      <!-- ======================================================================
+           VIEW 1: FIND JOBS (Matches Screenshot 1-to-1)
+           ====================================================================== -->
+      <section class="dashboard-view active" id="viewFindJobs" aria-labelledby="headingFindJobs">
+        <!-- View Header -->
+        <div class="view-header">
+          <div>
+            <h1 class="view-title" id="headingFindJobs">Find Jobs</h1>
+            <p class="view-subtitle">Search open roles matching your criteria</p>
+          </div>
+          <div class="view-header-right">
+            <div class="view-header-stats">
+              <span class="live-status-dot"></span>
+              <span>Live Radar Active</span>
+            </div>
+            <button type="button" class="theme-toggle-btn-jobs" aria-label="Toggle Theme" title="Toggle Theme">
+              <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Search Controls -->
+        <div class="find-jobs-controls">
+          <form id="dashboardSearchForm" onsubmit="return false;">
+            
+            <!-- Platform Selector -->
+            <div class="platform-selector-row">
+              <span class="platform-label">Platform:</span>
+              <button type="button" class="platform-btn active" data-platform="all" id="platBtnAll">
+                <span class="platform-dot"></span>
+                <span>ALL PLATFORMS</span>
+              </button>
+              <button type="button" class="platform-btn" data-platform="linkedin" id="platBtnLinkedin">
+                <span class="platform-dot"></span>
+                <span>LINKEDIN</span>
+              </button>
+              <button type="button" class="platform-btn" data-platform="indeed" id="platBtnIndeed">
+                <span class="platform-dot"></span>
+                <span>INDEED</span>
+              </button>
+              <button type="button" class="platform-btn" data-platform="naukri" id="platBtnNaukri">
+                <span class="platform-dot"></span>
+                <span>NAUKRI</span>
+              </button>
+            </div>
+
+            <!-- Row 1: Keyword Input + Location Dropdown -->
+            <div class="search-inputs-row">
+              <div class="search-input-wrap">
+                <input type="text" id="dashKeywordInput" class="search-input-box" placeholder="Job title or keywords (e.g. AI Solutions, Generative AI, n8n)" aria-label="Job title or keywords">
+              </div>
+              <div class="location-select-wrap">
+                <select id="dashLocationSelect" class="location-select-box" aria-label="Location filter">
+                  <option value="All" selected>All Locations</option>
+                  <option value="Remote">Remote</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi / NCR</option>
+                </select>
+                <svg class="location-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+
+
+
+            <!-- Row 2: Filter Pills + Orange Search Button -->
+            <div class="filter-pills-row" style="margin-top: 1rem;">
+              <button type="button" class="pill-btn active" data-type="all">ALL TYPES</button>
+              <button type="button" class="pill-btn" data-type="Full-time">FULL-TIME</button>
+              <button type="button" class="pill-btn" data-type="Part-time">PART-TIME</button>
+              <button type="button" class="pill-btn" data-type="Contract">CONTRACT</button>
+              <button type="button" class="pill-btn" data-type="Remote">REMOTE</button>
+            </div>
+
+            <button type="button" class="btn-search-prominent" id="btnDashSearch">
+              <span>SEARCH JOBS</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Initial Placeholder Message (hidden since jobs load on open) -->
+        <div class="initial-search-prompt" id="initialPrompt" style="display: none;">
+          Search above to see open roles.
+        </div>
+
+        <!-- Skeleton Loading Animation -->
+        <div class="skeleton-grid" id="dashSkeletonGrid" style="display: none;" aria-hidden="true">
+          <div class="skeleton-card"><div class="skeleton-bar short"></div><div class="skeleton-bar title"></div><div class="skeleton-bar medium"></div></div>
+          <div class="skeleton-card"><div class="skeleton-bar short"></div><div class="skeleton-bar title"></div><div class="skeleton-bar medium"></div></div>
+          <div class="skeleton-card"><div class="skeleton-bar short"></div><div class="skeleton-bar title"></div><div class="skeleton-bar medium"></div></div>
+        </div>
+
+        <!-- Results Meta Bar: Matching Roles Count & Sort Control -->
+        <div class="results-meta-bar" id="dashResultsMetaBar" style="display: none;">
+          <div class="results-count-text">
+            <span class="count-badge" id="dashCountNum">0</span> open roles found
+          </div>
+          <div class="results-sort-wrap">
+            <label for="dashSortSelect" class="sort-label">Sort by:</label>
+            <div class="sort-select-box-wrap">
+              <select id="dashSortSelect" class="sort-select-box" aria-label="Sort open roles">
+                <option value="match" selected>Match Score (AI Profile)</option>
+                <option value="date">Date Posted (Most Recent)</option>
+              </select>
+              <svg class="sort-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="jobs-results-grid" id="dashResultsGrid" style="display: none;" aria-live="polite">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 1.5: DISCOVER MORE JOBS (Manual Custom Search Across Any Domain)
+           ====================================================================== -->
+      <section class="dashboard-view" id="viewDiscoverJobs" aria-labelledby="headingDiscoverJobs">
+        <!-- View Header -->
+        <div class="view-header">
+          <div>
+            <h1 class="view-title" id="headingDiscoverJobs">Discover More Jobs</h1>
+            <p class="view-subtitle">Search live opportunities across any industry, domain, or technology on demand</p>
+          </div>
+          <div class="view-header-right">
+            <div class="view-header-stats">
+              <span class="live-status-dot" style="background: #3b82f6; box-shadow: 0 0 8px #3b82f6;"></span>
+              <span>Domain Explorer Active</span>
+            </div>
+            <button type="button" class="theme-toggle-btn-jobs" aria-label="Toggle Theme" title="Toggle Theme">
+              <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Search Controls -->
+        <div class="find-jobs-controls">
+          <form id="discoverSearchForm" onsubmit="return false;">
+            
+            <!-- Platform Selector -->
+            <div class="platform-selector-row">
+              <span class="platform-label">Platform:</span>
+              <button type="button" class="platform-btn discover-plat-btn active" data-platform="all">
+                <span class="platform-dot"></span>
+                <span>ALL PLATFORMS</span>
+              </button>
+              <button type="button" class="platform-btn discover-plat-btn" data-platform="linkedin">
+                <span class="platform-dot"></span>
+                <span>LINKEDIN</span>
+              </button>
+              <button type="button" class="platform-btn discover-plat-btn" data-platform="indeed">
+                <span class="platform-dot"></span>
+                <span>INDEED</span>
+              </button>
+              <button type="button" class="platform-btn discover-plat-btn" data-platform="naukri">
+                <span class="platform-dot"></span>
+                <span>NAUKRI</span>
+              </button>
+            </div>
+
+            <!-- Row 1: Keyword Input + Location Dropdown -->
+            <div class="search-inputs-row">
+              <div class="search-input-wrap">
+                <input type="text" id="discoverKeywordInput" class="search-input-box" placeholder="Type any domain, role, or skill (e.g. Full Stack, DevOps, Data Analyst, Cloud, Cyber Security)" aria-label="Domain or Job title keywords">
+              </div>
+              <div class="location-select-wrap">
+                <select id="discoverLocationSelect" class="location-select-box" aria-label="Location filter">
+                  <option value="All" selected>All Locations</option>
+                  <option value="Remote">Remote</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi / NCR</option>
+                </select>
+                <svg class="location-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+            </div>
+
+            <!-- Row 2: Filter Pills + Orange Search Button -->
+            <div class="filter-pills-row" style="margin-top: 1rem;">
+              <button type="button" class="pill-btn discover-pill-btn active" data-type="all">ALL TYPES</button>
+              <button type="button" class="pill-btn discover-pill-btn" data-type="Full-time">FULL-TIME</button>
+              <button type="button" class="pill-btn discover-pill-btn" data-type="Part-time">PART-TIME</button>
+              <button type="button" class="pill-btn discover-pill-btn" data-type="Contract">CONTRACT</button>
+              <button type="button" class="pill-btn discover-pill-btn" data-type="Remote">REMOTE</button>
+            </div>
+
+            <button type="button" class="btn-search-prominent" id="btnDiscoverSearch">
+              <span>DISCOVER JOBS</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Initial Placeholder State (No cards shown initially until user types & searches) -->
+        <div class="discover-initial-prompt" id="discoverInitialPrompt">
+          <div class="discover-prompt-icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <h3 class="discover-prompt-title">Explore Opportunities Across Any Domain</h3>
+          <p class="discover-prompt-desc">
+            Type any domain, tech stack, or job role above and click <strong>Discover Jobs</strong>. Live crawlers search across indexed listings.
+          </p>
+        </div>
+
+        <!-- Skeleton Loading Animation -->
+        <div class="skeleton-grid" id="discoverSkeletonGrid" style="display: none;" aria-hidden="true">
+          <div class="skeleton-card"><div class="skeleton-bar short"></div><div class="skeleton-bar title"></div><div class="skeleton-bar medium"></div></div>
+          <div class="skeleton-card"><div class="skeleton-bar short"></div><div class="skeleton-bar title"></div><div class="skeleton-bar medium"></div></div>
+          <div class="skeleton-card"><div class="skeleton-bar short"></div><div class="skeleton-bar title"></div><div class="skeleton-bar medium"></div></div>
+        </div>
+
+        <!-- Results Meta Bar: Matching Roles Count & Sort Control -->
+        <div class="results-meta-bar" id="discoverResultsMetaBar" style="display: none;">
+          <div class="results-count-text">
+            <span class="count-badge" id="discoverCountNum">0</span> open roles found
+          </div>
+          <div class="results-sort-wrap">
+            <label for="discoverSortSelect" class="sort-label">Sort by:</label>
+            <div class="sort-select-box-wrap">
+              <select id="discoverSortSelect" class="sort-select-box" aria-label="Sort discovered roles">
+                <option value="match" selected>Match Score (AI Profile)</option>
+                <option value="date">Date Posted (Most Recent)</option>
+              </select>
+              <svg class="sort-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Grid (Hidden initially, shown only after manual search) -->
+        <div class="jobs-results-grid" id="discoverResultsGrid" style="display: none;" aria-live="polite">
+          <!-- Populated by JavaScript on search -->
+        </div>
+
+        <!-- Unconfigured Domain Notice (Shown if domain is not configured/available) -->
+        <div class="discover-notice-container" id="discoverNoticeContainer" style="display: none;">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 2: OVERVIEW
+           ====================================================================== -->
+      <section class="dashboard-view" id="viewOverview" aria-labelledby="headingOverview">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title" id="headingOverview">Market Overview</h1>
+            <p class="view-subtitle">Live AI telemetry, crawler status, and market demand insights</p>
+          </div>
+          <div class="view-header-right">
+            <div class="view-header-stats">
+              <span class="live-status-dot"></span>
+              <span>Apify Engine Online</span>
+            </div>
+            <button type="button" class="theme-toggle-btn-jobs" aria-label="Toggle Theme" title="Toggle Theme">
+              <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span>Tracked AI Roles</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <div class="metric-value">142</div>
+            <div class="metric-sub">+18 indexed today</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span>Saved &amp; Pipeline</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="metric-value" id="overviewSavedCount">0</div>
+            <div class="metric-sub" style="color: var(--accent);">Active bookmarks</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span>Avg AI Compensation</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
+            </div>
+            <div class="metric-value">₹24.5L</div>
+            <div class="metric-sub">Range: ₹18L &ndash; ₹35L</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card-top">
+              <span>Crawler Status</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg>
+            </div>
+            <div class="metric-value" style="color: #10b981;">Online</div>
+            <div class="metric-sub">Apify engine healthy</div>
+          </div>
+        </div>
+
+        <!-- In-demand Skills & Activity Grid -->
+        <div class="overview-details-grid">
+          <div class="detail-card">
+            <h2 class="detail-card-title">Top In-Demand AI Stack</h2>
+            <div class="skills-progress-list">
+              <div class="skill-bar-item">
+                <div class="skill-bar-labels"><span>n8n / Workflow Automation</span><span>58%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 58%;"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-labels"><span>OpenAI &amp; Anthropic APIs</span><span>52%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 52%;"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-labels"><span>Python / LLM Orchestration</span><span>44%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 44%;"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-labels"><span>Voice AI (Vapi / ElevenLabs)</span><span>36%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 36%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <h2 class="detail-card-title">Recent Scraper Stream</h2>
+            <div class="activity-feed-list">
+              <div class="activity-feed-item">
+                <div class="activity-feed-dot"></div>
+                <div><strong>Synthetix AI</strong>: 2 new AI Solutions Engineer roles indexed (14m ago)</div>
+              </div>
+              <div class="activity-feed-item">
+                <div class="activity-feed-dot"></div>
+                <div><strong>Cognition Labs</strong>: Generative AI Prompt Specialist updated (38m ago)</div>
+              </div>
+              <div class="activity-feed-item">
+                <div class="activity-feed-dot"></div>
+                <div><strong>Nexus Flow</strong>: Automation Consultant role verified (1h ago)</div>
+              </div>
+              <div class="activity-feed-item">
+                <div class="activity-feed-dot"></div>
+                <div><strong>Apify Sync</strong>: Daily scheduled scrape completed in 1.4s</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 3: SAVED JOBS
+           ====================================================================== -->
+      <section class="dashboard-view" id="viewSavedJobs" aria-labelledby="headingSavedJobs">
+        <div class="view-header">
+          <div>
+            <h1 class="view-title" id="headingSavedJobs">Saved Jobs</h1>
+            <p class="view-subtitle">Your bookmarked career opportunities and application pipeline</p>
+          </div>
+          <div class="view-header-right">
+            <div class="view-header-stats">
+              <span class="live-status-dot" style="background: var(--accent); box-shadow: 0 0 8px rgba(232, 98, 42, 0.6);"></span>
+              <span>Local Storage Synced</span>
+            </div>
+            <button type="button" class="theme-toggle-btn-jobs" aria-label="Toggle Theme" title="Toggle Theme">
+              <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="jobs-results-grid" id="savedJobsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       3. JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // 0. Theme Synchronization & Toggle Logic
+      const rootHtml = document.documentElement;
+      const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn-jobs, #btnThemeToggleSidebar');
+      const themeLabelJobs = document.getElementById('themeToggleLabelJobs');
+
+      function updateThemeUI(theme) {
+        if (theme === 'light') {
+          rootHtml.setAttribute('data-theme', 'light');
+          if (themeLabelJobs) themeLabelJobs.textContent = 'Dark Mode';
+        } else {
+          rootHtml.removeAttribute('data-theme');
+          if (themeLabelJobs) themeLabelJobs.textContent = 'Light Mode';
+        }
+      }
+
+      // Read current state from localStorage or existing data-theme attribute
+      const storedTheme = localStorage.getItem('portfolio-theme') || (rootHtml.hasAttribute('data-theme') ? 'light' : 'dark');
+      updateThemeUI(storedTheme);
+
+      function toggleTheme() {
+        const isCurrentlyLight = rootHtml.getAttribute('data-theme') === 'light';
+        const nextTheme = isCurrentlyLight ? 'dark' : 'light';
+        updateThemeUI(nextTheme);
+        try {
+          localStorage.setItem('portfolio-theme', nextTheme);
+        } catch (e) {}
+      }
+
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          toggleTheme();
+        });
+      });
+
+      // Synchronize across tabs if user changes theme on main website
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'portfolio-theme') {
+          updateThemeUI(e.newValue);
+        }
+      });
+
+      // 1. Password Protection Gate (PIN: 9999)
+      const lockOverlay = document.getElementById('lockGateOverlay');
+      const lockForm = document.getElementById('lockForm');
+      const pinInput = document.getElementById('pinInput');
+      const lockErrorMsg = document.getElementById('lockErrorMsg');
+      const btnLockSession = document.getElementById('btnLockSession');
+
+      const AUTH_KEY = 'sandeep_jobs_auth_token';
+
+      function checkAuth() {
+        if (sessionStorage.getItem(AUTH_KEY) === 'unlocked_9999') {
+          lockOverlay.classList.add('unlocked');
+          executeDashSearch();
+        } else {
+          lockOverlay.classList.remove('unlocked');
+          if (pinInput) pinInput.focus();
+        }
+      }
+
+      if (lockForm) {
+        lockForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const entered = pinInput.value.trim();
+          if (entered === '9999') {
+            sessionStorage.setItem(AUTH_KEY, 'unlocked_9999');
+            lockOverlay.classList.add('unlocked');
+            lockErrorMsg.classList.remove('visible');
+            pinInput.value = '';
+            executeDashSearch();
+          } else {
+            lockErrorMsg.classList.add('visible');
+            pinInput.value = '';
+            pinInput.focus();
+          }
+        });
+      }
+
+      if (btnLockSession) {
+        btnLockSession.addEventListener('click', () => {
+          sessionStorage.removeItem(AUTH_KEY);
+          checkAuth();
+        });
+      }
+
+      checkAuth();
+
+      // 2. Collapsible Sidebar
+      const sidebar = document.getElementById('dashboardSidebar');
+      const btnToggleCollapse = document.getElementById('btnToggleCollapse');
+      const collapseBtnText = document.getElementById('collapseBtnText');
+
+      if (btnToggleCollapse && sidebar) {
+        btnToggleCollapse.addEventListener('click', () => {
+          const isCollapsed = sidebar.classList.toggle('collapsed');
+          collapseBtnText.textContent = isCollapsed ? 'EXPAND' : 'COLLAPSE';
+        });
+      }
+
+      // 3. Navigation View Switching
+      const navButtons = document.querySelectorAll('.nav-btn');
+      const views = document.querySelectorAll('.dashboard-view');
+
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetView = btn.getAttribute('data-view');
+
+          navButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          views.forEach(v => {
+            v.classList.remove('active');
+            if (v.id === `view${targetView.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')}`) {
+              v.classList.add('active');
+            }
+          });
+
+          if (targetView === 'saved-jobs') {
+            renderSavedJobs();
+          }
+        });
+      });
+
+      // 4. Scraped AI Dataset from Apify MCP (45 Roles across LinkedIn, Indeed, Naukri)
+      const DEFAULT_SCRAPED_JOBS = [
+  {
+    "id": "li-4487884802",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Senior Applied Value Engineer",
+    "company": "Celonis",
+    "location": "Greater Bengaluru Area",
+    "datePosted": "3 days ago",
+    "url": "https://in.linkedin.com/jobs/view/senior-applied-value-engineer-at-celonis-4487884802",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Celonis focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4465113691",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Solution Engineer : Mumbai",
+    "company": "DevRev",
+    "location": "Mumbai Metropolitan Region",
+    "datePosted": "2 weeks ago",
+    "url": "https://in.linkedin.com/jobs/view/solution-engineer-mumbai-at-devrev-4465113691",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at DevRev focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4475216423",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Senior Applied Value Engineer- CPGR/CMT-NAM",
+    "company": "Celonis",
+    "location": "Greater Bengaluru Area",
+    "datePosted": "2 weeks ago",
+    "url": "https://in.linkedin.com/jobs/view/senior-applied-value-engineer-cpgr-cmt-nam-at-celonis-4475216423",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Celonis focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4481476614",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Solutions Engineer",
+    "company": "Ema",
+    "location": "Bengaluru, Karnataka, India",
+    "datePosted": "2 weeks ago",
+    "url": "https://in.linkedin.com/jobs/view/solutions-engineer-at-ema-4481476614",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Ema focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4486638234",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Specialist Solutions Architect - AI/ML",
+    "company": "FDE Times",
+    "location": "Mumbai Metropolitan Region",
+    "datePosted": "1 week ago",
+    "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-fde-times-4486638234",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at FDE Times focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4489084026",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Solutions Engineer / Solutions Architect – Neil AI Co-Worker for AP",
+    "company": "E42.ai",
+    "location": "Pune District, Maharashtra, India",
+    "datePosted": "2 days ago",
+    "url": "https://in.linkedin.com/jobs/view/solutions-engineer-solutions-architect-%E2%80%93-neil-ai-co-worker-for-ap-at-e42-ai-4489084026",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at E42.ai focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4426491213",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Specialist Solutions Architect - AI/ML",
+    "company": "Databricks",
+    "location": "Mumbai Metropolitan Region",
+    "datePosted": "1 week ago",
+    "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-databricks-4426491213",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Databricks focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4488221916",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Senior Solutions Engineer",
+    "company": "Enterprise Bot",
+    "location": "Bengaluru, Karnataka, India",
+    "datePosted": "2 days ago",
+    "url": "https://in.linkedin.com/jobs/view/senior-solutions-engineer-at-enterprise-bot-4488221916",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Enterprise Bot focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4488713934",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Digital Solution Engineering IC4",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "datePosted": "6 days ago",
+    "url": "https://in.linkedin.com/jobs/view/digital-solution-engineering-ic4-at-microsoft-4488713934",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Microsoft focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4486624840",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Specialist Solutions Architect - AI/ML",
+    "company": "FDE Times",
+    "location": "Greater Bengaluru Area",
+    "datePosted": "1 week ago",
+    "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-fde-times-4486624840",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at FDE Times focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4426486277",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Specialist Solutions Architect - AI/ML",
+    "company": "Databricks",
+    "location": "Bengaluru, Karnataka, India",
+    "datePosted": "1 week ago",
+    "url": "https://in.linkedin.com/jobs/view/specialist-solutions-architect-ai-ml-at-databricks-4426486277",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Databricks focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4468612820",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Solution Engineering",
+    "company": "Microsoft",
+    "location": "Gurgaon, Haryana, India",
+    "datePosted": "2 days ago",
+    "url": "https://in.linkedin.com/jobs/view/solution-engineering-at-microsoft-4468612820",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Microsoft focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4490786669",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Advisory AI Foundry Architect",
+    "company": "ServiceNow",
+    "location": "Bengaluru, Karnataka, India",
+    "datePosted": "12 hours ago",
+    "url": "https://in.linkedin.com/jobs/view/advisory-ai-foundry-architect-at-servicenow-4490786669",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at ServiceNow focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4470604383",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Forward Deployed Engineer",
+    "company": "NTT DATA North America",
+    "location": "Bangalore Urban, Karnataka, India",
+    "datePosted": "1 week ago",
+    "url": "https://in.linkedin.com/jobs/view/forward-deployed-engineer-at-ntt-data-north-america-4470604383",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at NTT DATA North America focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "li-4486351197",
+    "platform": "linkedin",
+    "platformLabel": "LinkedIn Jobs",
+    "platformColor": "#0a66c2",
+    "title": "Senior Presales Engineer",
+    "company": "Confidential",
+    "location": "Bengaluru, Karnataka, India",
+    "datePosted": "1 week ago",
+    "url": "https://www.linkedin.com/jobs/view/4486351197",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Leading AI role at Confidential focusing on AI Solutions, Workflow Automation."
+  },
+  {
+    "id": "ind-1",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "Electronics / Electrical – AI Trainer",
+    "company": "Chiron Data Labs",
+    "location": "Remote",
+    "datePosted": "Today",
+    "url": "https://in.indeed.com/viewjob?jk=75b9c370f76d30c4",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "*Electronics / Electrical Engineer – AI Training Projects (Remote)* *Company:* Chiron Data Labs *Job Type:* Freelance *Work Mode:* Remote *Compensation:* $30–$80 per accepted task ..."
+  },
+  {
+    "id": "ind-2",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "Ai Teacher",
+    "company": "The Edge",
+    "location": "Remote",
+    "datePosted": "2d ago",
+    "url": "https://in.indeed.com/viewjob?jk=2caec320ae04ed8b",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Python",
+      "RAG",
+      "Data Science",
+      "Machine Learning"
+    ],
+    "description": "Job Description – AI Teacher (Artificial Intelligence Teacher) *Position:* AI Teacher *Department:* Academics / Computer Science *Job Location:* As per school requirement *Salary:*..."
+  },
+  {
+    "id": "ind-3",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Transformation Manager",
+    "company": "Chiron Data Labs",
+    "location": "Remote",
+    "datePosted": "2d ago",
+    "url": "https://in.indeed.com/viewjob?jk=2e6efd52c337d48b",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Generative AI",
+      "n8n",
+      "Prompt Engineering",
+      "Workflow Automation",
+      "Webhooks"
+    ],
+    "description": "*About Talent Pravah* Talent Pravah is a recruitment and talent solutions firm helping organisations build strong teams through strategic hiring, niche talent acquisition, and camp..."
+  },
+  {
+    "id": "ind-4",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Executive",
+    "company": "As You Wish",
+    "location": "Remote",
+    "datePosted": "10d ago",
+    "url": "https://in.indeed.com/viewjob?jk=da303b4f7a6d75f8",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "n8n",
+      "Prompt Engineering",
+      "Workflow Automation"
+    ],
+    "description": "Hiring: AI Executive / AI Automation Specialist *Company:* Saru Silver Alloy Pvt. Ltd. *Location:* Remote / Work from Home *Office Visit:* Once a week at Meerut *Joining:* Immediat..."
+  },
+  {
+    "id": "ind-5",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI/ML Intern",
+    "company": "nature craft organica",
+    "location": "Remote",
+    "datePosted": "5d ago",
+    "url": "https://in.indeed.com/viewjob?jk=a1bd09042bb12635",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Generative AI",
+      "OpenAI",
+      "LLM",
+      "RAG",
+      "LangChain"
+    ],
+    "description": "*Company:* BEXO.AI *Location:* Mohali, Punjab (On-site) *Job Type:* Full-time Internship (Paid) *Duration:* 2 Months About BEXO.AI BEXO.AI is an AI-driven technology company specia..."
+  },
+  {
+    "id": "ind-6",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "Backend Developer (AI Focus)",
+    "company": "Helios Tech Labs",
+    "location": "Remote",
+    "datePosted": "1d ago",
+    "url": "https://in.indeed.com/viewjob?jk=4de48192ec8afde0",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Python",
+      "OpenAI",
+      "REST APIs",
+      "Chatbot"
+    ],
+    "description": "*Job Title:* Backend Developer (AI Focus) *Salary:* Rs 15,000 - 20,000 per month *Job Location*: Mohali (In office) *About the Role: * We are looking for a passionate and driven *B..."
+  },
+  {
+    "id": "ind-7",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "Software Engineer (AI Focused)",
+    "company": "Helios Tech Labs",
+    "location": "Remote",
+    "datePosted": "1d ago",
+    "url": "https://in.indeed.com/viewjob?jk=5a93f54c17d58cae",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Python",
+      "OpenAI",
+      "REST APIs",
+      "Chatbot"
+    ],
+    "description": "*Job Title:* Software Engineer (AI Focused) *Job Description: * We are looking for a passionate and driven *Software Engineer (AI Focused)* who has a strong interest in AI tools an..."
+  },
+  {
+    "id": "ind-8",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Generalist",
+    "company": "Think Surf Media",
+    "location": "Remote",
+    "datePosted": "1d ago",
+    "url": "https://in.indeed.com/viewjob?jk=7d7fc8a1bf870584",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "n8n",
+      "Python"
+    ],
+    "description": "ThinkSurf Media is hiring a fresher AI Generalist who will help every department work faster by using AI and automation. About the role ThinkSurf Media is a digital and performance..."
+  },
+  {
+    "id": "ind-9",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Tech Lead",
+    "company": "Induansh Private Limited",
+    "location": "Remote",
+    "datePosted": "10d ago",
+    "url": "https://in.indeed.com/viewjob?jk=c1a3f85ba2c199f7",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Python",
+      "LLM",
+      "Agentic AI",
+      "Workflow Automation"
+    ],
+    "description": "*AI Tech Lead – Agentic AI* *Experience:* 10+ Years *Contract Duration:* 6 Months (Extendable) *Working Hours:* 2:00 PM – 10:30 PM IST *Role Type:* Individual Contributor (IC) *Job..."
+  },
+  {
+    "id": "ind-10",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Operations & Automation Manager",
+    "company": "Allo Innoware",
+    "location": "Remote",
+    "datePosted": "1d ago",
+    "url": "https://in.indeed.com/viewjob?jk=929a64cb9595e77b",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "n8n"
+    ],
+    "description": "*Company:* Allo Innoware *Location:* Mumbai / Remote *Job Type:* Full-time *Reports To:* Founder *Why We Are Hiring* Allo Innoware is scaling its ecommerce operations across market..."
+  },
+  {
+    "id": "ind-11",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "MIS & IT Automation Specialist",
+    "company": "Hotel Paradise",
+    "location": "Remote",
+    "datePosted": "2d ago",
+    "url": "https://in.indeed.com/viewjob?jk=1dc443aa25b9ee25",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Workflow Automation"
+    ],
+    "description": "*Company:* Premjees *Location:* Solan, Himachal Pradesh *Job Type:* Full-time, On-site *Salary:* ₹25,000–₹40,000 per month (Negotiable based on expertise) About the Role Premjees i..."
+  },
+  {
+    "id": "ind-12",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Automation Trainer – Generative AI & Workflow Automation",
+    "company": "Secure Techies, LLC.",
+    "location": "Remote",
+    "datePosted": "13d ago",
+    "url": "https://in.indeed.com/viewjob?jk=8bb905cdce280a80",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Generative AI",
+      "n8n",
+      "Python",
+      "OpenAI",
+      "LLM"
+    ],
+    "description": "Job Title: AI Automation Trainer – Generative AI & Workflow AutomationJob Description We are looking for an experienced and passionate AI Automation Trainer to deliver practical, i..."
+  },
+  {
+    "id": "ind-13",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "Tax Manager - India & International Team",
+    "company": "Prosperl CPA",
+    "location": "Remote",
+    "datePosted": "1d ago",
+    "url": "https://in.indeed.com/viewjob?jk=07291ab42b6524c4",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "AI Solutions",
+      "Workflow Automation"
+    ],
+    "description": "Tax & Accounting Manager Seeking highly competent EA or CPA with at least 3 years of Tax Manager Experience to become part of our elite organization as part of our international te..."
+  },
+  {
+    "id": "ind-14",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "AI Developer I",
+    "company": "HCLTech",
+    "location": "Remote",
+    "datePosted": "12d ago",
+    "url": "https://in.indeed.com/viewjob?jk=2358316f9aa4775b",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Python",
+      "OpenAI",
+      "Prompt Engineering",
+      "LLM",
+      "Agentic AI"
+    ],
+    "description": "Job Summary This role is responsible for implementing advanced solutions in standard cell characterization, ensuring product and sustenance delivery meets defined technology standa..."
+  },
+  {
+    "id": "ind-15",
+    "platform": "indeed",
+    "platformLabel": "Indeed Jobs",
+    "platformColor": "#2164f3",
+    "title": "Talent Mapping & AI Automation Specialist",
+    "company": "Qrata",
+    "location": "Remote",
+    "datePosted": "4d ago",
+    "url": "https://in.indeed.com/viewjob?jk=09da481219ba74fc",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Python",
+      "Workflow Automation",
+      "Webhooks"
+    ],
+    "description": "*Job Title: Talent Mapping & AI Automation Specialist* *Role Overview* We are looking for a Talent Mapping & AI Automation Specialist to build and operate AI agents that identify t..."
+  },
+  {
+    "id": "nk-1",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Workflow Automation & Agentic AI Consultant",
+    "company": "Protiviti India",
+    "location": "Remote",
+    "datePosted": "12 Days Ago",
+    "url": "https://www.naukri.com/job-listings-workflow-automation-agentic-ai-consultant-protiviti-india-bengaluru-7-to-10-years-261026007088",
+    "type": "Remote",
+    "salary": null,
+    "skills": [
+      "Consulting",
+      "Workflow",
+      "Digital",
+      "n8n",
+      "Agentic AI"
+    ],
+    "description": "Preferred candidate profile . Minimum 7+ years of experience in Business Analysis,Process Automation,Intelligent Automation,or Technology Consulting Experience delivering automatio..."
+  },
+  {
+    "id": "nk-2",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Senior AI Architect - Generative AI",
+    "company": "GE VERNOVA",
+    "location": "Bengaluru",
+    "datePosted": "2 Days Ago",
+    "url": "https://www.naukri.com/job-listings-senior-ai-architect-generative-ai-ge-renewable-energy-technologies-private-limited-bengaluru-4-to-8-years-111126932272",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Automation",
+      "Science",
+      "Artificial Intelligence",
+      "Generative AI",
+      "OpenAI"
+    ],
+    "description": "Required Qualifications . Bachelors degree in Computer Science,Engineering,Applied Mathematics,Data Science,or a related technical field Experience with Azure OpenAI,Amazon Bedrock..."
+  },
+  {
+    "id": "nk-3",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Agentic AI Builder expert",
+    "company": "Sia Partners",
+    "location": "Mumbai",
+    "datePosted": "1 Day Ago",
+    "url": "https://www.naukri.com/job-listings-agentic-ai-builder-expert-sia-partners-mumbai-2-to-6-years-131126501191",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Operations",
+      "Packaging",
+      "Automation",
+      "LLM",
+      "Agentic AI"
+    ],
+    "description": "Bachelors or Masters degree in Computer Science,Engineering or a related field,or equivalent practical experience. . 2 to 6 years of software or AI engineering experience. . At lea..."
+  },
+  {
+    "id": "nk-4",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Sr Software Architect - AI/ML",
+    "company": "GE VERNOVA",
+    "location": "Hyderabad, Bengaluru",
+    "datePosted": "2 Days Ago",
+    "url": "https://www.naukri.com/job-listings-sr-software-architect-ai-ml-ge-renewable-energy-technologies-private-limited-hyderabad-bengaluru-15-to-20-years-131026940478",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "ai",
+      "applied mathematics",
+      "ai frameworks",
+      "Data Science"
+    ],
+    "description": "Bachelor-s degree in services,Computer Science,Applied Mathematics,Data Science,or a related technical field You will be required to provide hands on guidance and accelerate the AI..."
+  },
+  {
+    "id": "nk-5",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Senior Manager - Generative AI",
+    "company": "EY",
+    "location": "Bengaluru",
+    "datePosted": "2 Days Ago",
+    "url": "https://www.naukri.com/job-listings-senior-manager-generative-ai-ernst-young-llp-bengaluru-11-to-14-years-141026933364",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Ai",
+      "Automation",
+      "Azure",
+      "Generative AI",
+      "Python"
+    ],
+    "description": "deployment experience in Azure is preferred. Minimum of 6 years of experience working with NLG,LLM,and deep learning techniques,including neural network approaches. Minimum of 6-9 ..."
+  },
+  {
+    "id": "nk-6",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Process Automation Developer - AI & n8n (m/f/d)",
+    "company": "Flixbus",
+    "location": "Gurugram",
+    "datePosted": "1 Day Ago",
+    "url": "https://www.naukri.com/job-listings-process-automation-developer-ai-n8n-m-f-d-flix-gurugram-5-to-10-years-131126501941",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Processing",
+      "Process automation",
+      "SQL",
+      "n8n",
+      "Data Science"
+    ],
+    "description": "cloud deployment (AWS / Azure),containerization,or CI / CD experience is a bonus. Engineering / CS degree with certifications in Data Science,AI,or RPA (e.g UiPath Developer Certif..."
+  },
+  {
+    "id": "nk-7",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Process Automation Developer - AI & n8n (m/f/d)",
+    "company": "Flixbus",
+    "location": "Bengaluru",
+    "datePosted": "1 Day Ago",
+    "url": "https://www.naukri.com/job-listings-process-automation-developer-ai-n8n-m-f-d-flix-bengaluru-5-to-10-years-121126504366",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "SQL",
+      "F#",
+      "Processing",
+      "n8n",
+      "Data Science"
+    ],
+    "description": "cloud deployment (AWS / Azure),containerization,or CI / CD experience is a bonus. Engineering / CS degree with certifications in Data Science,AI,or RPA (e.g UiPath Developer Certif..."
+  },
+  {
+    "id": "nk-8",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Generative AI Developer / Engineer/Analyst",
+    "company": "SS&C Technologies",
+    "location": "Hubballi, Mangaluru, Mysuru, Bengaluru, Belagavi",
+    "datePosted": "1 Day Ago",
+    "url": "https://www.naukri.com/job-listings-generative-ai-developer-engineer-analyst-ss-c-technologies-hubballi-mangaluru-mysuru-bengaluru-belagavi-2-to-3-years-121126501978",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Architecture",
+      "Classification",
+      "Application",
+      "Generative AI",
+      "Python"
+    ],
+    "description": "SS&C is a leading provider of mission-critical, AI-powered technology and services empowering financial services and healthcare organizations to work smarter, faster, and securely...."
+  },
+  {
+    "id": "nk-9",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Applied AI and Automation engineer",
+    "company": "Shivam Proteco",
+    "location": "Dadra & Nagar Haveli",
+    "datePosted": "3 Days Ago",
+    "url": "https://www.naukri.com/job-listings-applied-ai-and-automation-engineer-shivam-proteco-dadra-nagar-haveli-2-to-4-years-300926020351",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Data Security",
+      "Workflow",
+      "OCR",
+      "Generative AI",
+      "n8n"
+    ],
+    "description": "Experience with document AI,RAG,Power Automate,n8n or FastAPI is an advantage,not a requirement DESIRABLE SKILL . Hands-on Python,API integration and SQL skills. . * Experience bui..."
+  },
+  {
+    "id": "nk-10",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "AI Agent Engineer",
+    "company": "Benzara Ecommerce",
+    "location": "Noida(Sector 132)",
+    "datePosted": "5 Days Ago",
+    "url": "https://www.naukri.com/job-listings-ai-agent-engineer-benzara-ecommerce-noida-1-to-3-years-140926004996",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Automation",
+      "Artificial Intelligence",
+      "Languages",
+      "Python",
+      "OpenAI"
+    ],
+    "description": "Experience with LLM APIs (OpenAI,Anthropic Claude,or similar) Key Skills Required Hands-on experience with agentic AI frameworks LangChain,LangGraph,CrewAI,AutoGen,or the OpenAI / ..."
+  },
+  {
+    "id": "nk-11",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Artificial Intelligence Expert",
+    "company": "Digiperform",
+    "location": "New Delhi",
+    "datePosted": "1 Day Ago",
+    "url": "https://www.naukri.com/job-listings-artificial-intelligence-expert-digiperform-new-delhi-2-to-5-years-131126012746",
+    "type": "Full-time",
+    "salary": "6-9 Lacs PA",
+    "skills": [
+      "Coding",
+      "SEO",
+      "Intelligence",
+      "n8n",
+      "Botpress"
+    ],
+    "description": "• Train on ChatGPT, Gemini & Claude • Teach SEO, GEO, Google & Meta Ads • AI Agents (n8n, Make, Botpress) • WordPress & YouTube • AI image/video tools (Firefly, Kling, Runway)..."
+  },
+  {
+    "id": "nk-12",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Agentic AI Builder Professional",
+    "company": "Sia Partners",
+    "location": "Mumbai",
+    "datePosted": "2 Days Ago",
+    "url": "https://www.naukri.com/job-listings-agentic-ai-builder-professional-sia-partners-mumbai-2-to-6-years-111126501496",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Computer",
+      "Automation",
+      "Consulting",
+      "LLM",
+      "Agentic AI"
+    ],
+    "description": "Bachelors or Masters degree in Computer Science,Engineering or a related field,or equivalent practical experience. . 2 to 6 years of software or AI engineering experience. . At lea..."
+  },
+  {
+    "id": "nk-13",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Senior Manager AI/ML Engineering - AI/ML/Generative AI",
+    "company": "Optum",
+    "location": "Bengaluru, Bengaluru",
+    "datePosted": "2 Days Ago",
+    "url": "https://www.naukri.com/job-listings-senior-manager-ai-ml-engineering-ai-ml-generative-ai-optum-global-solutions-india-private-limited-bengaluru-bengaluru-14-to-19-years-191026910918",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Algorithms",
+      "Intelligence",
+      "Computer vision",
+      "Generative AI"
+    ],
+    "description": "Required Qualifications: . Masters degree in Computer Science,Engineering,Mathematics,Statistics,or a related discipline Demonstrated experience leading and managing AI / ML teams ..."
+  },
+  {
+    "id": "nk-14",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "AI / Generative AI Engineer - Dot Net / Java (Agentic AI & Azure AI)",
+    "company": "XTGlobal",
+    "location": "Hyderabad",
+    "datePosted": "2 Days Ago",
+    "url": "https://www.naukri.com/job-listings-ai-generative-ai-engineer-dot-net-java-agentic-ai-azure-ai-xenosoft-technologies-india-pvt-ltd-hyderabad-9-to-14-years-111126504877",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Enterprise applications",
+      "Processing",
+      ".Net",
+      "Generative AI",
+      "LLM"
+    ],
+    "description": ". Work Timings: . Australia Shift : 7 AM \\- 4 PM IST The ideal candidate should have experience building AI\\-powered applications using LLMs,Retrieval\\-Augmented Generation (RAG),A..."
+  },
+  {
+    "id": "nk-15",
+    "platform": "naukri",
+    "platformLabel": "Naukri.com",
+    "platformColor": "#0077c5",
+    "title": "Site Reliability Engineer",
+    "company": "Infosys",
+    "location": "Bengaluru",
+    "datePosted": "1 Day Ago",
+    "url": "https://www.naukri.com/job-listings-site-reliability-engineer-infosys-bengaluru-3-to-5-years-280926920621",
+    "type": "Full-time",
+    "salary": null,
+    "skills": [
+      "Ai",
+      "Aws Bedrock",
+      "Golang",
+      "Generative AI",
+      "Python"
+    ],
+    "description": "Bachelor of Engineering. Service Line . Quality Experience in one or more high level programming languages like Python or Ruby or GoLang and familiar with Object Oriented Programmi..."
+  }
+];
+
+      let activePlatform = 'all'; // 'all', 'linkedin', 'indeed', 'naukri'
+      let activePillType = 'all';  // 'all', 'Full-time', 'Part-time', 'Contract', 'Remote'
+      const STORAGE_KEY = 'sandeep_portfolio_saved_jobs';
+
+      // Platform Selector Buttons
+      document.querySelectorAll('.platform-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activePlatform = btn.getAttribute('data-platform') || 'all';
+          executeDashSearch();
+        });
+      });
+
+      // Portfolio Profile Skills Scoring & Match Logic
+      const STRONG_KEYWORDS = [
+        'n8n', 'claude', 'claude code', 'generative ai', 'genai', 'agentic', 
+        'ai agent', 'prompt engineering', 'prompt engineer', 'voice agent', 
+        'voice ai', 'elevenlabs', 'vapi', 'botpress', 'rag', 'vector'
+      ];
+
+      const SECONDARY_KEYWORDS = [
+        'ai solutions', 'workflow automation', 'webhook', 'webhooks', 'rest api', 
+        'api integration', 'chatgpt', 'gemini', 'perplexity', 'notebooklm', 
+        'openai', 'llm', 'power bi', 'excel', 'market research', 'kpi', 
+        'financial modeling', 'automation', 'chatbot', 'ai'
+      ];
+
+      function calculateJobMatch(job) {
+        const content = ((job.title || '') + ' ' + (job.description || '') + ' ' + ((job.skills || []).join(' '))).toLowerCase();
+        
+        let strongHits = [];
+        for (const kw of STRONG_KEYWORDS) {
+          if (content.includes(kw)) strongHits.push(kw);
+        }
+        
+        let secHits = [];
+        for (const kw of SECONDARY_KEYWORDS) {
+          if (content.includes(kw) && !strongHits.includes(kw)) secHits.push(kw);
+        }
+
+        let score = (strongHits.length * 3) + secHits.length;
+        let level = 'explore';
+        let label = 'Explore';
+        
+        if (strongHits.length >= 1 || score >= 4) {
+          level = 'strong';
+          label = 'Strong Match';
+        } else if (secHits.length >= 1 || score >= 1) {
+          level = 'good';
+          label = 'Good Match';
+        } else {
+          level = 'explore';
+          label = 'Explore';
+        }
+
+        return { level, label, score, strongHits, secHits };
+      }
+
+      function parseRelativeDateToDays(dateStr) {
+        if (!dateStr) return 999;
+        const s = String(dateStr).toLowerCase().trim();
+        if (s.includes('just') || s.includes('today') || s.includes('hour') || s.includes('minute')) return 0;
+        if (s.includes('yesterday')) return 1;
+        const match = s.match(/(\d+)\s*(day|week|month|year)/);
+        if (match) {
+          const num = parseInt(match[1], 10);
+          const unit = match[2];
+          if (unit.startsWith('day')) return num;
+          if (unit.startsWith('week')) return num * 7;
+          if (unit.startsWith('month')) return num * 30;
+          if (unit.startsWith('year')) return num * 365;
+        }
+        return 30;
+      }
+
+      function sortJobs(jobs, sortBy) {
+        const sorted = [...jobs];
+        if (sortBy === 'match') {
+          sorted.sort((a, b) => {
+            const scoreA = a.matchData ? a.matchData.score : 0;
+            const scoreB = b.matchData ? b.matchData.score : 0;
+            if (scoreB !== scoreA) {
+              return scoreB - scoreA;
+            }
+            return parseRelativeDateToDays(a.datePosted) - parseRelativeDateToDays(b.datePosted);
+          });
+        } else if (sortBy === 'date') {
+          sorted.sort((a, b) => {
+            const dateA = parseRelativeDateToDays(a.datePosted);
+            const dateB = parseRelativeDateToDays(b.datePosted);
+            if (dateA !== dateB) {
+              return dateA - dateB;
+            }
+            const scoreA = a.matchData ? a.matchData.score : 0;
+            const scoreB = b.matchData ? b.matchData.score : 0;
+            return scoreB - scoreA;
+          });
+        }
+        return sorted;
+      }
+
+      let currentFetchedJobs = [];
+
+      const dashSortSelect = document.getElementById('dashSortSelect');
+      if (dashSortSelect) {
+        dashSortSelect.addEventListener('change', () => {
+          if (currentFetchedJobs && currentFetchedJobs.length > 0) {
+            renderJobsList(currentFetchedJobs);
+          }
+        });
+      }
+
+      function getSavedJobs() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveJobsToStorage(jobs) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(jobs));
+        } catch (e) {}
+      }
+
+      function updateBadges() {
+        const count = getSavedJobs().length;
+        const badge = document.getElementById('savedCountBadge');
+        const overviewSaved = document.getElementById('overviewSavedCount');
+        if (badge) badge.textContent = count;
+        if (overviewSaved) overviewSaved.textContent = count;
+      }
+
+      function toggleSave(job) {
+        let saved = getSavedJobs();
+        const idx = saved.findIndex(j => j.id === job.id);
+        let isNowSaved = false;
+
+        if (idx >= 0) {
+          saved.splice(idx, 1);
+          isNowSaved = false;
+        } else {
+          saved.unshift(job);
+          isNowSaved = true;
+        }
+
+        saveJobsToStorage(saved);
+        updateBadges();
+
+        document.querySelectorAll(`.btn-bookmark[data-id="${job.id}"]`).forEach(btn => {
+          btn.classList.toggle('saved', isNowSaved);
+        });
+
+        const viewSaved = document.getElementById('viewSavedJobs');
+        if (viewSaved && viewSaved.classList.contains('active')) {
+          renderSavedJobs();
+        }
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>'"]/g, 
+          tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+        );
+      }
+
+      function createJobCard(job, isSaved) {
+        const card = document.createElement('article');
+        card.className = 'job-card';
+        card.setAttribute('data-id', job.id);
+
+        let platformBadgeHtml = '';
+        if (job.platform === 'linkedin') {
+          platformBadgeHtml = `<span class="job-platform-badge linkedin"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.66 1.63 1.63 1.63 0 0 0 1.66 1.62c.9 0 1.63-.73 1.63-1.62 0-.9-.73-1.63-1.63-1.63Z"/></svg> LinkedIn</span>`;
+        } else if (job.platform === 'indeed') {
+          platformBadgeHtml = `<span class="job-platform-badge indeed"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> Indeed</span>`;
+        } else if (job.platform === 'naukri') {
+          platformBadgeHtml = `<span class="job-platform-badge naukri"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Naukri</span>`;
+        }
+
+        const match = job.matchData || calculateJobMatch(job);
+        const matchBadgeHtml = `<span class="job-match-badge ${match.level}" title="Portfolio AI Match: ${match.score} pts"><span class="match-dot"></span>${match.label}</span>`;
+
+        const skillsHtml = (job.skills || []).slice(0, 4).map((s, i, arr) => {
+          const sep = i < arr.length - 1 ? `<span class="tech-sep">·</span>` : '';
+          return `<span>${escapeHtml(s)}</span>${sep}`;
+        }).join(' ');
+
+        const salaryBadge = job.salary ? `<span class="job-salary-badge">${escapeHtml(job.salary)}</span>` : '';
+
+        card.innerHTML = `
+          <div class="job-card-top">
+            <div class="job-card-meta">
+              <div class="job-badges-inline">
+                ${platformBadgeHtml}
+                ${matchBadgeHtml}
+              </div>
+              <div class="job-company">${escapeHtml(job.company)}</div>
+              <div class="job-location">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>${escapeHtml(job.location)}</span>
+              </div>
+            </div>
+            <div class="job-card-actions">
+              <span class="job-type-badge">${escapeHtml(job.type || 'Full-time')}</span>
+              <button type="button" class="btn-bookmark ${isSaved ? 'saved' : ''}" data-id="${escapeHtml(job.id)}" aria-label="Bookmark Job">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="${isSaved ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="job-title">${escapeHtml(job.title)}</h3>
+          <p class="job-desc">${escapeHtml(job.description)}</p>
+          <div class="job-skills-row">${skillsHtml}</div>
+          <div class="job-card-footer">
+            <div style="display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap;">
+              <span class="job-posted-date">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>${escapeHtml(job.datePosted)}</span>
+              </span>
+              ${salaryBadge}
+            </div>
+            <a href="${escapeHtml(job.url)}" target="_blank" rel="noopener noreferrer" class="btn-apply-job">Apply &rarr;</a>
+          </div>
+        `;
+
+        const bmBtn = card.querySelector('.btn-bookmark');
+        if (bmBtn) {
+          bmBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSave(job);
+          });
+        }
+
+        return card;
+      }
+
+      function renderJobsList(jobs) {
+        const resultsGrid = document.getElementById('dashResultsGrid');
+        const resultsMetaBar = document.getElementById('dashResultsMetaBar');
+        const countBadge = document.getElementById('dashCountNum');
+        const sortBy = dashSortSelect ? dashSortSelect.value : 'match';
+
+        resultsGrid.innerHTML = '';
+
+        if (!jobs || jobs.length === 0) {
+          if (resultsMetaBar) resultsMetaBar.style.display = 'none';
+          resultsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 4.5rem 1.5rem; color: #737373;">
+              <p style="font-size: 1.15rem; color: #f5f5f5; margin-bottom: 0.5rem; font-weight: 600;">No matching roles found</p>
+              <p style="font-size: 0.88rem; margin-bottom: 1.25rem;">Try broadening your keywords or selecting "All Platforms" / "All Locations".</p>
+              <button type="button" class="btn-retry" id="btnResetFilters" style="margin: 0 auto;">Reset All Filters</button>
+            </div>
+          `;
+          const btnReset = document.getElementById('btnResetFilters');
+          if (btnReset) {
+            btnReset.addEventListener('click', () => {
+              if (dashKeywordInput) dashKeywordInput.value = '';
+              if (dashLocationSelect) dashLocationSelect.value = 'All';
+              activePlatform = 'all';
+              activePillType = 'all';
+              document.querySelectorAll('.platform-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-platform') === 'all'));
+              document.querySelectorAll('.pill-btn').forEach(p => p.classList.toggle('active', p.getAttribute('data-type') === 'all'));
+              executeDashSearch();
+            });
+          }
+          return;
+        }
+
+        if (resultsMetaBar) resultsMetaBar.style.display = 'flex';
+        if (countBadge) countBadge.textContent = jobs.length;
+
+        const sorted = sortJobs(jobs, sortBy);
+        const saved = getSavedJobs();
+        const savedIds = new Set(saved.map(j => j.id));
+
+        sorted.forEach(job => {
+          const card = createJobCard(job, savedIds.has(job.id));
+          resultsGrid.appendChild(card);
+        });
+      }
+
+      // 5. Search Execution (Calls API with Graceful Offline Fallback & Error State)
+      // Pills Toggle
+      document.querySelectorAll('.pill-btn').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.pill-btn').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          activePillType = pill.getAttribute('data-type') || 'all';
+          executeDashSearch();
+        });
+      });
+
+      // Search Button Click
+      const btnDashSearch = document.getElementById('btnDashSearch');
+      if (btnDashSearch) {
+        btnDashSearch.addEventListener('click', () => {
+          executeDashSearch();
+        });
+      }
+
+      // Input Enter Key
+      const dashKeywordInput = document.getElementById('dashKeywordInput');
+      if (dashKeywordInput) {
+        dashKeywordInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            executeDashSearch();
+          }
+        });
+      }
+
+      // Location Select Change
+      const dashLocationSelect = document.getElementById('dashLocationSelect');
+      if (dashLocationSelect) {
+        dashLocationSelect.addEventListener('change', () => {
+          executeDashSearch();
+        });
+      }
+
+      async function executeDashSearch() {
+        const initialPrompt = document.getElementById('initialPrompt');
+        const skeletonGrid = document.getElementById('dashSkeletonGrid');
+        const resultsGrid = document.getElementById('dashResultsGrid');
+        const query = dashKeywordInput ? dashKeywordInput.value.trim().toLowerCase() : '';
+        const location = dashLocationSelect ? dashLocationSelect.value : 'All';
+
+        const resultsMetaBar = document.getElementById('dashResultsMetaBar');
+        if (initialPrompt) initialPrompt.style.display = 'none';
+        if (resultsMetaBar) resultsMetaBar.style.display = 'none';
+        skeletonGrid.style.display = 'grid';
+        resultsGrid.style.display = 'none';
+        resultsGrid.innerHTML = '';
+
+        try {
+          // Attempt to query live API backend
+          let jobsList = [];
+          const apiUrl = `/api/jobs?platform=${encodeURIComponent(activePlatform)}&q=${encodeURIComponent(query)}&location=${encodeURIComponent(location)}&type=${encodeURIComponent(activePillType)}`;
+          
+          try {
+            const resp = await fetch(apiUrl);
+            if (resp.ok) {
+              const data = await resp.json();
+              jobsList = data.jobs || [];
+            } else {
+              throw new Error(`HTTP ${resp.status}`);
+            }
+          } catch (netErr) {
+            // Offline / static file mode: client-side filter over DEFAULT_SCRAPED_JOBS
+            jobsList = DEFAULT_SCRAPED_JOBS.filter(job => {
+              const matchPlatform = activePlatform === 'all' || (job.platform && job.platform.toLowerCase() === activePlatform.toLowerCase());
+              const matchQ = !query || 
+                job.title.toLowerCase().includes(query) ||
+                job.company.toLowerCase().includes(query) ||
+                (job.skills && job.skills.some(s => s.toLowerCase().includes(query))) ||
+                (job.description && job.description.toLowerCase().includes(query));
+
+              let matchLoc = true;
+              if (location && location !== 'All') {
+                if (location === 'Remote') {
+                  matchLoc = (job.location && job.location.toLowerCase().includes('remote')) || (job.type && job.type.toLowerCase().includes('remote'));
+                } else if (location === 'Delhi') {
+                  matchLoc = (job.location && job.location.toLowerCase().includes('delhi'));
+                } else {
+                  matchLoc = (job.location && job.location.toLowerCase().includes(location.toLowerCase()));
+                }
+              }
+
+              let matchType = true;
+              if (activePillType && activePillType !== 'all') {
+                if (activePillType === 'Remote') {
+                  matchType = (job.location && job.location.toLowerCase().includes('remote')) || (job.type && job.type.toLowerCase().includes('remote'));
+                } else {
+                  matchType = job.type && job.type.toLowerCase() === activePillType.toLowerCase();
+                }
+              }
+
+              return matchPlatform && matchQ && matchLoc && matchType;
+            });
+          }
+
+          // Shimmer delay for fluid UX
+          await new Promise(r => setTimeout(r, 260));
+
+          const saved = getSavedJobs();
+          const savedIds = new Set(saved.map(j => j.id));
+
+          skeletonGrid.style.display = 'none';
+          resultsGrid.style.display = 'grid';
+
+          // Score each job against user's portfolio profile
+          jobsList.forEach(job => {
+            job.matchData = calculateJobMatch(job);
+          });
+          currentFetchedJobs = jobsList;
+          renderJobsList(currentFetchedJobs);
+
+        } catch (fatalErr) {
+          skeletonGrid.style.display = 'none';
+          resultsGrid.style.display = 'grid';
+          resultsGrid.innerHTML = `
+            <div class="search-error-container">
+              <div class="search-error-title">⚠️ Apify Search Service Notice</div>
+              <div class="search-error-desc">Unable to retrieve live listings at this moment (${escapeHtml(fatalErr.message)}). Please try again or switch platform.</div>
+              <button type="button" class="btn-retry" onclick="executeDashSearch()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                <span>Retry Search</span>
+              </button>
+            </div>
+          `;
+        }
+      }
+
+      // ======================================================================
+      // DISCOVER MORE JOBS CONTROLLER (Manual On-Demand Search)
+      // ======================================================================
+      let discoverActivePlatform = 'all';
+      let discoverActivePillType = 'all';
+      let discoverFetchedJobs = [];
+
+      // Discover Platform Selector
+      document.querySelectorAll('.discover-plat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.discover-plat-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          discoverActivePlatform = btn.getAttribute('data-platform') || 'all';
+          const query = document.getElementById('discoverKeywordInput')?.value.trim();
+          if (query) executeDiscoverSearch();
+        });
+      });
+
+      // Discover Type Pills
+      document.querySelectorAll('.discover-pill-btn').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.discover-pill-btn').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          discoverActivePillType = pill.getAttribute('data-type') || 'all';
+          const query = document.getElementById('discoverKeywordInput')?.value.trim();
+          if (query) executeDiscoverSearch();
+        });
+      });
+
+      // Discover Location Select
+      const discoverLocationSelect = document.getElementById('discoverLocationSelect');
+      if (discoverLocationSelect) {
+        discoverLocationSelect.addEventListener('change', () => {
+          const query = document.getElementById('discoverKeywordInput')?.value.trim();
+          if (query) executeDiscoverSearch();
+        });
+      }
+
+      // Discover Sort Select
+      const discoverSortSelect = document.getElementById('discoverSortSelect');
+      if (discoverSortSelect) {
+        discoverSortSelect.addEventListener('change', () => {
+          if (discoverFetchedJobs && discoverFetchedJobs.length > 0) {
+            renderDiscoverJobsList(discoverFetchedJobs);
+          }
+        });
+      }
+
+      // Discover Search Button
+      const btnDiscoverSearch = document.getElementById('btnDiscoverSearch');
+      if (btnDiscoverSearch) {
+        btnDiscoverSearch.addEventListener('click', () => {
+          executeDiscoverSearch();
+        });
+      }
+
+      // Discover Input Enter Key
+      const discoverKeywordInput = document.getElementById('discoverKeywordInput');
+      if (discoverKeywordInput) {
+        discoverKeywordInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            executeDiscoverSearch();
+          }
+        });
+      }
+
+      function renderDiscoverJobsList(jobs) {
+        const resultsGrid = document.getElementById('discoverResultsGrid');
+        const metaBar = document.getElementById('discoverResultsMetaBar');
+        const countBadge = document.getElementById('discoverCountNum');
+        const sortBy = discoverSortSelect ? discoverSortSelect.value : 'match';
+
+        resultsGrid.innerHTML = '';
+        if (metaBar) metaBar.style.display = 'flex';
+        if (countBadge) countBadge.textContent = jobs.length;
+
+        const sorted = sortJobs(jobs, sortBy);
+        const saved = getSavedJobs();
+        const savedIds = new Set(saved.map(j => j.id));
+
+        sorted.forEach(job => {
+          const card = createJobCard(job, savedIds.has(job.id));
+          resultsGrid.appendChild(card);
+        });
+      }
+
+      async function executeDiscoverSearch() {
+        const initialPrompt = document.getElementById('discoverInitialPrompt');
+        const skeletonGrid = document.getElementById('discoverSkeletonGrid');
+        const resultsGrid = document.getElementById('discoverResultsGrid');
+        const noticeContainer = document.getElementById('discoverNoticeContainer');
+        const metaBar = document.getElementById('discoverResultsMetaBar');
+        const rawQuery = discoverKeywordInput ? discoverKeywordInput.value.trim() : '';
+        const query = rawQuery.toLowerCase();
+        const location = discoverLocationSelect ? discoverLocationSelect.value : 'All';
+
+        if (!query) {
+          if (initialPrompt) initialPrompt.style.display = 'block';
+          if (noticeContainer) noticeContainer.style.display = 'none';
+          if (resultsGrid) resultsGrid.style.display = 'none';
+          if (metaBar) metaBar.style.display = 'none';
+          if (discoverKeywordInput) discoverKeywordInput.focus();
+          return;
+        }
+
+        if (initialPrompt) initialPrompt.style.display = 'none';
+        if (noticeContainer) noticeContainer.style.display = 'none';
+        if (metaBar) metaBar.style.display = 'none';
+        if (resultsGrid) {
+          resultsGrid.style.display = 'none';
+          resultsGrid.innerHTML = '';
+        }
+        if (skeletonGrid) skeletonGrid.style.display = 'grid';
+
+        try {
+          let jobsList = [];
+          const apiUrl = `/api/jobs?platform=${encodeURIComponent(discoverActivePlatform)}&q=${encodeURIComponent(query)}&location=${encodeURIComponent(location)}&type=${encodeURIComponent(discoverActivePillType)}`;
+
+          try {
+            const resp = await fetch(apiUrl);
+            if (resp.ok) {
+              const data = await resp.json();
+              jobsList = data.jobs || [];
+            } else {
+              throw new Error(`HTTP ${resp.status}`);
+            }
+          } catch (netErr) {
+            jobsList = DEFAULT_SCRAPED_JOBS.filter(job => {
+              const matchPlatform = discoverActivePlatform === 'all' || (job.platform && job.platform.toLowerCase() === discoverActivePlatform.toLowerCase());
+              const matchQ = !query || 
+                job.title.toLowerCase().includes(query) ||
+                job.company.toLowerCase().includes(query) ||
+                (job.skills && job.skills.some(s => s.toLowerCase().includes(query))) ||
+                (job.description && job.description.toLowerCase().includes(query));
+
+              let matchLoc = true;
+              if (location && location !== 'All') {
+                if (location === 'Remote') {
+                  matchLoc = (job.location && job.location.toLowerCase().includes('remote')) || (job.type && job.type.toLowerCase().includes('remote'));
+                } else if (location === 'Delhi') {
+                  matchLoc = (job.location && job.location.toLowerCase().includes('delhi'));
+                } else {
+                  matchLoc = (job.location && job.location.toLowerCase().includes(location.toLowerCase()));
+                }
+              }
+
+              let matchType = true;
+              if (discoverActivePillType && discoverActivePillType !== 'all') {
+                if (discoverActivePillType === 'Remote') {
+                  matchType = (job.location && job.location.toLowerCase().includes('remote')) || (job.type && job.type.toLowerCase().includes('remote'));
+                } else {
+                  matchType = job.type && job.type.toLowerCase() === discoverActivePillType.toLowerCase();
+                }
+              }
+
+              return matchPlatform && matchQ && matchLoc && matchType;
+            });
+          }
+
+          await new Promise(r => setTimeout(r, 260));
+          if (skeletonGrid) skeletonGrid.style.display = 'none';
+
+          if (jobsList.length === 0) {
+            // Live search unconfigured state (matching user screenshot)
+            if (noticeContainer) {
+              noticeContainer.innerHTML = `
+                <p class="discover-live-msg">Live search isn't configured yet &mdash; add APIFY_TOKEN to the server environment.</p>
+                <button type="button" class="btn-discover-retry" id="btnDiscoverRetry">RETRY</button>
+              `;
+              noticeContainer.style.display = 'flex';
+
+              const btnRetry = document.getElementById('btnDiscoverRetry');
+              if (btnRetry) {
+                btnRetry.addEventListener('click', () => {
+                  executeDiscoverSearch();
+                });
+              }
+            }
+          } else {
+            // Matching jobs found
+            jobsList.forEach(job => {
+              job.matchData = calculateJobMatch(job);
+            });
+            discoverFetchedJobs = jobsList;
+            if (resultsGrid) resultsGrid.style.display = 'grid';
+            renderDiscoverJobsList(discoverFetchedJobs);
+          }
+
+        } catch (err) {
+          if (skeletonGrid) skeletonGrid.style.display = 'none';
+          if (noticeContainer) {
+            noticeContainer.innerHTML = `
+              <p class="discover-live-msg">Live search isn't configured yet &mdash; add APIFY_TOKEN to the server environment.</p>
+              <button type="button" class="btn-discover-retry" id="btnDiscoverRetry">RETRY</button>
+            `;
+            noticeContainer.style.display = 'flex';
+            const btnRetry = document.getElementById('btnDiscoverRetry');
+            if (btnRetry) {
+              btnRetry.addEventListener('click', () => {
+                executeDiscoverSearch();
+              });
+            }
+          }
+        }
+      }
+
+      function renderSavedJobs() {
+        const grid = document.getElementById('savedJobsGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        const saved = getSavedJobs();
+
+        if (saved.length === 0) {
+          grid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1.5rem; color: #737373;">
+              <p style="font-size: 1.1rem; color: #f5f5f5; margin-bottom: 0.5rem; font-weight: 600;">No saved jobs yet</p>
+              <p style="font-size: 0.88rem;">Bookmark roles in the Find Jobs view to track them here.</p>
+            </div>
+          `;
+          return;
+        }
+
+        saved.forEach(job => {
+          const card = createJobCard(job, true);
+          grid.appendChild(card);
+        });
+      }
+
+      // Update Overview stats dynamically
+      const trackedMetric = document.querySelector('.metric-card .metric-value');
+      if (trackedMetric) {
+        trackedMetric.textContent = DEFAULT_SCRAPED_JOBS.length;
+      }
+      updateBadges();
+
+      // Automatically load and render jobs on initial page load if unlocked
+      if (sessionStorage.getItem(AUTH_KEY) === 'unlocked_9999') {
+        executeDashSearch();
+      }
+
+    });
+  </script>
+</body>
+</html>
+
