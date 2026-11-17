@@ -19,11 +19,13 @@ module.exports = async function handler(req, res) {
   if (apiKey) {
     try {
       const topicMap = {
-        tools: 'artificial intelligence new AI tools announcements software releases 2026',
-        automation: 'AI workflow automation n8n agentic autonomous pipelines',
-        llms: 'frontier large language models benchmarks open source LLM updates',
-        business: 'enterprise AI adoption business ROI technology deployment',
-        all: 'latest artificial intelligence frontier models autonomous agents breakthroughs 2026'
+        'all': 'latest artificial intelligence frontier models autonomous agents breakthroughs 2026',
+        'ai-tools': 'artificial intelligence new AI tools announcements software releases 2026',
+        'tools': 'artificial intelligence new AI tools announcements software releases 2026',
+        'automation': 'AI workflow automation n8n agentic autonomous pipelines',
+        'llms': 'frontier large language models benchmarks open source LLM updates',
+        'business-tech': 'enterprise AI adoption business ROI technology deployment',
+        'business': 'enterprise AI adoption business ROI technology deployment'
       };
 
       const queryStr = topicMap[category] || topicMap.all;
@@ -51,7 +53,9 @@ module.exports = async function handler(req, res) {
           summary: r.content || '',
           url: r.url || '#',
           source: (r.url ? new URL(r.url).hostname.replace(/^www\./, '') : 'AI Radar'),
-          timeAgo: 'Recently'
+          published: 'Updated moments ago',
+          timeAgo: 'Recently',
+          category: category
         }));
 
         if (articles.length > 0) {

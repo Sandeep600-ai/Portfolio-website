@@ -511,15 +511,16 @@
     /* AI Pulse Section Light Mode Polish */
     [data-theme="light"] .pulse-news-card {
       background: #ffffff !important;
-      border-color: rgba(0, 0, 0, 0.08) !important;
-      border-left: 3px solid var(--accent) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+      border: 1px solid rgba(212, 83, 31, 0.22) !important;
+      border-left: 3.5px solid var(--accent) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 0 16px -2px rgba(212, 83, 31, 0.14), -2px 0 10px rgba(212, 83, 31, 0.18) !important;
     }
 
     [data-theme="light"] .pulse-news-card:hover {
-      border-color: rgba(0, 0, 0, 0.12) !important;
+      border-color: rgba(212, 83, 31, 0.45) !important;
       border-left-color: var(--accent) !important;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08), 0 0 20px rgba(212, 83, 31, 0.12) !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08), 0 0 24px rgba(212, 83, 31, 0.22), -3px 0 14px rgba(212, 83, 31, 0.3) !important;
     }
 
     [data-theme="light"] .pulse-card-title {
@@ -582,16 +583,22 @@
     }
 
     [data-theme="light"] .btn-read-news {
-      background: #f8fafc !important;
-      border-color: rgba(0, 0, 0, 0.12) !important;
-      color: #0f172a !important;
+      background: var(--accent) !important;
+      border: 1px solid rgba(212, 83, 31, 0.4) !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 10px rgba(212, 83, 31, 0.28), 0 0 10px rgba(212, 83, 31, 0.15) !important;
+    }
+
+    [data-theme="light"] .pulse-news-card:hover .btn-read-news {
+      box-shadow: 0 4px 14px rgba(212, 83, 31, 0.38), 0 0 14px rgba(212, 83, 31, 0.22) !important;
     }
 
     [data-theme="light"] .btn-read-news:hover {
-      background: var(--accent) !important;
-      border-color: var(--accent) !important;
+      background: #e8622a !important;
+      border-color: #e8622a !important;
       color: #ffffff !important;
-      box-shadow: 0 4px 14px rgba(212, 83, 31, 0.35) !important;
+      box-shadow: 0 4px 16px rgba(212, 83, 31, 0.42), 0 0 16px rgba(212, 83, 31, 0.25) !important;
+      transform: translateY(-2px) !important;
     }
 
     /* Contact Section Light Mode Polish */
@@ -897,6 +904,9 @@
       scroll-behavior: smooth;
       scroll-padding-top: 5rem;
       color-scheme: dark;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
     }
 
     body {
@@ -908,6 +918,8 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
       position: relative;
     }
 
@@ -950,9 +962,9 @@
     }
 
     section {
-      padding: 3.75rem 0;
+      padding: 2.25rem 0;
       position: relative;
-      scroll-margin-top: 5rem;
+      scroll-margin-top: 4.5rem;
     }
 
     /* Section Headers */
@@ -1573,12 +1585,12 @@
        ABOUT / PROFILE SECTION
        ========================================================================== */
     #about {
-      padding-top: 2rem;
-      padding-bottom: 3.75rem;
+      padding-top: 1.5rem;
+      padding-bottom: 2.25rem;
     }
 
     .about-header-block {
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .about-eyebrow {
@@ -1801,7 +1813,7 @@
        SKILLS SECTION
        ========================================================================== */
     .skills-header-block {
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .toolkit-eyebrow {
@@ -1962,7 +1974,7 @@
        FEATURED PROJECTS SECTION (Reference Match)
        ========================================================================== */
     .projects-header-block {
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .selected-work-eyebrow {
@@ -2531,12 +2543,12 @@
        PRIVATE JOB MARKET SECTION (CIRCULAR RECTANGULAR CARD)
        ========================================================================== */
     .private-jobs-section {
-      padding: 3.5rem 0;
+      padding: 2.25rem 0;
       position: relative;
     }
 
     .private-jobs-header-block {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .private-jobs-eyebrow {
@@ -2838,8 +2850,8 @@
        AI PULSE SECTION (LIVE NEWS RADAR)
        ========================================================================== */
     .ai-pulse-section {
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
+      padding-top: 2.25rem;
+      padding-bottom: 2.25rem;
       position: relative;
     }
 
@@ -2849,7 +2861,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1.25rem;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .pulse-header-left {
@@ -2952,6 +2964,13 @@
       box-shadow: 0 0 14px rgba(232, 98, 42, 0.25);
     }
 
+    .btn-refresh-pulse:disabled,
+    .btn-refresh-pulse.spinning {
+      opacity: 0.75;
+      cursor: wait;
+      pointer-events: none;
+    }
+
     .btn-refresh-pulse.spinning .refresh-icon {
       animation: spinPulseRefresh 0.8s linear infinite;
     }
@@ -3011,9 +3030,9 @@
 
     /* News Card */
     .pulse-news-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
+      background: linear-gradient(180deg, rgba(232, 98, 42, 0.03) 0%, rgba(20, 20, 20, 1) 35%, rgba(18, 18, 18, 1) 100%);
+      border: 1px solid rgba(232, 98, 42, 0.22);
+      border-left: 3.5px solid var(--accent);
       border-radius: 12px;
       padding: 1.5rem 1.65rem;
       display: flex;
@@ -3021,13 +3040,14 @@
       justify-content: space-between;
       transition: var(--transition);
       position: relative;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6), 0 0 16px -2px rgba(232, 98, 42, 0.18), -2px 0 12px rgba(232, 98, 42, 0.22);
     }
 
     .pulse-news-card:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-      border-left-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 22px rgba(232, 98, 42, 0.15);
+      border-color: rgba(232, 98, 42, 0.45);
+      border-left-color: #ff7538;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.75), 0 0 26px 2px rgba(232, 98, 42, 0.28), -3px 0 18px rgba(232, 98, 42, 0.45);
     }
 
     .pulse-card-meta {
@@ -3093,26 +3113,31 @@
     .btn-read-news {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.38rem 0.95rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      gap: 0.38rem;
+      padding: 0.42rem 1.05rem;
+      background: var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 6px;
       font-family: var(--font-mono);
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       font-weight: 600;
       letter-spacing: 0.04em;
-      color: var(--text-primary);
+      color: #ffffff;
       text-decoration: none;
+      box-shadow: 0 2px 10px rgba(232, 98, 42, 0.32), 0 0 12px rgba(232, 98, 42, 0.2);
       transition: var(--transition);
     }
 
+    .pulse-news-card:hover .btn-read-news {
+      box-shadow: 0 4px 14px rgba(232, 98, 42, 0.45), 0 0 14px rgba(232, 98, 42, 0.28);
+    }
+
     .btn-read-news:hover {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: #ff7538;
+      border-color: rgba(255, 255, 255, 0.25);
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(232, 98, 42, 0.35);
-      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(232, 98, 42, 0.55), 0 0 20px rgba(232, 98, 42, 0.35);
+      transform: translateY(-2px);
     }
 
     /* Skeleton Loading State for AI Pulse */
@@ -3160,7 +3185,7 @@
        CONTACT SECTION
        ========================================================================== */
     .contact-header-block {
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .contact-eyebrow {
@@ -3524,19 +3549,28 @@
       }
 
       .hero-visual-slot {
+        flex: none;
         position: relative;
         right: auto;
         top: auto;
         transform: none;
         width: 100%;
-        max-width: 520px;
-        height: 420px;
-        margin: 1.5rem auto 0;
-        pointer-events: auto;
+        max-width: 440px;
+        height: clamp(280px, 40vh, 350px);
+        margin: 0.75rem auto 0;
+        pointer-events: none; /* Allows natural thumb swipe-scroll without being intercepted by 3D canvas */
+        touch-action: pan-y;
+        overflow: hidden;
       }
 
       .spline-scene-wrapper {
-        pointer-events: auto;
+        pointer-events: none;
+        touch-action: pan-y;
+      }
+
+      .spline-scene-wrapper spline-viewer {
+        pointer-events: none;
+        touch-action: pan-y;
       }
 
       .about-grid,
@@ -3802,7 +3836,26 @@
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1.25rem;
+      }
+
+      .footer-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        width: 100%;
+      }
+
+      .footer-right .back-to-top {
+        display: none !important;
       }
     }
 
@@ -3813,68 +3866,101 @@
       }
 
       section {
-        padding: 2.75rem 0;
+        padding: 1.85rem 0;
+        scroll-margin-top: 3.75rem;
       }
 
       #about {
-        padding-top: 1.5rem;
-        padding-bottom: 2.75rem;
+        padding-top: 1rem;
+        padding-bottom: 1.85rem;
+      }
+
+      .private-jobs-section {
+        padding: 1.85rem 0;
+      }
+
+      .ai-pulse-section {
+        padding-top: 1.85rem;
+        padding-bottom: 1.85rem;
       }
 
       .hero-section {
         min-height: auto;
-        padding: 5.25rem 0 3.25rem;
+        padding: 4.5rem 0 1.5rem;
       }
 
       .hero-eyebrow {
-        font-size: 0.74rem;
+        font-size: 0.76rem;
         line-height: 1.45;
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.85rem;
       }
 
       .hero-title {
-        font-size: clamp(2.95rem, 14vw, 3.85rem);
-        line-height: 0.94;
-        margin-bottom: 1.35rem;
+        font-size: clamp(2.65rem, 11.5vw, 3.4rem);
+        line-height: 0.95;
+        margin-bottom: 0.95rem;
       }
 
       .hero-terminal-pill {
-        font-size: clamp(0.72rem, 3.2vw, 0.82rem);
+        font-size: clamp(0.72rem, 3.2vw, 0.8rem);
         padding: 0.45rem 0.85rem;
         gap: 0.45rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+        max-width: 100%;
       }
 
       .hero-bio {
-        font-size: 0.94rem;
-        line-height: 1.6;
-        margin-bottom: 1.65rem;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        margin-bottom: 1.15rem;
       }
 
       .hero-stats-row {
-        flex-direction: column;
-        gap: 1rem;
-        padding-top: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 0.5rem;
       }
 
       .stat-highlight {
-        font-size: 0.95rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        display: block;
+        line-height: 1.25;
       }
 
       .stat-desc {
-        font-size: 0.74rem;
+        font-size: 0.65rem;
+        line-height: 1.3;
+        color: var(--text-muted);
+        display: block;
+        margin-top: 2px;
+      }
+
+      .hero-visual-slot {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+        height: clamp(260px, 38vh, 310px);
+        margin: 0.25rem auto 0;
+        pointer-events: none;
+        overflow: hidden;
       }
 
       .hero-scroll-indicator {
-        bottom: 0.65rem;
+        display: none !important;
       }
 
       /* Section Header Spacing on 375px */
       .about-header-block,
       .skills-header-block,
       .projects-header-block,
-      .contact-header-block {
-        margin-bottom: 1.65rem;
+      .contact-header-block,
+      .private-jobs-header-block,
+      .pulse-header-wrap {
+        margin-bottom: 1.15rem;
       }
 
       .about-heading,
@@ -5230,6 +5316,7 @@
           const isOpen = navLinks.classList.toggle('active');
           mobileToggle.setAttribute('aria-expanded', isOpen);
           mobileToggle.classList.toggle('active', isOpen);
+          document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         // Close mobile nav when clicking a link
@@ -5238,6 +5325,7 @@
             navLinks.classList.remove('active');
             mobileToggle.classList.remove('active');
             mobileToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
           });
         });
       }
@@ -6341,7 +6429,7 @@
                   "title": "Austere Systems Limited Announces H1 FY27 Results",
                   "source": "Aninews",
                   "published": "2 hours ago",
-                  "summary": "Pune (Maharashtra) [India] baki kuch bhi change nhi krna kerep , November 14: Austere Systems Limited (BSE: AUSTERE), a technology solutions and services company enabling AI-led digital...",
+                  "summary": "Pune (Maharashtra) [India], November 14: Austere Systems Limited (BSE: AUSTERE), a technology solutions and services company enabling AI-led digital...",
                   "url": "https://www.aninews.in/news/business/austere-systems-limited-announces-h1-fy27-results20261114162028",
                   "category": "business-tech"
             }
@@ -6354,9 +6442,9 @@
         card.innerHTML = `
           <div>
             <div class="pulse-card-meta">
-              <span class="pulse-card-source">${escapeHtml(article.source)}</span>
+              <span class="pulse-card-source">${escapeHtml(article.source || 'AI Radar')}</span>
               <span class="pulse-meta-sep">&bull;</span>
-              <span class="pulse-card-time">${escapeHtml(article.published)}</span>
+              <span class="pulse-card-time">${escapeHtml(article.published || article.timeAgo || 'Recently')}</span>
             </div>
             <h3 class="pulse-card-title">${escapeHtml(article.title)}</h3>
             <p class="pulse-card-summary">${escapeHtml(article.summary)}</p>
@@ -6390,6 +6478,8 @@
         });
       }
 
+      const pulseRefreshCounts = {};
+
       async function loadPulseNews(category, bypassCache = false) {
         const grid = document.getElementById('pulseNewsGrid');
         const skeleton = document.getElementById('pulseSkeletonGrid');
@@ -6399,7 +6489,7 @@
 
         const cacheKey = NEWS_CACHE_PREFIX + category;
 
-        // 1. Check 30-minute sessionStorage cache
+        // 1. Check 30-minute sessionStorage cache (if not refreshing)
         if (!bypassCache) {
           try {
             const cached = sessionStorage.getItem(cacheKey);
@@ -6411,25 +6501,51 @@
               }
             }
           } catch (e) { }
+        } else {
+          try {
+            sessionStorage.removeItem(cacheKey);
+          } catch (e) { }
         }
 
-        // 2. Show skeleton loading
-        if (refreshBtn) refreshBtn.classList.add('spinning');
+        // 2. Show skeleton loading & spinning button animation
+        if (refreshBtn) {
+          refreshBtn.classList.add('spinning');
+          refreshBtn.disabled = true;
+        }
         if (skeleton) skeleton.style.display = 'grid';
         grid.style.display = 'none';
 
         try {
-          let articles = [];
-          const resp = await fetch(`/api/news?category=${encodeURIComponent(category)}`);
-          if (resp.ok) {
-            const data = await resp.json();
-            articles = data.articles || [];
-          } else {
-            throw new Error(`HTTP ${resp.status}`);
+          const minDelayMs = bypassCache ? 650 : 200;
+          const minDelayPromise = new Promise(r => setTimeout(r, minDelayMs));
+
+          const fetchPromise = fetch(`/api/news?category=${encodeURIComponent(category)}${bypassCache ? '&refresh=1' : ''}`)
+            .then(res => {
+              if (!res.ok) throw new Error(`HTTP ${res.status}`);
+              return res.json();
+            })
+            .then(data => (data && Array.isArray(data.articles)) ? data.articles : [])
+            .catch(() => null);
+
+          const [_, fetchedArticles] = await Promise.all([minDelayPromise, fetchPromise]);
+
+          let articles = fetchedArticles;
+
+          if (!articles || articles.length === 0) {
+            // Fallback to embedded default articles
+            const defaultList = DEFAULT_PULSE_NEWS[category] || DEFAULT_PULSE_NEWS['all'] || [];
+            articles = defaultList.map(a => ({
+              ...a,
+              published: bypassCache ? 'Updated moments ago' : (a.published || 'Recently')
+            }));
           }
 
-          // Shimmer UX delay
-          await new Promise(r => setTimeout(r, 220));
+          // On manual refresh, rotate items from pool so user gets fresh stories on screen
+          if (bypassCache && Array.isArray(articles) && articles.length > 4) {
+            pulseRefreshCounts[category] = ((pulseRefreshCounts[category] || 0) + 2) % articles.length;
+            const shift = pulseRefreshCounts[category];
+            articles = [...articles.slice(shift), ...articles.slice(0, shift)];
+          }
 
           // Save to cache
           try {
@@ -6442,11 +6558,22 @@
           renderNewsGrid(articles);
 
         } catch (err) {
-          // Fallback to embedded default articles
-          const fallback = DEFAULT_PULSE_NEWS[category] || DEFAULT_PULSE_NEWS['all'] || [];
+          let defaultList = DEFAULT_PULSE_NEWS[category] || DEFAULT_PULSE_NEWS['all'] || [];
+          if (bypassCache && defaultList.length > 4) {
+            pulseRefreshCounts[category] = ((pulseRefreshCounts[category] || 0) + 2) % defaultList.length;
+            const shift = pulseRefreshCounts[category];
+            defaultList = [...defaultList.slice(shift), ...defaultList.slice(0, shift)];
+          }
+          const fallback = defaultList.map(a => ({
+            ...a,
+            published: bypassCache ? 'Updated moments ago' : (a.published || 'Recently')
+          }));
           renderNewsGrid(fallback);
         } finally {
-          if (refreshBtn) refreshBtn.classList.remove('spinning');
+          if (refreshBtn) {
+            refreshBtn.classList.remove('spinning');
+            refreshBtn.disabled = false;
+          }
           if (skeleton) skeleton.style.display = 'none';
           grid.style.display = 'grid';
         }

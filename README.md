@@ -20,7 +20,7 @@ Designed with an obsidian dark aesthetic (`#0a0a0a`), warm orange accents (`#e86
 - **Interactive Project Details Modal**: Deep-dive modal presenting verified business problems, solution overviews, 6-stage workflow pipelines, business & industry use cases, key benefits, and implementation contributions.
 - **Ultra-Crisp Visual Assets**: Dedicated 16:9 widescreen high-definition visual assets (`assets/projects/`) optimized for high-DPI, Retina, and 4K displays.
 - **Job Market Command Center (`/jobs`)**: Standalone private AI job search dashboard protected behind authentication (private tool for owner; not accessible by the public), featuring 45 verified roles across LinkedIn, Indeed, and Naukri with AI profile match scoring.
-- **AI Pulse Live News Radar**: 24-hour real-time AI news feed with category filter pills, 30-minute caching, and Tavily search integration.
+- **AI Pulse Live News Radar**: Real-time AI news feed featuring cards with medium-level perimeter edge glow, natural brand accent action buttons, 5 category filter pills (All, AI Tools, Automation, LLMs, Business Tech), dynamic feed pool cycling on manual refresh, 30-minute client caching, and live Tavily Search API integration.
 - **Navigation & Accessibility**: Sticky glassmorphic header with compact **"Let's Talk &rarr;"** CTA, floating 7-dot left section indicator, and persistent vertical social sidebar.
 - **Vercel Serverless Architecture**: Production serverless endpoints (`/api/news.js`, `/api/jobs.js`, `/api/status.js`) reading environment variables (`TAVILY_API_KEY`, `APIFY_TOKEN`) with zero hardcoded credentials and automatic cache fallback.
 
@@ -87,6 +87,7 @@ Copy the template to create your local `.env`:
 ```bash
 copy .env.example .env
 ```
+*(Optional: Add `TAVILY_API_KEY="tvly-..."` in `.env` to enable real-time live web intelligence in AI Pulse. If omitted, the system seamlessly serves the verified local Tavily dataset).*
 
 ### 3. Launch Local Server
 Run the built-in Node.js development server:

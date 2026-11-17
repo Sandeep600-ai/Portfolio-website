@@ -19,7 +19,33 @@ const MIME_TYPES = {
   '.txt': 'text/plain; charset=utf-8'
 };
 
-const server = http.createServer((req, res) => {
+// Zero-dependency .env loader for local development
+function loadEnv() {
+  const envPath = path.resolve(__dirname, '.env');
+  if (fs.existsSync(envPath)) {
+    try {
+      const content = fs.readFileSync(envPath, 'utf8');
+      for (const rawLine of content.split('\n')) {
+        const line = rawLine.trim();
+        if (!line || line.startsWith('#')) continue;
+        const eqIdx = line.indexOf('=');
+        if (eqIdx !== -1) {
+          const key = line.slice(0, eqIdx).trim();
+          let val = line.slice(eqIdx + 1).trim();
+          if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+            val = val.slice(1, -1);
+          }
+          if (!process.env[key]) {
+            process.env[key] = val;
+          }
+        }
+      }
+    } catch (e) { }
+  }
+}
+loadEnv();
+
+const server = http.createServer(async (req, res) => {
   const host = req.headers.host || `localhost:${PORT}`;
   const parsedUrl = new URL(req.url, `http://${host}`);
   const pathname = parsedUrl.pathname;
@@ -130,6 +156,70 @@ const server = http.createServer((req, res) => {
 
   // 3. API: /api/news
   if (pathname === '/api/news') {
+    const category = (parsedUrl.searchParams.get('category') || 'all').toLowerCase();
+    const apiKey = process.env.TAVILY_API_KEY;
+
+    // A. If Tavily API Key is configured in environment / .env, fetch live results
+    if (apiKey) {
+      try {
+        const topicMap = {
+          'all': 'latest artificial intelligence frontier models autonomous agents breakthroughs 2026',
+          'ai-tools': 'artificial intelligence new AI tools announcements software releases 2026',
+          'tools': 'artificial intelligence new AI tools announcements software releases 2026',
+          'automation': 'AI workflow automation n8n agentic autonomous pipelines',
+          'llms': 'frontier large language models benchmarks open source LLM updates',
+          'business-tech': 'enterprise AI adoption business ROI technology deployment',
+          'business': 'enterprise AI adoption business ROI technology deployment'
+        };
+
+        const queryStr = topicMap[category] || topicMap.all;
+        const tavilyRes = await fetch('https://api.tavily.com/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            api_key: apiKey,
+            query: queryStr,
+            search_depth: 'basic',
+            include_answer: false,
+            max_results: 8,
+            days: 14
+          })
+        });
+
+        if (tavilyRes.ok) {
+          const tavilyData = await tavilyRes.json();
+          const articles = (tavilyData.results || []).map((r, i) => ({
+            id: `${category}-${i + 1}`,
+            title: r.title || 'AI Development Update',
+            summary: r.content || '',
+            url: r.url || '#',
+            source: (r.url ? new URL(r.url).hostname.replace(/^www\./, '') : 'AI Radar'),
+            published: 'Updated moments ago',
+            timeAgo: 'Recently',
+            category: category
+          }));
+
+          if (articles.length > 0) {
+            res.writeHead(200, {
+              'Content-Type': 'application/json',
+              'Cache-Control': 'no-cache'
+            });
+            res.end(JSON.stringify({
+              source: 'live-tavily',
+              lastUpdated: new Date().toISOString(),
+              category: category,
+              total: articles.length,
+              articles: articles
+            }));
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn('[server.js] Live Tavily fetch failed, falling back to cache:', err.message);
+      }
+    }
+
+    // B. Fallback to cached verified news data (data/news.json)
     const newsFile = path.resolve(PUBLIC_DIR, 'data', 'news.json');
     if (!fs.existsSync(newsFile)) {
       res.writeHead(404, { 'Content-Type': 'application/json' });
@@ -139,18 +229,24 @@ const server = http.createServer((req, res) => {
 
     try {
       const data = JSON.parse(fs.readFileSync(newsFile, 'utf8'));
-      const category = (parsedUrl.searchParams.get('category') || 'all').toLowerCase();
-      const articles = data.categories[category] || data.categories['all'] || [];
+      let articles = data.categories[category] || data.categories['all'] || [];
+      const isRefresh = parsedUrl.searchParams.get('refresh') === '1';
+
+      if (isRefresh && articles.length > 4) {
+        // Rotate pool so subsequent refreshes cycle new articles
+        articles = [...articles.slice(2), ...articles.slice(0, 2)];
+      }
 
       res.writeHead(200, {
         'Content-Type': 'application/json',
         'Cache-Control': 'no-cache'
       });
       res.end(JSON.stringify({
-        lastUpdated: data.lastUpdated,
+        source: 'cached',
+        lastUpdated: isRefresh ? new Date().toISOString() : data.lastUpdated,
         category: category,
         total: articles.length,
-        articles: articles.slice(0, 8)
+        articles: articles
       }));
       return;
     } catch (e) {
