@@ -605,6 +605,46 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
     - Result: Every single click on "Refresh News" now genuinely swaps in fresh, real-world AI news stories right on the screen.
 - **Outcome**: The AI Pulse radar now displays authentic, real-time November 2026 intelligence from the connected Tavily MCP server, and clicking "Refresh News" immediately updates the cards with fresh articles every time.
 
+### Decision 43: AI Pulse Strict 50/50 Card Symmetry & Content Sanitization (2026-11-18)
+- **Context**: The user identified that on the "AI Pulse" news page under the "All" tab, the left card appeared significantly wider (~500px) and the right card was squeezed (~200px), causing visual distortion.
+- **Root Cause**: Raw markdown table pipes (`||| --- |`) and social login boilerplate fragments from web scraped articles were unparsed and unconstrained, forcing CSS grid tracks to auto-expand to accommodate non-breaking markdown tables.
+- **Decision & Implementation**:
+  - Replaced `grid-template-columns: repeat(2, 1fr)` with strict `repeat(2, minmax(0, 1fr))` and added `overflow-wrap: break-word` and `word-break: break-word`.
+  - Added strict height normalization: titles clamped to 2 lines (`min-height: 2.85rem`), summaries clamped to 3 lines (`min-height: 3.9rem`), and card body anchored via flex column layout.
+  - Implemented `cleanPulseText()` to filter markdown table syntax, login prompts, and garbage characters across feeds.
+- **Outcome**: Flawless, equal-width 50/50 card presentation across all categories with clean article summaries.
+
+### Decision 44: Skills & Tools Mobile 2-Column Symmetrical Tag Grid (2026-11-18)
+- **Context**: On compact mobile screens, certain categories (like `# AUTOMATION`) had slightly longer pill titles (e.g. `REST API Integrations`) that caused pills to wrap into an awkward single-column vertical stack of 6 items while adjacent cards had 2 columns.
+- **Decision & Implementation**:
+  - Replaced fluid flex-wrapping with a responsive 2-column grid (`display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem;`) across all 4 category cards on viewports `<= 768px` and `<= 480px`.
+  - Streamlined `REST API Integrations` to `REST APIs` so all 4 cards contain exactly 6 tags in a balanced, identical 3x2 matrix.
+- **Outcome**: Symmetrical 2-column matrix across all 4 skill categories with zero awkward single-pill wrapping on mobile.
+
+### Decision 45: Hero CTA Buttons, Dynamic Headline Scaling & Custom SK Monogram Logo (2026-11-18)
+- **Context**: The user requested removing the 3 generic hero stats cards and replacing them with dual CTA buttons (`View Projects →` and `Get in Touch`), scaling the name headline so `Sandeep` is commanding and `Kumar.` is noticeably smaller, and adding a custom geometric SK monogram logo in the header.
+- **Decision & Implementation**:
+  - Headline Scaling: Applied `clamp(5.4rem, 13vw, 9.25rem)` to `.hero-title-first` (Sandeep) and `clamp(4.4rem, 10.5vw, 7.5rem)` to `.hero-title-last` (Kumar.), creating a clear typographic hierarchy.
+  - Hero Actions: Added side-by-side buttons: `.btn-hero-primary` (`View Projects →`) in glowing warm orange (`#e8622a`) and `.btn-hero-secondary` (`Get in Touch`) in dark glass with subtle border.
+  - Custom SK Monogram: Decoded raw scanlines from the user's reference logo image to extract exact vector and PNG geometry (white 'S' + warm orange chevron '<' for 'K') and placed it at `height: 22px; width: auto; aspect-ratio: 256/160;` in the header navigation before `Sandeep Kumar.`.
+- **Outcome**: High-impact, personalized hero section with brand monogram and clear primary/secondary call-to-actions.
+
+### Decision 46: Desktop Robot Enlargement with Smooth Transitions & Ambient Depth (2026-11-18)
+- **Context**: The user requested enlarging the 3D Spline robot slightly on desktop with smooth transitions while maintaining hero layout visibility and balance.
+- **Decision & Implementation**:
+  - Scaled the robot stage container (`.hero-visual-slot`) to `max-width: clamp(700px, 58vw, 920px)` and `height: clamp(600px, 80vh, 850px)`.
+  - Added smooth transition `transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;` with bottom-anchored origin (`transform-origin: center bottom;`).
+  - Enlarged ambient backlight aura behind the chest/shoulders (`filter: blur(40px)`) to provide contrast and depth against the obsidian floor without overlapping headline text.
+- **Outcome**: Life-sized, visually striking 3D robot agent with fluid scaling and seamless section integration.
+
+### Decision 47: Mobile Hero CTA Buttons Strict Single-Row Alignment & Robot Framing (2026-11-18)
+- **Context**: In mobile view, the CTA buttons were dropping into a vertical 2-row stack on narrow screens, and the robot had previously been constrained to a small 260px container causing head and arm clipping.
+- **Decision & Implementation**:
+  - Buttons Single-Row Lock: Set `flex-wrap: nowrap;`, `white-space: nowrap;`, and fluid padding/font clamp (`clamp(0.82rem, 3.2vw, 0.92rem)`) on mobile viewports. `View Projects →` sits permanently on the left and `Get in Touch` on the right on the same horizontal row in both Light and Dark modes.
+  - Robot Elevation & Framing: Increased container height to `height: clamp(350px, 50vh, 430px)`, `overflow: visible;`, and centered flex alignment. The entire robot (visor, head, chest, arms, torso) is framed without clipping, fading softly into the Profile section.
+  - Responsive Breakpoint Tuning: Adjusted mobile navigation breakpoint to 860px to ensure tablets in portrait mode display the hamburger drawer cleanly without crowding top navigation links.
+- **Outcome**: Balanced, professional mobile hero section with side-by-side buttons and life-sized 3D robot framing.
+
 ---
 
 ## 3. Approved Design System Tokens
@@ -672,6 +712,14 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
   - **Complete Section Spacing Harmonization & Gap Optimization**: Eliminated excessive 144px-190px dead voids across all website sections; unified desktop gap scale to rhythmic 72px and mobile to 60px; tightened all section header block margins to 1.5rem (1.15rem mobile); synchronized `scroll-margin-top` to 4.5rem desktop / 3.75rem mobile; verified smooth continuous vertical scrolling with zero horizontal overflow.
   - **AI Pulse News Cards Premium Edge Glow & Natural Accent CTA Button**: Added medium-level perimeter edge glow (`box-shadow`), border tint, and dark gradient backdrop to `.pulse-news-card`; updated `.btn-read-news` to naturally display website's warm orange brand accent color (`var(--accent)` = `#e8622a` / `#d4531f`) with white text and smooth `#ff7538` hover lift; updated light mode rules; strictly preserved all other site sections untouched.
   - **Live Tavily MCP Multi-Category Crawl & Dynamic Feed Cycling**: Invoked connected Tavily MCP tool (`tavily_search`) across all 5 categories for real November 2026 AI news; populated `data/news.json` and `DEFAULT_PULSE_NEWS` in `index.html`; added feed pool cycling (`pulseRefreshCounts`) so clicking "Refresh News" genuinely swaps in fresh stories every time; added zero-dependency `.env` loader in `server.js` and wired live Tavily API querying when `TAVILY_API_KEY` is present.
+- **Completed in Session (2026-11-18)**:
+  - **AI Pulse Strict 50/50 Card Symmetry & Content Sanitization**: Fixed grid track distortion where raw markdown table syntax in scraped content caused the left card in the 'All' tab to expand to ~500px and squish the right card to ~200px. Switched to `grid-template-columns: repeat(2, minmax(0, 1fr))` with `overflow-wrap: break-word`, card content flex alignment, 2-line title height normalization, 3-line summary height normalization, and `cleanPulseText()` sanitizer to strip table pipes, markdown headers, and social login fragments.
+  - **Skills & Tools Mobile 2-Column Symmetrical Tag Grid**: Fixed mobile layout where slightly longer pill titles in `# AUTOMATION` wrapped into a single vertical 6-pill column. Implemented a responsive 2-column grid (`repeat(2, minmax(0, 1fr))`) across all 4 category cards on mobile viewports (`<= 768px` and `<= 480px`), tuned card padding and font sizing, and updated 'REST API Integrations' to 'REST APIs' so all cards render in an identical, balanced 3x2 matrix.
+  - **Hero CTA Buttons, Dynamic Headline Scaling & Header Logo Integration**: Replaced the 3 hero stats cards with dual CTA buttons (`View Projects →` in glowing warm orange & `Get in Touch` in dark surface with subtle border), matching user reference image `media_1795006942343_175549ae.png`; scaled "Sandeep" headline to dominant scale (`clamp(5.4rem, 13vw, 9.25rem)`) and "Kumar." to (`clamp(4.4rem, 10.5vw, 7.5rem)`) with Kumar proportionally smaller; fully decoded the reference SK monogram (white 'S' + warm orange chevron '<' for 'K'), generated a high-res 256x160 transparent PNG and vector SVG, and placed it before "Sandeep Kumar" with proportional widescreen dimensions (`height: 22px; width: auto; aspect-ratio: 256/160;`).
+  - **Desktop Robot Enlargement with Smooth Transitions**: Scaled the 3D Spline robot stage to `max-width: clamp(700px, 58vw, 920px)` and `height: clamp(600px, 80vh, 850px)` with smooth `0.6s cubic-bezier(0.16, 1, 0.3, 1)` transitions and enlarged ambient backlight aura (`filter: blur(40px)`). Text and robot coexist with perfect balance and zero clipping.
+  - **Mobile Hero CTA Buttons Web Fidelity & Strict Horizontal Row**: Eliminated vertical stacking/wrapping on narrow mobile screens by setting `flex-wrap: nowrap;`, `white-space: nowrap;`, and responsive font/padding clamp (`clamp(0.82rem, 3.2vw, 0.92rem)`). Both `View Projects →` (on the left) and `Get in Touch` (on the right) sit side-by-side on the exact same horizontal line in both light and dark modes.
+  - **Mobile 3D Robot Alignment & Elevation**: Replaced squeezed 260px-310px height and overflow clipping with `height: clamp(350px, 50vh, 430px)`, `max-width: clamp(320px, 94vw, 390px)`, `overflow: visible`, and centered flex alignment. The robot head, visor, shoulders, chest, arms, and torso remain fully visible, centered under the hero content with warm ambient backlight.
+  - **Tablet & Mobile Header Navigation Alignment**: Adjusted mobile navigation breakpoint to 860px to ensure tablets in portrait view cleanly display the hamburger drawer without crowding top navigation links against the brand logo.
 - **Starting Point for Tomorrow**:
   - Codebase is 100% clean, verified, and hardened with 0 errors/warnings.
   - Ready for public GitHub push and Vercel hosting.

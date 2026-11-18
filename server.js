@@ -188,16 +188,32 @@ const server = http.createServer(async (req, res) => {
 
         if (tavilyRes.ok) {
           const tavilyData = await tavilyRes.json();
-          const articles = (tavilyData.results || []).map((r, i) => ({
-            id: `${category}-${i + 1}`,
-            title: r.title || 'AI Development Update',
-            summary: r.content || '',
-            url: r.url || '#',
-            source: (r.url ? new URL(r.url).hostname.replace(/^www\./, '') : 'AI Radar'),
-            published: 'Updated moments ago',
-            timeAgo: 'Recently',
-            category: category
-          }));
+          function cleanServerText(text) {
+            if (!text) return '';
+            return text
+              .replace(/\|+/g, ' ')
+              .replace(/---+/g, ' ')
+              .replace(/#+\s*/g, '')
+              .replace(/Log\s*In\s*Log\s*In\s*Forgot\s*Account\??/gi, '')
+              .replace(/Accept\s*cookies/gi, '')
+              .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+              .replace(/[\[\]\(\)\{\}]/g, '')
+              .replace(/\s+/g, ' ')
+              .trim();
+          }
+
+          const articles = (tavilyData.results || [])
+            .filter(r => !/facebook\.com|instagram\.com|twitter\.com\/login|pinterest\.com/i.test(r.url || ''))
+            .map((r, i) => ({
+              id: `${category}-${i + 1}`,
+              title: (r.title || 'AI Development Update').replace(/^Log In.*Post\s*/i, '').trim(),
+              summary: cleanServerText(r.content || ''),
+              url: r.url || '#',
+              source: (r.url ? new URL(r.url).hostname.replace(/^www\./, '') : 'AI Radar'),
+              published: 'Updated moments ago',
+              timeAgo: 'Recently',
+              category: category
+            }));
 
           if (articles.length > 0) {
             res.writeHead(200, {

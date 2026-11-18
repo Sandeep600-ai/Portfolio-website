@@ -8,8 +8,11 @@ Designed with an obsidian dark aesthetic (`#0a0a0a`), warm orange accents (`#e86
 
 ## Key Highlights & Features
 
-- **Interactive 3D Robot Hero**: Cinematic Spline 3D robot scene anchored at natural eye-level beside the headline, interactive typewriter terminal box (`• sandeep@ai:~$ [typewriter] ▌`), and seamless obsidian floor alpha blending.
+- **Brand Identity & SK Monogram**: Custom high-resolution vector and raster monogram logo (`assets/logo.svg`, `assets/logo.png`) featuring a crisp white 'S' and warm orange chevron chevron `<` for 'K' beside the brand headline.
+- **Interactive 3D Robot Hero**: Cinematic Spline 3D robot scene anchored at natural eye-level beside the headline, life-sized proportions with smooth `0.6s cubic-bezier` scaling transitions, ambient chest/shoulder backlight aura, interactive typewriter terminal box (`• sandeep@ai:~$ [typewriter] ▌`), and seamless obsidian floor alpha blending.
+- **Responsive Dual Hero CTA Buttons**: Side-by-side **"View Projects &rarr;"** (warm orange glow) and **"Get in Touch"** (dark glass border) buttons with strict single-row horizontal fidelity across both desktop and compact mobile viewports.
 - **Universal Dual Theme System**: Comprehensive **Dark Mode** (`#0a0a0a` / `#141414`) and **Light Mode** (`#f8fafc` / `#ffffff`) with instant anti-flicker `<head>` loader, persistent `localStorage` synchronization, and a header Sun/Moon toggle.
+- **Skills & Toolkit Matrix**: Curated 2x2 category grid (AI Tools, Automation, Content, Business) with developer tech tags, glowing status dots, and a responsive symmetrical 2-column layout on mobile screens.
 - **6 Featured Real-World AI Projects**:
   1. **LedgerAdvance — Finance Dashboard**: Centralized market analytics workstation integrating Alpha Vantage, Twelve Data, and Tavily with Netlify Functions and personal budget surplus planning.
   2. **Customer Complaint Management Automation (n8n)**: Omnichannel support automation leveraging AI extraction, IF/Switch department routing, Google Sheets logging, and email updates.
@@ -20,8 +23,8 @@ Designed with an obsidian dark aesthetic (`#0a0a0a`), warm orange accents (`#e86
 - **Interactive Project Details Modal**: Deep-dive modal presenting verified business problems, solution overviews, 6-stage workflow pipelines, business & industry use cases, key benefits, and implementation contributions.
 - **Ultra-Crisp Visual Assets**: Dedicated 16:9 widescreen high-definition visual assets (`assets/projects/`) optimized for high-DPI, Retina, and 4K displays.
 - **Job Market Command Center (`/jobs`)**: Standalone private AI job search dashboard protected behind authentication (private tool for owner; not accessible by the public), featuring 45 verified roles across LinkedIn, Indeed, and Naukri with AI profile match scoring.
-- **AI Pulse Live News Radar**: Real-time AI news feed featuring cards with medium-level perimeter edge glow, natural brand accent action buttons, 5 category filter pills (All, AI Tools, Automation, LLMs, Business Tech), dynamic feed pool cycling on manual refresh, 30-minute client caching, and live Tavily Search API integration.
-- **Navigation & Accessibility**: Sticky glassmorphic header with compact **"Let's Talk &rarr;"** CTA, floating 7-dot left section indicator, and persistent vertical social sidebar.
+- **AI Pulse Live News Radar**: Real-time AI news feed with strict 50/50 symmetrical card grid, content sanitizer (strips raw markdown tables and login fragments), medium-level perimeter edge glow, natural brand accent action buttons, 5 category filter pills (All, AI Tools, Automation, LLMs, Business Tech), dynamic feed pool cycling on manual refresh, 30-minute client caching, and live Tavily Search API integration.
+- **Navigation & Accessibility**: Sticky glassmorphic header with compact **"Let's Talk &rarr;"** CTA, 860px adaptive responsive breakpoint, floating 7-dot left section indicator, and persistent vertical social sidebar.
 - **Vercel Serverless Architecture**: Production serverless endpoints (`/api/news.js`, `/api/jobs.js`, `/api/status.js`) reading environment variables (`TAVILY_API_KEY`, `APIFY_TOKEN`) with zero hardcoded credentials and automatic cache fallback.
 
 ---
@@ -35,6 +38,8 @@ Portfolio-website/
 │   ├── news.js                         # Tavily live AI news radar with cache fallback
 │   └── status.js                       # Service telemetry & environment status
 ├── assets/                             # Static visual assets
+│   ├── logo.png                        # High-resolution transparent SK monogram logo
+│   ├── logo.svg                        # Vector SVG SK monogram logo
 │   └── projects/                       # High-definition 16:9 project preview graphics
 │       ├── complaint-automation.jpg
 │       ├── complaint-automation.png

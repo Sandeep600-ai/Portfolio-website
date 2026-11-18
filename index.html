@@ -87,7 +87,11 @@
       text-rendering: optimizeLegibility;
     }
 
-    [data-theme="light"] .site-header .nav-brand span {
+    [data-theme="light"] .site-header .nav-brand .nav-brand-text {
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .site-header .nav-brand .brand-dot {
       color: var(--accent) !important;
     }
 
@@ -156,6 +160,30 @@
     [data-theme="light"] .hero-title {
       color: #0f172a;
       text-shadow: none;
+    }
+
+    [data-theme="light"] .hero-title-first {
+      color: #0f172a;
+      text-shadow: none;
+    }
+
+    [data-theme="light"] .hero-title-last {
+      color: #1e293b;
+      text-shadow: none;
+    }
+
+    [data-theme="light"] .btn-hero-secondary {
+      background: #ffffff !important;
+      border: 1.5px solid rgba(0, 0, 0, 0.16) !important;
+      color: #0f172a !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    [data-theme="light"] .btn-hero-secondary:hover {
+      background: rgba(212, 83, 31, 0.08) !important;
+      border-color: rgba(212, 83, 31, 0.6) !important;
+      color: var(--accent) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06), 0 0 12px rgba(212, 83, 31, 0.2) !important;
     }
 
     [data-theme="light"] .hero-terminal-pill {
@@ -1049,18 +1077,33 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.65rem;
       white-space: nowrap;
       transition: text-shadow 0.25s ease;
+    }
+
+    .nav-brand-logo {
+      height: 22px;
+      width: auto;
+      max-width: 36px;
+      aspect-ratio: 256 / 160;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .nav-brand:hover .nav-brand-logo {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 8px rgba(232, 98, 42, 0.5));
     }
 
     .nav-brand:hover {
       text-shadow: 0 0 16px rgba(232, 98, 42, 0.4);
     }
 
-    .nav-brand span {
+    .nav-brand .brand-dot {
       color: var(--accent);
     }
 
@@ -1367,6 +1410,7 @@
     .hero-title,
     .hero-terminal-pill,
     .hero-bio,
+    .hero-actions,
     .hero-stats-row {
       pointer-events: auto;
     }
@@ -1391,13 +1435,32 @@
 
     /* Massive Commanding Headline ("Sandeep\nKumar.") */
     .hero-title {
-      font-size: clamp(4.85rem, 11.6vw, 8.25rem);
       font-weight: 800;
       letter-spacing: -0.048em;
-      line-height: 0.92;
       color: #ffffff;
       margin-bottom: 1.45rem;
       text-shadow: 0 4px 40px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-title-first {
+      font-size: clamp(5.4rem, 13vw, 9.25rem);
+      line-height: 0.88;
+      display: block;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-title-last {
+      font-size: clamp(4.4rem, 10.5vw, 7.5rem);
+      line-height: 0.92;
+      display: block;
+      letter-spacing: -0.045em;
+      color: #f5f5f5;
+    }
+
+    .title-period {
+      color: var(--accent);
     }
 
     /* Terminal Pill Box (Matching Reference: [ • sandeep@ai:~$ Turning Ideas into AI Solutions. ▌ ]) */
@@ -1479,35 +1542,37 @@
 
     /* Cinematic 3D Spline Robot Stage (Grounded, Backlit & Seamlessly Blended) */
     .hero-visual-slot {
-      flex: 1;
+      flex: 1.15;
       width: 100%;
-      max-width: clamp(600px, 50vw, 800px);
-      height: clamp(540px, 72vh, 740px);
+      max-width: clamp(700px, 58vw, 920px);
+      height: clamp(600px, 80vh, 850px);
       position: relative;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin-left: -90px;
-      margin-bottom: -10px;
+      margin-left: -70px;
+      margin-bottom: -15px;
       z-index: 1;
       pointer-events: none;
       overflow: visible;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
     }
 
     /* Subtle Ambient Backlight Behind Robot Chest & Head */
     .hero-visual-slot::before {
       content: "";
       position: absolute;
-      top: 24%;
-      left: 52%;
+      top: 26%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 65%;
-      height: 55%;
+      width: 75%;
+      height: 65%;
       background:
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(232, 98, 42, 0.08) 35%, transparent 70%);
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.07) 0%, rgba(232, 98, 42, 0.12) 35%, transparent 70%);
       pointer-events: none;
       z-index: 0;
-      filter: blur(32px);
+      filter: blur(40px);
+      transition: opacity 0.6s ease;
     }
 
     /* Soft Ground Plane Shadow Under Robot Legs */
@@ -1517,12 +1582,12 @@
       bottom: 2px;
       left: 50%;
       transform: translateX(-50%);
-      width: 75%;
-      height: 70px;
+      width: 80%;
+      height: 75px;
       background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0, 0, 0, 0.85) 0%, rgba(232, 98, 42, 0.05) 45%, transparent 75%);
       pointer-events: none;
       z-index: 0;
-      filter: blur(12px);
+      filter: blur(14px);
     }
 
     .spline-scene-wrapper {
@@ -1535,9 +1600,11 @@
       justify-content: center;
       pointer-events: none;
       z-index: 1;
+      transform-origin: center bottom;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       /* Seamless bottom gradient fade: eliminates raw leg cut-off, melting legs naturally into floor */
-      -webkit-mask-image: linear-gradient(to bottom, #000000 0%, #000000 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
-      mask-image: linear-gradient(to bottom, #000000 0%, #000000 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, #000000 0%, #000000 82%, rgba(0, 0, 0, 0.4) 94%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000000 0%, #000000 82%, rgba(0, 0, 0, 0.4) 94%, transparent 100%);
     }
 
     .spline-scene-wrapper spline-viewer {
@@ -1547,6 +1614,75 @@
       background: transparent !important;
       outline: none;
       pointer-events: auto;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Hero CTA Actions (Matching Reference Image: View Projects → & Get in Touch) */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      margin-top: 1.65rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.82rem 1.65rem;
+      background: var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 9px;
+      color: #ffffff;
+      font-size: 0.96rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(232, 98, 42, 0.42), 0 0 16px rgba(232, 98, 42, 0.22);
+      transition: var(--transition);
+    }
+
+    .btn-hero-primary:hover {
+      background: #ff7538;
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(232, 98, 42, 0.6), 0 0 24px rgba(232, 98, 42, 0.35);
+    }
+
+    .btn-hero-primary .hero-btn-arrow {
+      font-size: 1.05rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-hero-primary:hover .hero-btn-arrow {
+      transform: translateX(3px);
+    }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.82rem 1.65rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border-radius: 9px;
+      color: #f5f5f5;
+      font-size: 0.96rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(232, 98, 42, 0.08);
+      border-color: rgba(232, 98, 42, 0.65);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), 0 0 14px rgba(232, 98, 42, 0.25);
     }
 
     /* Compact 3 Stats Row (Aligned Under Left Column, Space Under Robot Stays Completely Free) */
@@ -2830,7 +2966,7 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .private-jobs-card {
         padding: 2.25rem 1.75rem;
         gap: 1.5rem;
@@ -3015,21 +3151,28 @@
       box-shadow: 0 0 12px rgba(232, 98, 42, 0.28);
     }
 
-    /* News Grid (2 cols desktop, 1 col mobile) */
+    /* News Grid (2 cols desktop, 1 col mobile) - Strict equal 50/50 columns */
     .pulse-news-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.35rem;
+      align-items: stretch;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .pulse-news-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* News Card */
+    /* News Card - Strict Equal Dimensions & Alignment */
     .pulse-news-card {
+      min-width: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-break: break-word;
       background: linear-gradient(180deg, rgba(232, 98, 42, 0.03) 0%, rgba(20, 20, 20, 1) 35%, rgba(18, 18, 18, 1) 100%);
       border: 1px solid rgba(232, 98, 42, 0.22);
       border-left: 3.5px solid var(--accent);
@@ -3050,6 +3193,14 @@
       box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.75), 0 0 26px 2px rgba(232, 98, 42, 0.28), -3px 0 18px rgba(232, 98, 42, 0.45);
     }
 
+    .pulse-card-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-width: 0;
+      width: 100%;
+    }
+
     .pulse-card-meta {
       display: flex;
       align-items: center;
@@ -3063,6 +3214,10 @@
     .pulse-card-source {
       color: #ff9b71;
       font-weight: 600;
+      max-width: 180px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .pulse-meta-sep {
@@ -3082,6 +3237,9 @@
       line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 2.76em;
+      overflow-wrap: break-word;
+      word-break: break-word;
       transition: color 0.2s ease;
     }
 
@@ -3100,6 +3258,9 @@
       line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 4.86em;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .pulse-card-footer {
@@ -3108,6 +3269,8 @@
       justify-content: flex-end;
       padding-top: 0.85rem;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: auto;
+      width: 100%;
     }
 
     .btn-read-news {
@@ -3143,11 +3306,11 @@
     /* Skeleton Loading State for AI Pulse */
     .pulse-skeleton-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.35rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .pulse-skeleton-grid {
         grid-template-columns: 1fr;
       }
@@ -3539,13 +3702,23 @@
       .hero-layout {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         min-height: auto;
       }
 
       .hero-content {
         max-width: 100%;
+        width: 100%;
         pointer-events: auto;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.85rem;
+        flex-wrap: nowrap;
       }
 
       .hero-visual-slot {
@@ -3555,12 +3728,21 @@
         top: auto;
         transform: none;
         width: 100%;
-        max-width: 440px;
-        height: clamp(280px, 40vh, 350px);
-        margin: 0.75rem auto 0;
+        max-width: clamp(340px, 92vw, 460px);
+        height: clamp(380px, 54vh, 480px);
+        margin: 1.5rem auto 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
         pointer-events: none; /* Allows natural thumb swipe-scroll without being intercepted by 3D canvas */
         touch-action: pan-y;
-        overflow: hidden;
+        overflow: visible;
+      }
+
+      .hero-visual-slot::before {
+        top: 30%;
+        width: 80%;
+        height: 65%;
       }
 
       .spline-scene-wrapper {
@@ -3589,7 +3771,7 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .site-header {
         padding: 0.75rem 0;
       }
@@ -3754,8 +3936,17 @@
       }
 
       .hero-title {
-        font-size: clamp(3rem, 12vw, 4.5rem);
-        line-height: 0.98;
+        line-height: 0.94;
+      }
+
+      .hero-title-first {
+        font-size: clamp(3.4rem, 13.5vw, 4.8rem);
+        line-height: 0.92;
+      }
+
+      .hero-title-last {
+        font-size: clamp(2.8rem, 11vw, 3.8rem);
+        line-height: 0.94;
       }
 
       .hero-terminal-pill {
@@ -3770,6 +3961,36 @@
       .skills-wrapper {
         grid-template-columns: 1fr;
         gap: 1.25rem;
+      }
+
+      .skill-category-block {
+        padding: 1.35rem 1.15rem;
+      }
+
+      .pills-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+
+      .skill-pill {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.38rem 0.58rem;
+        font-size: 0.76rem;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .skill-pill .pill-dot {
+        width: 5px;
+        height: 5px;
+        flex-shrink: 0;
       }
 
       .projects-grid {
@@ -3896,9 +4117,18 @@
       }
 
       .hero-title {
-        font-size: clamp(2.65rem, 11.5vw, 3.4rem);
-        line-height: 0.95;
+        line-height: 0.94;
         margin-bottom: 0.95rem;
+      }
+
+      .hero-title-first {
+        font-size: clamp(2.95rem, 12.8vw, 3.65rem);
+        line-height: 0.92;
+      }
+
+      .hero-title-last {
+        font-size: clamp(2.4rem, 10.2vw, 3rem);
+        line-height: 0.94;
       }
 
       .hero-terminal-pill {
@@ -3915,38 +4145,48 @@
         margin-bottom: 1.15rem;
       }
 
-      .hero-stats-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
-        padding-top: 0.9rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin-bottom: 0.5rem;
+      .hero-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: clamp(0.5rem, 2.5vw, 0.75rem);
+        width: 100%;
+        margin-top: 1.25rem;
+        flex-wrap: nowrap;
       }
 
-      .stat-highlight {
-        font-size: 0.78rem;
-        font-weight: 700;
-        display: block;
-        line-height: 1.25;
-      }
-
-      .stat-desc {
-        font-size: 0.65rem;
-        line-height: 1.3;
-        color: var(--text-muted);
-        display: block;
-        margin-top: 2px;
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.72rem clamp(0.75rem, 2.8vw, 1.2rem);
+        font-size: clamp(0.82rem, 3.2vw, 0.92rem);
+        font-weight: 600;
+        border-radius: 9px;
       }
 
       .hero-visual-slot {
         flex: none;
         width: 100%;
-        max-width: 320px;
-        height: clamp(260px, 38vh, 310px);
-        margin: 0.25rem auto 0;
+        max-width: clamp(320px, 94vw, 390px);
+        height: clamp(350px, 50vh, 430px);
+        margin: 1.35rem auto 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
         pointer-events: none;
-        overflow: hidden;
+        touch-action: pan-y;
+        overflow: visible;
+      }
+
+      .hero-visual-slot::before {
+        top: 28%;
+        width: 85%;
+        height: 65%;
       }
 
       .hero-scroll-indicator {
@@ -4009,7 +4249,7 @@
 
       /* Skills on 375px */
       .skill-category-block {
-        padding: 1.25rem 1.1rem;
+        padding: 1.15rem 0.95rem;
       }
 
       .skill-category-title {
@@ -4021,12 +4261,30 @@
       }
 
       .pills-container {
-        gap: 0.4rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.42rem;
       }
 
       .skill-pill {
-        font-size: 0.72rem;
-        padding: 0.35rem 0.65rem;
+        display: flex;
+        align-items: center;
+        gap: 0.38rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.34rem 0.48rem;
+        font-size: clamp(0.68rem, 2.7vw, 0.72rem);
+        min-width: 0;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .skill-pill .pill-dot {
+        width: 5px;
+        height: 5px;
+        flex-shrink: 0;
       }
 
       /* Projects on 375px */
@@ -4117,7 +4375,8 @@
   <header class="site-header" id="siteHeader" role="banner">
     <div class="nav-inner">
       <a href="#hero" class="nav-brand" aria-label="Sandeep Kumar Homepage">
-        Sandeep Kumar<span>.</span>
+        <img src="assets/logo.png" alt="SK Logo" class="nav-brand-logo" width="34" height="21">
+        <span class="nav-brand-text">Sandeep Kumar<span class="brand-dot">.</span></span>
       </a>
 
       <div class="nav-right">
@@ -4304,7 +4563,8 @@
             </div>
 
             <h1 class="hero-title">
-              Sandeep<br>Kumar.
+              <span class="hero-title-first">Sandeep</span>
+              <span class="hero-title-last">Kumar<span class="title-period">.</span></span>
             </h1>
 
             <div class="hero-terminal-pill" role="region" aria-label="Terminal Tagline">
@@ -4319,20 +4579,15 @@
               real-world value.
             </p>
 
-            <!-- Compact 3 Stats Row Under Left Content (Space Under Robot Remains 100% Free) -->
-            <div class="hero-stats-row">
-              <div class="hero-stat-item">
-                <span class="stat-highlight">Generative AI</span>
-                <span class="stat-desc">Claude, ChatGPT &amp; Gemini</span>
-              </div>
-              <div class="hero-stat-item">
-                <span class="stat-highlight">n8n Automation</span>
-                <span class="stat-desc">Autonomous Webhooks</span>
-              </div>
-              <div class="hero-stat-item">
-                <span class="stat-highlight">Voice &amp; RAG</span>
-                <span class="stat-desc">Vapi &amp; Vector Search</span>
-              </div>
+            <!-- Hero Action Buttons (Matching Reference: View Projects → & Get in Touch) -->
+            <div class="hero-actions">
+              <a href="#projects" class="btn-hero-primary">
+                <span>View Projects</span>
+                <span class="hero-btn-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <a href="#contact" class="btn-hero-secondary">
+                <span>Get in Touch</span>
+              </a>
             </div>
 
           </div>
@@ -4529,7 +4784,7 @@
               <span class="skill-pill"><span class="pill-dot"></span>Webhook Pipelines</span>
               <span class="skill-pill"><span class="pill-dot"></span>RAG Architectures</span>
               <span class="skill-pill"><span class="pill-dot"></span>Vector Embeddings</span>
-              <span class="skill-pill"><span class="pill-dot"></span>REST API Integrations</span>
+              <span class="skill-pill"><span class="pill-dot"></span>REST APIs</span>
               <span class="skill-pill"><span class="pill-dot"></span>Workflow Logic</span>
             </div>
           </div>
@@ -6436,18 +6691,33 @@
       ]
 };
 
+      function cleanPulseText(text) {
+        if (!text) return '';
+        return text
+          .replace(/\|+/g, ' ')
+          .replace(/---+/g, ' ')
+          .replace(/#+\s*/g, '')
+          .replace(/Log\s*In\s*Log\s*In\s*Forgot\s*Account\??/gi, '')
+          .replace(/Accept\s*cookies/gi, '')
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+          .replace(/[\[\]\(\)\{\}]/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+
       function renderPulseNewsCard(article) {
         const card = document.createElement('article');
         card.className = 'pulse-news-card';
+        const cleanSummary = cleanPulseText(article.summary);
         card.innerHTML = `
-          <div>
+          <div class="pulse-card-content">
             <div class="pulse-card-meta">
               <span class="pulse-card-source">${escapeHtml(article.source || 'AI Radar')}</span>
               <span class="pulse-meta-sep">&bull;</span>
               <span class="pulse-card-time">${escapeHtml(article.published || article.timeAgo || 'Recently')}</span>
             </div>
             <h3 class="pulse-card-title">${escapeHtml(article.title)}</h3>
-            <p class="pulse-card-summary">${escapeHtml(article.summary)}</p>
+            <p class="pulse-card-summary">${escapeHtml(cleanSummary)}</p>
           </div>
           <div class="pulse-card-footer">
             <a href="${escapeHtml(article.url)}" target="_blank" rel="noopener noreferrer" class="btn-read-news">
