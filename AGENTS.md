@@ -31,13 +31,21 @@ Always adhere to the approved design system defined in `.agents/skills/portfolio
 ## 3. Approved Page Structure & Components
 
 The website (`index.html`) consists of the following sections and persistent elements:
-1. **Hero**: Large bold name headline ("Sandeep Kumar"), animated typewriter effect for tagline ("Turning Ideas into AI Solutions."), location badge ("📍 New Delhi, India"), and direct CTA buttons.
-2. **About**: Narrative on AI automation, Generative AI, and workflow productivity, with key focus highlights.
-3. **Skills**: Curated pills/tag badges with hover glow effects (Generative AI, n8n Automation, Claude Code, Voice Agents, etc.).
-4. **Featured Projects**: 3 structured project cards with status tags (pulsing green "Live" badge or orange "In Progress" badge), concise descriptions, tech tags, and "View" buttons.
-5. **Contact**: Simple accessible form (Name, Email, Message) with `#e8622a` focus indicators, accompanied by direct email (`sndp5432@gmail.com`) and social links.
-6. **Floating Vertical Sidebar**: Fixed on the right edge on desktop, featuring vertical social icons and vertical text labels (`writing-mode: vertical-rl`). Automatically collapses into the top navigation on mobile screens (`<= 768px`).
-7. **Sticky Top Navigation**: Fixed glassmorphic navigation bar (`backdrop-filter: blur(16px)`) that fades in smoothly after scrolling past the hero.
+1. **Hero**: Commanding headline ("Sandeep" & "Kumar."), custom high-definition SK monogram logo (`assets/logo.svg`, `assets/logo.png`), interactive typewriter terminal (`• sandeep@ai:~$ [typewriter] ▌`), life-sized interactive 3D Spline robot agent with ambient backlight, and strict single-row CTA buttons (`View Projects →` & `Get in Touch`).
+2. **Profile**: Narrative on AI automation & workflow productivity with 3 interactive profile cards and dedicated SaaS modals:
+   - **Card 01 (Location)**: "New Delhi, India" with interactive arrow indicator and modal featuring 16:9 authentic India Gate cityscape photography (`assets/new-delhi-cityscape.jpg`), primary location, region, professional interest pills, and "View on Google Maps ↗" CTA.
+   - **Card 02 (AI Focus)**: "Generative AI & AI Solutions" with interactive arrow indicator and modal featuring an atmospheric 300x160 3D isometric AI chip hero visual banner, 12 official AI product logos (Claude highlighted with warm orange glow), 7 AI capabilities, and 5 technical integration badges.
+   - **Card 03 (Academic Profile)**: "M.Com | B.Com (Hons.)" with interactive arrow indicator and modal featuring an atmospheric 300x160 graduation books & mortarboard cap hero visual banner, 2 academic qualification cards (Postgraduate & Undergraduate), and 3 professional learning credential cards with green "Course Completed" badges.
+3. **Toolkit / Skills & Tools**: Curated 2x2 grid (AI Tools, Automation, Content, Business) featuring monospace pills with glowing orange dots (`.pill-dot`).
+4. **Selected Work / Featured Projects**: 6 authentic AI solutions (LedgerAdvance, Customer Complaint n8n, Custom MCP Server, Custom RAG System, Excitel Chatbot, AI Interview Scheduling Agent) with live/progress status tags, monospace tech stack rows, and rich architectural details modals with native 1376x768 widescreen visuals.
+5. **Job Market (Phase 2)**: Teaser card (`.private-jobs-card`) with smooth PIN `9999` gate on the main site leading to the standalone `/jobs` Command Center featuring 45 verified AI roles across LinkedIn, Indeed, and Naukri via Apify scrapers, match scoring, and custom domain crawler notice.
+6. **AI Pulse (Phase 3)**: Real-time 24h AI news radar powered by Tavily MCP, featuring 5 category filter pills, dynamic feed rotation on refresh, medium perimeter edge-glow cards, and natural warm orange CTAs.
+7. **Contact**: Simple accessible form (Name, Email, Message) with `#e8622a` focus indicators, direct email (`sndp5432@gmail.com`), copy email button, and social links.
+8. **Navigation & Theming**:
+   - Sticky top glassmorphic navigation with custom SK monogram logo, compact rounded-rectangular 'Let's Talk' button (`#d4531f`), and Sun/Moon theme toggle.
+   - Floating 7-dot left vertical navigation with tooltips and scroll-spy sync.
+   - Floating vertical social sidebar on the right edge (auto-collapses on mobile).
+   - Global Dark (`#0a0a0a`) and Light (`#f8fafc` / `#ffffff`) theme engine synchronized with persistent `localStorage`.
 
 ---
 
@@ -50,7 +58,7 @@ To maintain project context and documentation integrity across development sessi
    - Read `PROGRESS.md` to identify the current phase and active tasks.
 2. **During Development**:
    - Consult `.agents/skills/portfolio-ui-ux-design/SKILL.md` for UI/UX guidelines before implementing or modifying interfaces.
-   - Verify changes across desktop, tablet, and mobile breakpoints (768px and 480px).
+   - Verify changes across desktop, tablet, and mobile breakpoints (860px, 768px, and 480px).
 3. **At Task Completion**:
    - Update `PROGRESS.md` with completed items and current project state.
    - Record any new architectural decisions, user preferences, or lessons learned in `MEMORY.md`.
@@ -59,8 +67,8 @@ To maintain project context and documentation integrity across development sessi
 
 ## 5. Strict Constraints & Boundaries
 
-- **No Job Search or News Feed Yet**: Do NOT create a job search section or news feed until Phase 2 and Phase 3 are formally started.
-- **No Heavy Frameworks**: Do NOT add React, Vue, Tailwind CLI, Bootstrap, or npm bundlers. Keep `index.html` lightweight and vanilla.
-- **No Unauthorized Theme Changes**: The `#0a0a0a` background and `#e8622a` accent are fixed.
+- **Preserve Phase 2 & Phase 3 Completions**: The Job Market (`/jobs`) and AI Pulse sections are complete and fully functional. Do not remove or regress them.
+- **No Heavy Frameworks on Main Site**: Do NOT add React, Vue, Tailwind CLI, Bootstrap, or npm bundlers to the main landing page. Keep `index.html` lightweight, zero-build, and vanilla.
+- **No Unauthorized Theme Changes**: The `#0a0a0a` background and `#e8622a` accent are fixed brand tokens.
 - **Information Integrity**: Do not fabricate personal information, credentials, or project URLs. Refer to `MEMORY.md` for verified details.
 

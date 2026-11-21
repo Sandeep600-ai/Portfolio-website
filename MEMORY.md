@@ -645,6 +645,92 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
   - Responsive Breakpoint Tuning: Adjusted mobile navigation breakpoint to 860px to ensure tablets in portrait mode display the hamburger drawer cleanly without crowding top navigation links.
 - **Outcome**: Balanced, professional mobile hero section with side-by-side buttons and life-sized 3D robot framing.
 
+### Decision 48: Location Card 01 Upgrade & Interactive Detail Modal (2026-11-21)
+- **Context**: The user requested a targeted upgrade to the Profile section's first card (Location) without altering any other section, theme variables, or cards (Core Focus and Education remain untouched). Requirements: (1) Replace "Azadpur, New Delhi, India" with "New Delhi, India"; (2) Update description to "Based in Delhi NCR, with an interest in business, marketing and AI opportunities."; (3) Add an interactive indicator icon (arrow-up-right); (4) Clicking the card opens a premium SaaS-style detail modal featuring: small orange eyebrow (`LOCATION / 01`), main heading, supporting text, 16:9 widescreen cityscape photo of New Delhi / India Gate (`assets/new-delhi-cityscape.jpg`), structured metadata (Primary Location, Region, Professional Interests pills), and a clean "View on Google Maps ↗" button opening the destination in a new tab; (5) Full Dark and Light theme styling; (6) Complete keyboard accessibility (`Escape`, `Enter`, `Space`) and scroll-locking behavior.
+- **Decision & Implementation**:
+  - Scoped card markup to `.about-card.about-card-location` with `id="locationCard"` and `role="button"`.
+  - Added subtle hover lift, accent border glow, and interactive arrow animation (`.about-card-arrow`).
+  - Implemented `.location-modal-overlay` with smooth CSS fade and scale animations (`transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)`), backdrop blur (`16px`), and rounded modal container (`#141414` in dark, `#ffffff` in light).
+  - Saved authentic high-res 16:9 aerial cityscape of India Gate / Rajpath to `assets/new-delhi-cityscape.jpg` (381 KB).
+  - Added full light theme overrides for arrow icon, modal background, title, text, tags, and close button.
+  - Implemented mobile bottom-sheet styling on `<= 480px` (`align-items: flex-end`, `border-radius: 16px 16px 0 0`, max-height `96vh`).
+  - Added clean vanilla JS event listeners for open, close, backdrop click, Escape key, scroll-locking (`document.body.style.overflow`), and focus return.
+  - Strictly preserved all other sections, typography, components, and code.
+- **Outcome**: Modern, elegant, interactive location card matching the website's dark obsidian and warm orange design system 1-to-1 with zero side effects.
+
+### Decision 49: Profile Cards 02 & 03 Integration & Interactive Modals (2026-11-21)
+- **Context**: The user provided two reference screenshots (`media_1795265689505_3e67df57.png` and `media_1795265637841_3c796261.png`) for Card 02 (Core Focus) and Card 03 (Education & Certifications), requesting their full integration into `index.html` with dedicated interactive detail modals, while keeping Card 01 (Location) and all unrelated website sections 100% untouched.
+- **Decision & Implementation**:
+  - **Card 02 (Core Focus)**:
+    - Main card updated to "CORE FOCUS", "Generative AI & AI Solutions", "Tools I use. Capabilities I develop." with interactive arrow indicator (`.about-card-arrow`).
+    - Dedicated Modal (`focusModalOverlay`):
+      - Header: `● CORE FOCUS / 02`, "Generative AI & AI Solutions", "Tools I use. Capabilities I develop."
+      - Section 01 (AI Tools): 4-column responsive grid with authentic brand logos for all 12 tools: Claude (Anthropic), ChatGPT, Google Gemini, NotebookLM, Antigravity, Perplexity, Copilot, Notion, Gamma AI, n8n, Botpress, VAPI.
+      - Section 02 (AI Capabilities): 2-column grid with orange-accented icons: Generative AI, Prompt Engineering, AI Automation, API & MCP Integrations, AI Chatbot Design, AI-Assisted Research, RAG Systems.
+      - Section 03 (Technical Integrations): Horizontal monospace badge pills: Supabase, Pinecone, Gemini Embeddings, MCP, APIs.
+  - **Card 03 (Education & Certifications)**:
+    - Main card updated to "EDUCATION & CERTIFICATIONS", "M.Com | B.Com (Hons.)", "Academic Background & Professional Learning" with interactive arrow indicator.
+    - Dedicated Modal (`educationModalOverlay`):
+      - Header: `● ACADEMIC PROFILE / 03`, "Education & Credentials", "Academic foundation and continuous learning."
+      - Section 01 (Academic Qualifications): 2-column grid with Postgraduate (M.Com, IGNOU, 2023) and Undergraduate (B.Com Hons., University of Delhi, 2021) cards.
+      - Section 02 (Professional Learning): 3 separate horizontal credential cards with green "Course Completed" badges and subtle orange icons: AI for Everyone 2.0 (Krishnaik Academy, 2026), AI for Beginners (HP LIFE, 2026), Certificate in Computer Concepts / CCC (NIELIT, 2019).
+  - **Theming & Accessibility**:
+    - Full Light Mode and Dark Mode support across all tiles, badges, and modals.
+    - Responsive across desktop, tablet, and mobile (bottom-sheet presentation on mobile `<= 480px`).
+    - Complete keyboard accessibility (`Escape`, `Enter`, `Space`), backdrop click dismissal, and background scroll locking.
+    - Strictly preserved all other sections (Hero, Skills, Projects, Jobs, AI Pulse, Contact) without alterations.
+- **Outcome**: Seamless, unified, and interactive Profile section showcasing verified technical and academic background matching reference designs 1-to-1.
+
+### Decision 50: Profile Cards 02 & 03 Modal Header Visuals & Label Refinements (2026-11-21)
+- **Context**: The user provided two reference images (`media_1795267856035_545cc674.jpg` and `media_1795267866840_9497e447.jpg`) showing rich header visuals for Card 2 and Card 3 modals. The user strictly specified: (1) do NOT copy-paste raster images from references; (2) create original visuals matching website theme colors and tone; (3) Card 2 header: glowing AI chip/logo, floating technology icons, visual cards, Deep Slate background with Teal/Cyan accents, subtle Orange highlights, white typography, and change label to `AI FOCUS` (remove `/ 02`); (4) Card 3 header: academic visual with graduation books, graduation cap, and diploma, Dark Slate/Charcoal background with Orange accents and White typography, and change label to `ACADEMIC PROFILE` (remove `/ 03`); (5) strictly preserve all existing text, tool names, education details, dates, cards, icons, grid structure, and functionality untouched.
+- **Decision & Implementation**:
+  - **Original Vector SVG Architecture**:
+    - Avoided blurry raster screenshots and external assets entirely. Handcrafted two bespoke, lightweight, retina-crisp 240x145 vector SVGs with semantic geometry, isolated gradients, glowing filters, and floating keyframe animations (`aiVisualFloat` and `academicVisualFloat`).
+    - **Card 2 (AI Focus) Header Visual**:
+      - 3D Isometric AI Microchip on a multi-tiered neon-edged pedestal (`#00F2FE` cyan / `#38EF7D` teal).
+      - Core face with embossed typography "AI" and neon glow.
+      - Dynamic high-tech particle wave filaments and circuit corner traces.
+      - 5 floating glass badge tiles linked via luminous trace lines: Robot head (agent), Image landscape (vision), Play polygon (run), Code `</>` (MCP/APIs), and Gear (automation with warm orange `#E8622A` accent).
+    - **Card 3 (Academic Profile) Header Visual**:
+      - Two stacked hardcover academic volumes with warm amber page edges and gold spine ribbing (`#F59E0B`).
+      - 3D graduation mortarboard cap with beveled diamond board, specular sheen, center gold button, and hanging warm orange/amber silk tassel.
+      - Rolled parchment diploma scroll at the base with authentic curl and vibrant warm orange ribbon bow (`#E8622A`).
+      - Symmetrical golden laurel wreath arches framing the composition with ambient achievement stars.
+  - **Label Simplification**:
+    - Card 2 Modal Eyebrow: `CORE FOCUS / 02` -> `AI FOCUS`.
+    - Card 3 Modal Eyebrow: `ACADEMIC PROFILE / 03` -> `ACADEMIC PROFILE`.
+  - **Section Header Glow Accents**:
+    - Added horizontal glowing gradient lines after section labels (`.focus-sec-label::after` in cyan/teal and `.edu-sec-label::after` in warm orange/gold).
+  - **Responsive & Theme Fidelity**:
+    - On desktop (`> 860px`), headers use a 2-column flex row (`justify-content: space-between; align-items: center; gap: 1.5rem;`).
+    - On mobile screens (`<= 480px`), headers stack naturally (`flex-direction: column-reverse; align-items: center;`) with scaled 190x115 visuals.
+    - Zero modifications to Card 01 (Location), Hero, Skills, Projects, Job Market, AI Pulse, Contact, or Footer.
+- **Outcome**: Ultra-premium SaaS visual elevation for both modal headers completely aligned with the website's dark obsidian and warm orange design system. All JavaScript syntax checks and server requests verified 100% passing.
+
+### Decision 51: Visual Hero Stage Architecture & Premium Card Theming for Modals 02 & 03 (2026-11-21)
+- **Context**: The user provided screenshots (`media_1795269144223_72d9b869.png` and `media_1795269166788_b6005698.png`) indicating that the header designs appeared like small logos stuck on the right of an empty black void rather than an integrated, attractive visual showcase ("these designed ko logo ki trah use nhi krna h visulas ki trh use krna h so that cards kafi premum dikhe and cards color and theme bhi add krne h jo in cards mein suits kre").
+- **Decision & Implementation**:
+  - **Atmospheric Visual Hero Banners**:
+    - Replaced the transparent header row with a dedicated, elevated hero banner card (`.focus-modal-header` and `.education-modal-header`) with 16px radius, subtle borders, and radial nebula lighting:
+      - **AI Focus Header**: `radial-gradient(circle at 82% 50%, rgba(0, 242, 254, 0.16) 0%, rgba(0, 180, 216, 0.08) 35%, rgba(13, 27, 42, 0.6) 70%, rgba(9, 15, 23, 0.95) 100%), #090f17` with `border: 1px solid rgba(0, 242, 254, 0.2)` and `box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.65)`.
+      - **Academic Profile Header**: `radial-gradient(circle at 82% 50%, rgba(245, 158, 11, 0.18) 0%, rgba(232, 98, 42, 0.1) 32%, rgba(26, 22, 24, 0.6) 65%, rgba(14, 13, 17, 0.95) 100%), #111014` with `border: 1px solid rgba(245, 158, 11, 0.22)` and `box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.65)`.
+    - Enlarged the vector visual stages to 300x160 (`width: 300px; height: 160px; max-width: 48%;`) with `width="100%" height="100%"` responsive SVG scaling, seamlessly melting ambient waves, particle tracks, and badges into the glowing radial banner backdrop.
+  - **Card Theming for Modal 02 (AI Focus)**:
+    - Modal Container: Deep Slate `#080d14` with cyan border `rgba(0, 242, 254, 0.18)` and outer aura.
+    - AI Tool Tiles (`.ai-tool-tile`): Deep teal glass surface `rgba(14, 24, 36, 0.75)`, 12px radius, subtle cyan border `rgba(0, 242, 254, 0.12)`, hover lift with cyan neon glow (`box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(0, 242, 254, 0.22)`).
+    - Claude Tool Highlight: Added `.highlight-orange` with warm orange glowing border `rgba(232, 98, 42, 0.65)` matching the reference design.
+    - AI Capability Cards (`.ai-capability-card`): Dark teal surface with glowing cyan icon boxes (`background: rgba(0, 242, 254, 0.1); color: #00f2fe`) and subtle cyan border.
+    - Technical Integrations: Dark monospace badge pills with cyan hover border and cyan glow.
+  - **Card Theming for Modal 03 (Academic Profile)**:
+    - Modal Container: Dark Charcoal Slate `#0d0e12` with warm golden border `rgba(245, 158, 11, 0.2)` and outer aura.
+    - Academic Qualification Cards (`.academic-card`): Charcoal surface `rgba(22, 24, 30, 0.85)`, 14px radius, warm amber border `rgba(245, 158, 11, 0.2)`, glowing amber icon boxes, and golden hover lift.
+    - Professional Learning Cards (`.cert-card`): Charcoal surface with green status pills (`✓ Course Completed`), warm orange year typography, and warm orange certificate icon badges.
+  - **Mobile & Theme Fidelity**:
+    - Mobile breakpoint stacks the visual above the text with centered 250x135 proportions.
+    - Full light mode support verified with high-contrast slate surfaces and appropriate glow tints.
+  - **CSS Syntax Linter Pass**: Purged an orphaned closing brace and duplicate property around line 3176, restoring 0 errors in the VS Code Problems tab and balanced CSS AST.
+- **Outcome**: Both modals now present an immersive, high-end SaaS visual experience where header illustrations act as atmospheric visual centerpieces and card grids follow bespoke, harmonized color palettes. Verified passing with 0 console errors and HTTP 200.
+
 ---
 
 ## 3. Approved Design System Tokens
@@ -720,8 +806,15 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
   - **Mobile Hero CTA Buttons Web Fidelity & Strict Horizontal Row**: Eliminated vertical stacking/wrapping on narrow mobile screens by setting `flex-wrap: nowrap;`, `white-space: nowrap;`, and responsive font/padding clamp (`clamp(0.82rem, 3.2vw, 0.92rem)`). Both `View Projects →` (on the left) and `Get in Touch` (on the right) sit side-by-side on the exact same horizontal line in both light and dark modes.
   - **Mobile 3D Robot Alignment & Elevation**: Replaced squeezed 260px-310px height and overflow clipping with `height: clamp(350px, 50vh, 430px)`, `max-width: clamp(320px, 94vw, 390px)`, `overflow: visible`, and centered flex alignment. The robot head, visor, shoulders, chest, arms, and torso remain fully visible, centered under the hero content with warm ambient backlight.
   - **Tablet & Mobile Header Navigation Alignment**: Adjusted mobile navigation breakpoint to 860px to ensure tablets in portrait view cleanly display the hamburger drawer without crowding top navigation links against the brand logo.
-- **Starting Point for Tomorrow**:
-  - Codebase is 100% clean, verified, and hardened with 0 errors/warnings.
-  - Ready for public GitHub push and Vercel hosting.
-  - Ready for any further portfolio refinements, custom animations, or new feature requests from Sandeep.
+- **Completed in Session (2026-11-21)**:
+  - **Location Card 01 Upgrade & Interactive Detail Modal**: Upgraded Profile Card 01 from "Azadpur, New Delhi, India" to "New Delhi, India" with refreshed description, interactive arrow-up-right indicator, and dedicated location detail modal. Integrated authentic 16:9 aerial cityscape photo of India Gate / Rajpath (`assets/new-delhi-cityscape.jpg`), Primary Location, Region, Professional Interests tag pills, and "View on Google Maps ↗" link. Fully supported across Dark & Light modes and mobile viewports with complete keyboard accessibility.
+  - **Profile Cards 02 & 03 Integration & Interactive Modals**: Upgraded Card 02 (Core Focus: 'Generative AI & AI Solutions') and Card 03 (Education & Certifications: 'M.Com | B.Com (Hons.)') matching user reference designs 1-to-1. Built Card 02 Core Focus Modal with 12 official AI product logos in 4-column grid, 7 AI capabilities in 2-column grid with orange icons, and 5 technical integration badges. Built Card 03 Education Modal with 2 academic qualifications (Postgraduate M.Com and Undergraduate B.Com Hons.) and 3 professional learning credential cards with green 'Course Completed' badges (AI for Everyone 2.0, AI for Beginners, CCC NIELIT). Added full light/dark theme support, mobile responsiveness, and zero regressions across all other website sections.
+  - **Cards 02 & 03 Premium Header Visuals & Label Refinement**: Elevated both modals with bespoke original vector SVG illustrations harmonized with the site's dark palette: 3D isometric glowing AI chip with neon pedestal and 5 floating tech badges for AI Focus; stacked hardcover books with warm golden glowing pages, graduation mortarboard with silk tassel, and rolled diploma with warm orange ribbon for Academic Profile. Simplified eyebrow labels to clean 'AI FOCUS' (removed / 02) and 'ACADEMIC PROFILE' (removed / 03), retaining 100% of verified data and layout structure.
+  - **Visual Hero Stage Architecture & Card Theming**: Upgraded both modal headers into rich, atmospheric Visual Hero Banners with radial nebula illumination (`.focus-modal-header` in cyan/slate and `.education-modal-header` in golden/charcoal) and expanded 300x160 visual stages, eliminating isolated corner-logo appearance. Applied cohesive SaaS color themes across all inner card elements: deep teal glass tiles with cyan glow for AI tools, warm orange highlight border on Claude (`.highlight-orange`), glowing cyan capability badges, dark charcoal qualification cards with warm amber border glow, and green status pill credential cards with subtle orange icons. Fully verified across dark and light modes.
+  - **CSS Syntax Linter Pass**: Resolved orphaned closing brace at line 3176, restoring 0 errors in VS Code Problems tab and 100% bracket balance.
+- **Starting Point for Next Session**:
+  - Codebase is 100% clean, verified, and hardened with 0 errors/warnings across HTML, CSS, and JS.
+  - Development server operational on `http://localhost:3000/`.
+  - All 3 profile cards (Location, AI Focus, Academic Profile) and their respective interactive detail modals are complete, visually polished, and aligned with the obsidian dark and warm orange design system.
+  - Ready for public GitHub deployment, Vercel hosting, or further refinements per Sandeep's guidance.
 
