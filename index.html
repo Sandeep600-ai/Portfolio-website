@@ -608,8 +608,25 @@
     [data-theme="light"] .about-interest-card:hover,
     [data-theme="light"] .about-prof-connect-card:hover {
       background: #ffffff !important;
-      border-color: rgba(223, 94, 41, 0.4) !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 15px rgba(223, 94, 41, 0.08) !important;
+      border-color: rgba(223, 94, 41, 0.45) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 16px rgba(223, 94, 41, 0.08) !important;
+    }
+
+    [data-theme="light"] .about-interest-icon-box,
+    [data-theme="light"] .about-bring-icon {
+      background: #fff5f0 !important;
+      border-color: rgba(223, 94, 41, 0.3) !important;
+      color: #DF5E29 !important;
+    }
+
+    [data-theme="light"] .about-interest-card:hover .about-interest-icon-box,
+    [data-theme="light"] .about-bring-row:hover .about-bring-icon {
+      background: #ffede5 !important;
+      color: #ff7538 !important;
+    }
+
+    [data-theme="light"] .about-bring-row:hover {
+      background: rgba(0, 0, 0, 0.02) !important;
     }
 
     [data-theme="light"] .about-bring-row + .about-bring-row,
@@ -621,6 +638,27 @@
       background: rgba(0, 0, 0, 0.12) !important;
     }
 
+    [data-theme="light"] .about-accordion-header {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .about-accordion-header:hover {
+      background: rgba(223, 94, 41, 0.06) !important;
+    }
+
+    [data-theme="light"] .about-accordion-item.active .about-accordion-header {
+      background: linear-gradient(90deg, rgba(223, 94, 41, 0.12) 0%, rgba(223, 94, 41, 0.03) 75%, transparent 100%) !important;
+      border-bottom-color: rgba(223, 94, 41, 0.2) !important;
+    }
+
+    [data-theme="light"] .about-acc-chevron {
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .about-accordion-item.active .about-acc-chevron {
+      color: #DF5E29 !important;
+    }
+
     [data-theme="light"] .about-accordion-body {
       background: #f1f5f9 !important;
     }
@@ -629,8 +667,82 @@
       color: #1e293b !important;
     }
 
+    [data-theme="light"] .about-tool-chip:hover {
+      color: #DF5E29 !important;
+    }
+
     [data-theme="light"] .about-chip-divider {
       color: rgba(0, 0, 0, 0.16) !important;
+    }
+
+    /* 3D Visual Floating Badges Light Mode */
+    [data-theme="light"] .ap-badge-plate {
+      fill: #ffffff !important;
+    }
+
+    /* Notion & ElevenLabs Tool Chips Light Mode */
+    [data-theme="light"] .notion-logo-rect {
+      stroke: rgba(0, 0, 0, 0.2) !important;
+      stroke-width: 1px !important;
+    }
+
+    [data-theme="light"] .elevenlabs-bar {
+      fill: #0f172a !important;
+    }
+
+    .about-tool-chip:hover .elevenlabs-bar {
+      fill: #DF5E29 !important;
+    }
+
+    /* Let's Connect Small Buttons Light Mode Polish (Email, LinkedIn, GitHub) */
+    [data-theme="light"] .about-connect-email {
+      background: #fff5f0 !important;
+      border: 1px solid rgba(223, 94, 41, 0.4) !important;
+      color: #DF5E29 !important;
+      box-shadow: 0 1px 3px rgba(223, 94, 41, 0.08) !important;
+    }
+
+    [data-theme="light"] .about-connect-email:hover {
+      background: #DF5E29 !important;
+      border-color: #DF5E29 !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(223, 94, 41, 0.35) !important;
+    }
+
+    [data-theme="light"] .about-connect-linkedin {
+      background: #f0f7ff !important;
+      border: 1px solid rgba(10, 102, 194, 0.35) !important;
+      color: #0a66c2 !important;
+      box-shadow: 0 1px 3px rgba(10, 102, 194, 0.08) !important;
+    }
+
+    [data-theme="light"] .about-connect-linkedin:hover {
+      background: #0A66C2 !important;
+      border-color: #0A66C2 !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(10, 102, 194, 0.35) !important;
+    }
+
+    [data-theme="light"] .about-connect-github {
+      background: #f1f5f9 !important;
+      border: 1px solid rgba(15, 23, 42, 0.22) !important;
+      color: #0f172a !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    [data-theme="light"] .about-connect-github svg {
+      fill: #0f172a !important;
+    }
+
+    [data-theme="light"] .about-connect-github:hover {
+      background: #0f172a !important;
+      border-color: #0f172a !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    [data-theme="light"] .about-connect-github:hover svg {
+      fill: #ffffff !important;
     }
 
     [data-theme="light"] .focus-modal-header {
@@ -902,6 +1014,11 @@
 
     [data-theme="light"] .contact-detail-value {
       color: #0f172a !important;
+    }
+
+    [data-theme="light"] .contact-icon-box {
+      background: rgba(232, 98, 42, 0.1) !important;
+      color: var(--accent) !important;
     }
 
     [data-theme="light"] .contact-form-card {
@@ -4363,6 +4480,300 @@
       transform: translateY(-1px);
     }
 
+    /* Project Card Actions Row (Dual-Action CTAs) */
+    .project-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .btn-project-github {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.46rem 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      color: #b0b0b0;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .btn-project-github:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    [data-theme="light"] .btn-project-github {
+      background: #f1f5f9 !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .btn-project-github:hover {
+      background: #e2e8f0 !important;
+      border-color: rgba(0, 0, 0, 0.25) !important;
+      color: #0f172a !important;
+    }
+
+    /* Project Modal Meta Row */
+    .project-modal-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.15rem;
+    }
+
+    .project-modal-meta-item,
+    .project-modal-meta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.32rem 0.75rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .project-modal-meta-link:hover {
+      background: rgba(232, 98, 42, 0.12);
+      border-color: rgba(232, 98, 42, 0.4);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .project-meta-video-btn {
+      color: var(--accent);
+      border-color: rgba(232, 98, 42, 0.35);
+      background: rgba(232, 98, 42, 0.08);
+    }
+
+    [data-theme="light"] .project-modal-meta-item,
+    [data-theme="light"] .project-modal-meta-link {
+      background: #f1f5f9 !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      color: #475569 !important;
+    }
+
+    [data-theme="light"] .project-modal-meta-link:hover {
+      background: #fff5f0 !important;
+      border-color: rgba(223, 94, 41, 0.4) !important;
+      color: #DF5E29 !important;
+    }
+
+    /* Project Demonstration Video Player Card */
+    .project-video-card {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      margin-top: 0.75rem;
+      position: relative;
+    }
+
+    .project-native-video {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      display: block;
+      background: #000000;
+      outline: none;
+    }
+
+    .project-section-header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .project-sec-pill,
+    .gallery-counter-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      background: rgba(232, 98, 42, 0.12);
+      border: 1px solid rgba(232, 98, 42, 0.3);
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    /* Interactive 5-Screenshot Gallery */
+    .project-gallery-tabs {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-top: 0.65rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .gallery-tab-btn {
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #9e9e9e;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .gallery-tab-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .gallery-tab-btn.active {
+      background: rgba(232, 98, 42, 0.15);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 10px rgba(232, 98, 42, 0.15);
+    }
+
+    [data-theme="light"] .gallery-tab-btn {
+      background: #f1f5f9 !important;
+      border-color: rgba(0, 0, 0, 0.09) !important;
+      color: #64748b !important;
+    }
+
+    [data-theme="light"] .gallery-tab-btn:hover {
+      background: #e2e8f0 !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .gallery-tab-btn.active {
+      background: #fff5f0 !important;
+      border-color: #DF5E29 !important;
+      color: #DF5E29 !important;
+    }
+
+    .project-gallery-display-stage {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0d0e12;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    [data-theme="light"] .project-gallery-display-stage {
+      background: #f8fafc !important;
+      border-color: rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .gallery-stage-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+
+    .gallery-caption-bar {
+      padding: 0.85rem 1.15rem;
+      background: rgba(14, 14, 18, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    [data-theme="light"] .gallery-caption-bar {
+      background: #ffffff !important;
+      border-top-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .gallery-caption-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    [data-theme="light"] .gallery-caption-title {
+      color: #0f172a !important;
+    }
+
+    .gallery-caption-desc {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+
+    [data-theme="light"] .gallery-caption-desc {
+      color: #475569 !important;
+    }
+
+    .project-modal-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-modal-github-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-modal-github-footer:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    [data-theme="light"] .btn-modal-github-footer {
+      background: #f1f5f9 !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .btn-modal-github-footer:hover {
+      background: #0f172a !important;
+      border-color: #0f172a !important;
+      color: #ffffff !important;
+    }
+
     /* ==========================================================================
        INTERACTIVE PROJECT DETAILS MODAL (EXPANDED CARD VIEW)
        ========================================================================== */
@@ -7029,23 +7440,32 @@
                 LedgerAdvance — Finance Dashboard
               </h3>
               <p class="project-desc">
-                LedgerAdvance is an interactive financial dashboard that brings together stock market analysis, company research, financial news, stock comparisons, and personal budget planning in one centralized platform.
+                Interactive financial dashboard uniting real-time stock market analysis, company financial research, multi-stock performance comparison, and personal budget planning into one centralized interface.
               </p>
               <div class="project-tech-row" aria-label="Tech Stack">
-                <span>HTML, CSS, JS</span>
+                <span>API Integration</span>
                 <span class="tech-sep">·</span>
                 <span>Alpha Vantage</span>
                 <span class="tech-sep">·</span>
                 <span>Twelve Data</span>
                 <span class="tech-sep">·</span>
-                <span>Tavily</span>
+                <span>Custom MCP</span>
                 <span class="tech-sep">·</span>
-                <span>Netlify Functions</span>
+                <span>Netlify</span>
               </div>
-              <button type="button" class="btn-project" data-project="ledger-advance"
-                aria-label="Open details for LedgerAdvance — Finance Dashboard">
-                <span>VIEW PROJECT &rarr;</span>
-              </button>
+              <div class="project-card-actions">
+                <button type="button" class="btn-project" data-project="ledger-advance"
+                  aria-label="Open details for LedgerAdvance — Finance Dashboard">
+                  <span>VIEW DETAILS &rarr;</span>
+                </button>
+                <a href="https://github.com/Sandeep600-ai/LedgerAdvance" target="_blank" rel="noopener noreferrer"
+                  class="btn-project-github" aria-label="View LedgerAdvance repository on GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>GitHub ↗</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -8273,7 +8693,7 @@
                 <!-- Floating Glassmorphic Tech Badges (Matching Reference Design) -->
                 <!-- Badge 1: ChatGPT (Top-Left) -->
                 <g transform="translate(42, 28)" filter="url(#badgeShadow)">
-                  <rect width="36" height="36" rx="9" fill="#121318" stroke="rgba(16, 163, 127, 0.4)" stroke-width="1.2"/>
+                  <rect class="ap-badge-plate" width="36" height="36" rx="9" fill="#121318" stroke="rgba(16, 163, 127, 0.4)" stroke-width="1.2"/>
                   <g transform="translate(9, 9)">
                     <path d="M16.7 7.4a4.5 4.5 0 0 0-.4-3.7 4.5 4.5 0 0 0-3.3-2.2 4.5 4.5 0 0 0-4.1 1.1 4.5 4.5 0 0 0-3.4.3 4.5 4.5 0 0 0-2.5 3 4.5 4.5 0 0 0 .7 4.2 4.5 4.5 0 0 0 .4 3.7 4.5 4.5 0 0 0 3.3 2.2 4.5 4.5 0 0 0 4.1-1.1 4.5 4.5 0 0 0 3.4-.3 4.5 4.5 0 0 0 2.5-3 4.5 4.5 0 0 0-.7-4.2z" stroke="#10A37F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                     <circle cx="9" cy="9" r="2.2" fill="#10A37F"/>
@@ -8282,7 +8702,7 @@
 
                 <!-- Badge 2: Gemini (Top-Right) -->
                 <g transform="translate(288, 32)" filter="url(#badgeShadow)">
-                  <rect width="36" height="36" rx="9" fill="#121318" stroke="rgba(66, 133, 244, 0.4)" stroke-width="1.2"/>
+                  <rect class="ap-badge-plate" width="36" height="36" rx="9" fill="#121318" stroke="rgba(66, 133, 244, 0.4)" stroke-width="1.2"/>
                   <g transform="translate(9, 9)">
                     <path d="M9 1.5C9 5.6 5.6 9 1.5 9C5.6 9 9 12.4 9 16.5C9 12.4 12.4 9 16.5 9C12.4 9 9 5.6 9 1.5Z" fill="url(#geminiIconGradHero)"/>
                   </g>
@@ -8290,7 +8710,7 @@
 
                 <!-- Badge 3: Claude (Mid-Right) -->
                 <g transform="translate(306, 135)" filter="url(#badgeShadow)">
-                  <rect width="36" height="36" rx="9" fill="#121318" stroke="rgba(223, 94, 41, 0.4)" stroke-width="1.2"/>
+                  <rect class="ap-badge-plate" width="36" height="36" rx="9" fill="#121318" stroke="rgba(223, 94, 41, 0.4)" stroke-width="1.2"/>
                   <g transform="translate(9, 9)">
                     <path d="M9 1.5L10.4 6.2L15 7.5L10.4 8.8L9 13.5L7.6 8.8L3 7.5L7.6 6.2L9 1.5Z" fill="#E8622A"/>
                     <path d="M13.5 12L14.2 14.2L16.5 15L14.2 15.8L13.5 18L12.8 15.8L10.5 15L12.8 14.2L13.5 12Z" fill="#FFA07A" opacity="0.8"/>
@@ -8299,7 +8719,7 @@
 
                 <!-- Badge 4: n8n (Bottom-Left) -->
                 <g transform="translate(26, 185)" filter="url(#badgeShadow)">
-                  <rect width="36" height="36" rx="9" fill="#121318" stroke="rgba(234, 75, 113, 0.4)" stroke-width="1.2"/>
+                  <rect class="ap-badge-plate" width="36" height="36" rx="9" fill="#121318" stroke="rgba(234, 75, 113, 0.4)" stroke-width="1.2"/>
                   <g transform="translate(9, 9)">
                     <circle cx="4.5" cy="9" r="2.2" fill="#EA4B71"/>
                     <circle cx="13.5" cy="5.2" r="2.2" fill="#EA4B71"/>
@@ -8779,7 +9199,7 @@
                     <!-- Notion -->
                     <div class="about-tool-chip">
                       <svg class="about-tool-logo" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="18" height="18" rx="4" fill="#FFFFFF"/>
+                        <rect class="notion-logo-rect" x="3" y="3" width="18" height="18" rx="4" fill="#FFFFFF"/>
                         <path d="M7 6l7 8V6h3v12h-3L7 10v8H4V6h3z" fill="#141414"/>
                       </svg>
                       <span>Notion</span>
@@ -8822,8 +9242,8 @@
                     <!-- ElevenLabs -->
                     <div class="about-tool-chip">
                       <svg class="about-tool-logo" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <rect x="7" y="4" width="3" height="16" rx="1.5" fill="#F5F5F5"/>
-                        <rect x="14" y="4" width="3" height="16" rx="1.5" fill="#F5F5F5"/>
+                        <rect class="elevenlabs-bar" x="7" y="4" width="3" height="16" rx="1.5" fill="currentColor"/>
+                        <rect class="elevenlabs-bar" x="14" y="4" width="3" height="16" rx="1.5" fill="currentColor"/>
                       </svg>
                       <span>ElevenLabs</span>
                     </div>
@@ -9576,44 +9996,79 @@
           category: 'Finance Dashboard',
           status: 'LIVE',
           image: 'assets/projects/ledger-advance.png',
-          overview: 'LedgerAdvance is an interactive financial dashboard that brings together stock market analysis, company research, financial news, stock comparisons, and personal budget planning in one centralized platform.',
-          problem: 'Financial market data, company analysis, stock comparisons and personal budgeting tools are often spread across different platforms, making financial research and planning less convenient.',
-          solution: 'LedgerAdvance brings stock market analysis, company research, financial news and personal budget planning together in one interactive dashboard.',
+          completionDate: 'September 28, 2026',
+          githubUrl: 'https://github.com/Sandeep600-ai/LedgerAdvance',
+          videoUrl: 'assets/projects/ledger-advance/ledger-advance-demo.mp4',
+          overview: 'LedgerAdvance is an interactive financial dashboard that brings together real-time stock market analysis, company financial research, financial news, multi-stock performance comparisons, and personal budget planning into one centralized platform.',
+          problem: 'Financial market data, fundamental company analysis, stock comparisons, and personal budgeting tools are typically fragmented across disparate platforms, complicating comprehensive research, portfolio tracking, and personal wealth planning.',
+          solution: 'LedgerAdvance centralizes live market feeds, fundamental equity research, multi-stock analytics, and personal budget and wealth forecasting within an intuitive, high-performance web dashboard.',
           solutionLabel: 'Solution Overview',
           workflow: 'Market Overview &rarr; Company Analysis &rarr; Multi-Stock Comparison &rarr; Market News &rarr; Budget &amp; Wealth Planning &rarr; Review Insights',
-          useCasesTitle: 'Business Use case',
+          useCasesTitle: 'Business Use Cases & Capabilities',
           businessUseCases: [
-            'Stock Market Monitoring',
-            'Company Financial Research',
-            'Stock Performance Comparison',
-            'Financial News Analysis',
-            'Personal Budget & Wealth Planning'
+            'Live Stock Market Monitoring & Real-Time Tickers',
+            'Company Financial Research & Fundamental Metrics',
+            'Multi-Stock Performance & Trend Comparison',
+            'Financial Market News & Sentiment Analysis',
+            'Interactive Personal Budget & Long-Term Wealth Planning'
           ],
           industryUseCases: [
             'Investment & Wealth Management',
+            'FinTech & Personal Financial Planning',
             'Banking & Financial Services',
-            'Equity Research',
-            'Asset Management'
+            'Equity & Market Research'
           ],
           benefits: [
-            'Centralized Financial Insights',
-            'Stock Performance Comparison',
-            'Budget Optimization',
-            'Long-Term Wealth Planning'
+            'Centralized Financial Intelligence in Single View',
+            'Side-by-Side Stock Performance Evaluation',
+            'Actionable Personal Budget Optimization',
+            'Dynamic Long-Term Wealth Projections'
           ],
           toolsIntegrations: [
-            'Web Technologies: HTML, CSS, JavaScript',
-            'Market Data Providers: Alpha Vantage, Twelve Data',
-            'News & Web Research: Tavily',
-            'Backend Functions & Hosting: Netlify Functions, Netlify',
-            'AI-Assisted Development: Antigravity',
-            'Source Code Management: GitHub'
+            'API Integration: Alpha Vantage & Twelve Data (Market Data)',
+            'Vibe Coding: Rapid AI-driven development & prompt architecture',
+            'Custom MCP & Antigravity: Multi-model AI workflow orchestration',
+            'Netlify & Netlify Functions: Serverless backend & secure API proxies',
+            'Google Sheets: Data logging, financial modeling & record keeping',
+            'GitHub: Version control, open-source repository & CI/CD workflow'
           ],
           contributionsTitle: 'Key Contributions',
           contributions: [
-            'Developed LedgerAdvance using AI-assisted development, integrating financial data APIs, interactive visualizations and budget-planning functionality. Worked on application troubleshooting and deployment using Netlify'
+            'Developed LedgerAdvance using AI-assisted development, integrating financial data APIs, interactive visualizations, and dynamic budget-planning functionality. Worked on application troubleshooting, serverless proxy architecture, and production deployment using Netlify.'
           ],
-          tags: ['HTML, CSS, JavaScript', 'Alpha Vantage', 'Twelve Data', 'Tavily', 'Netlify Functions', 'Netlify', 'Antigravity', 'GitHub']
+          tags: ['API Integration', 'Vibe Coding', 'Custom MCP', 'GitHub', 'Alpha Vantage', 'Twelve Data', 'Netlify', 'Google Sheets', 'Antigravity'],
+          screenshots: [
+            {
+              tabTitle: 'Market Overview',
+              title: 'Dashboard Overview & Real-Time Market Monitoring',
+              description: 'Executive dashboard featuring live market ticker tracking, key indices performance, market movers, and rapid financial metrics overview.',
+              src: 'assets/projects/ledger-advance/dashboard-overview.png'
+            },
+            {
+              tabTitle: 'Company Analysis',
+              title: 'Deep Company Financial Research & Equity Profile',
+              description: 'Comprehensive financial profiles including valuation ratios, revenue trends, EPS performance, historical pricing charts, and company fundamentals.',
+              src: 'assets/projects/ledger-advance/company-analysis.png'
+            },
+            {
+              tabTitle: 'Stock Comparison',
+              title: 'Multi-Stock Comparative Performance Analysis',
+              description: 'Direct side-by-side comparison of multiple equities across price trajectory, market cap, volatility, and historical returns.',
+              src: 'assets/projects/ledger-advance/stock-comparison.png'
+            },
+            {
+              tabTitle: 'Budget Planner',
+              title: 'Interactive Personal Budget & Expense Management',
+              description: 'Categorized budget planning tool allowing users to track monthly income, fixed/variable expenditures, savings rates, and financial goals.',
+              src: 'assets/projects/ledger-advance/budget-planner.png'
+            },
+            {
+              tabTitle: 'Allocation & Growth',
+              title: 'Visual Budget Allocation & Wealth Projection',
+              description: 'Dynamic visual breakdown of asset distribution, expenditure proportions, and long-term compound growth projections.',
+              src: 'assets/projects/ledger-advance/budget-allocation-growth.png'
+            }
+          ]
         },
         'complaint-automation': {
           title: 'Customer Complaint Management Automation (n8n)',
@@ -9823,6 +10278,88 @@
           solutionMarkup = `<p class="project-modal-text" style="margin-top: 0.45rem;"><strong>${solutionLabel}:</strong> ${data.solution}</p>`;
         }
 
+        // Meta row (Completion Date, GitHub link, Jump to Video)
+        let metaRowMarkup = '';
+        if (data.completionDate || data.githubUrl || data.videoUrl) {
+          metaRowMarkup = `
+            <div class="project-modal-meta-row">
+              ${data.completionDate ? `
+                <span class="project-modal-meta-item">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span>Completed: ${data.completionDate}</span>
+                </span>
+              ` : ''}
+              ${data.githubUrl ? `
+                <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-modal-meta-link" aria-label="Open GitHub Repository">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <span>Repository ↗</span>
+                </a>
+              ` : ''}
+              ${data.videoUrl ? `
+                <a href="#projectVideoSection" class="project-modal-meta-link project-meta-video-btn" id="btnScrollToVideo" aria-label="Jump to Video Demo">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <span>Watch Demo Video ↓</span>
+                </a>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        // Screenshots section
+        let screenshotsSection = '';
+        if (data.screenshots && data.screenshots.length) {
+          const tabButtons = data.screenshots.map((s, idx) => `
+            <button type="button" class="gallery-tab-btn ${idx === 0 ? 'active' : ''}" role="tab" aria-selected="${idx === 0 ? 'true' : 'false'}" data-index="${idx}">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg>
+              <span>${s.tabTitle}</span>
+            </button>
+          `).join('');
+
+          screenshotsSection = `
+            <div class="project-modal-section" id="projectScreenshotsSection">
+              <div class="project-section-header-flex">
+                <h3 class="project-modal-sec-title" style="margin-bottom: 0;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                  Dashboard Interface &amp; Modules
+                </h3>
+                <span class="gallery-counter-badge" id="galleryCounter">1 of ${data.screenshots.length}</span>
+              </div>
+              <div class="project-gallery-tabs" role="tablist" aria-label="Dashboard views">
+                ${tabButtons}
+              </div>
+              <div class="project-gallery-display-stage">
+                <img id="galleryStageImg" src="${data.screenshots[0].src}" alt="${data.screenshots[0].title}" class="gallery-stage-img" loading="lazy">
+                <div class="gallery-caption-bar">
+                  <h4 id="galleryCaptionTitle" class="gallery-caption-title">${data.screenshots[0].title}</h4>
+                  <p id="galleryCaptionDesc" class="gallery-caption-desc">${data.screenshots[0].description}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Live demonstration video section
+        let videoSection = '';
+        if (data.videoUrl) {
+          videoSection = `
+            <div class="project-modal-section" id="projectVideoSection">
+              <div class="project-section-header-flex">
+                <h3 class="project-modal-sec-title" style="margin-bottom: 0;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Live Demonstration Video
+                </h3>
+                <span class="project-sec-pill">Original Walkthrough</span>
+              </div>
+              <div class="project-video-card">
+                <video class="project-native-video" controls playsinline preload="metadata" poster="${data.image}">
+                  <source src="${data.videoUrl}" type="video/mp4">
+                  Your browser does not support HTML5 video streaming.
+                </video>
+              </div>
+            </div>
+          `;
+        }
+
         // 2. Project Workflow
         let workflowSection = '';
         if (data.workflow) {
@@ -9991,6 +10528,7 @@
               <span class="project-cat-badge">${data.category}</span>
             </div>
             <h2 class="project-modal-title" id="modalProjectTitle">${data.title}</h2>
+            ${metaRowMarkup}
             
             <div class="project-modal-section">
               <h3 class="project-modal-sec-title">
@@ -10001,6 +10539,10 @@
               ${problemMarkup}
               ${solutionMarkup}
             </div>
+
+            ${screenshotsSection}
+
+            ${videoSection}
 
             ${workflowSection}
 
@@ -10028,10 +10570,18 @@
               <button type="button" class="btn-modal-close-text" id="btnModalCloseAction">
                 &larr; Back to Projects
               </button>
-              <a href="#contact" class="btn-modal-action" id="btnModalContact">
-                <span>Discuss This Project</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </a>
+              <div class="project-modal-footer-actions">
+                ${data.githubUrl ? `
+                  <a href="${data.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn-modal-github-footer" aria-label="View source code on GitHub">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub Repo ↗</span>
+                  </a>
+                ` : ''}
+                <a href="#contact" class="btn-modal-action" id="btnModalContact">
+                  <span>Discuss This Project</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
             </div>
           </div>
         `;
@@ -10050,10 +10600,58 @@
             closeProjectModal();
           });
         }
+
+        // Bind gallery tabs if present
+        if (data.screenshots && data.screenshots.length) {
+          const galleryTabs = projectModalBody.querySelectorAll('.gallery-tab-btn');
+          const galleryImg = document.getElementById('galleryStageImg');
+          const galleryTitle = document.getElementById('galleryCaptionTitle');
+          const galleryDesc = document.getElementById('galleryCaptionDesc');
+          const galleryCounter = document.getElementById('galleryCounter');
+
+          galleryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+              const idx = parseInt(tab.getAttribute('data-index'), 10);
+              if (isNaN(idx) || !data.screenshots[idx]) return;
+
+              galleryTabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+              });
+              tab.classList.add('active');
+              tab.setAttribute('aria-selected', 'true');
+
+              const item = data.screenshots[idx];
+              if (galleryImg) {
+                galleryImg.src = item.src;
+                galleryImg.alt = item.title;
+              }
+              if (galleryTitle) galleryTitle.textContent = item.title;
+              if (galleryDesc) galleryDesc.textContent = item.description;
+              if (galleryCounter) galleryCounter.textContent = `${idx + 1} of ${data.screenshots.length}`;
+            });
+          });
+        }
+
+        // Bind jump to video if present
+        const btnScrollToVideo = document.getElementById('btnScrollToVideo');
+        if (btnScrollToVideo) {
+          btnScrollToVideo.addEventListener('click', (e) => {
+            e.preventDefault();
+            const vSec = document.getElementById('projectVideoSection');
+            if (vSec) {
+              vSec.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        }
       }
 
       function closeProjectModal() {
         if (!projectModalOverlay) return;
+        const activeVideo = projectModalOverlay.querySelector('video');
+        if (activeVideo) {
+          activeVideo.pause();
+        }
         projectModalOverlay.classList.remove('active');
         projectModalOverlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -10080,6 +10678,7 @@
       // Bind all project cards & view buttons
       document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', (e) => {
+          if (e.target.closest('a')) return;
           const pid = card.getAttribute('data-project');
           if (pid) {
             openProjectModal(pid);
@@ -10088,6 +10687,7 @@
 
         card.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target.closest('a')) return;
             e.preventDefault();
             const pid = card.getAttribute('data-project');
             if (pid) {

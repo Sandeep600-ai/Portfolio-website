@@ -16,7 +16,9 @@ const MIME_TYPES = {
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
-  '.txt': 'text/plain; charset=utf-8'
+  '.txt': 'text/plain; charset=utf-8',
+  '.mp4': 'video/mp4',
+  '.webm': 'video/webm'
 };
 
 // Zero-dependency .env loader for local development
@@ -305,6 +307,39 @@ const server = http.createServer(async (req, res) => {
       filePath = path.join(filePath, 'index.html');
     }
 
+    const ext = path.extname(filePath).toLowerCase();
+
+    // Stream video files with HTTP 206 Partial Content support for seeking
+    if (ext === '.mp4' || ext === '.webm') {
+      const range = req.headers.range;
+      const fileSize = stats.size;
+
+      if (range) {
+        const parts = range.replace(/bytes=/, '').split('-');
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+        const chunksize = (end - start) + 1;
+        const fileStream = fs.createReadStream(filePath, { start, end });
+
+        res.writeHead(206, {
+          'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': MIME_TYPES[ext] || 'video/mp4'
+        });
+        fileStream.pipe(res);
+        return;
+      } else {
+        res.writeHead(200, {
+          'Content-Length': fileSize,
+          'Accept-Ranges': 'bytes',
+          'Content-Type': MIME_TYPES[ext] || 'video/mp4'
+        });
+        fs.createReadStream(filePath).pipe(res);
+        return;
+      }
+    }
+
     fs.readFile(filePath, (readErr, content) => {
       if (readErr) {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -312,7 +347,6 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      const ext = path.extname(filePath).toLowerCase();
       res.writeHead(200, {
         'Content-Type': MIME_TYPES[ext] || 'application/octet-stream',
         'Cache-Control': 'no-cache'
