@@ -773,6 +773,37 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
   - **Zero Side-Effects**: All other 5 project cards and website sections remain 100% intact and functional.
 - **Outcome**: A professional, multimedia-rich project showcase for LedgerAdvance combining live video streaming, an interactive multi-module screenshot gallery, and verified metadata. Verified via Chrome DevTools in both Dark and Light modes.
 
+### Decision 55: LedgerAdvance Mobile Video Playback & Professional Mobile Card Layout (2026-11-23)
+- **Context**: The user identified two issues with LedgerAdvance: (1) The project demo video was not playing in the mobile layout; (2) The card layout on mobile did not look professional like the web version. The user requested diagnosing and fixing them step by step without affecting any other parts of the website.
+- **Root Cause Analysis**:
+  1. **Mobile Video Failure**:
+     - Mobile browsers (Safari/Chrome) fetch the `moov` atom at the end of large MP4 files via HTTP suffix range requests (`Range: bytes=-...`) and send `HEAD` requests to verify streaming headers.
+     - `server.js` was doing `start = parseInt(parts[0], 10)`. When `parts[0]` was empty string, `start` became `NaN`, throwing an uncaught `RangeError [ERR_OUT_OF_RANGE]: The value of "start" is out of range. Received NaN` which crashed the server on initial mobile probe.
+     - Dynamically inserted HTML5 `<video>` tags with child `<source>` tags in mobile WebKit/Blink failed to trigger resource selection unless `src` was explicitly on `<video>` or `video.load()` was called.
+  2. **Unprofessional Mobile Card Layout**:
+     - Inside `@media (max-width: 480px)`, a legacy rule `.project-card { padding: 1.25rem 1.1rem; }` was adding padding to the outer card container.
+     - This detached the `.project-thumb-wrap` image from the top edge, creating an awkward boxed thumbnail with border gaps, and added double-padding on top of `.project-card-content`, shrinking the content area.
+     - Dual CTA buttons (`VIEW DETAILS →` and `GitHub ↗`) lacked unified height and responsive flex-stretch alignment on narrow screens.
+- **Decision & Implementation**:
+  - **Server-Side Video Streaming Hardening (`server.js`)**:
+    - Replaced fragile range splitting with robust regex `/bytes=(\d*)-(\d*)/` supporting prefix ranges (`bytes=0-1`), open-ended ranges (`bytes=0-`), and suffix ranges (`bytes=-65536`).
+    - Added full `HEAD` request handling, 416 bounds checking (`start > end || start >= fileSize`), error listeners, and clean socket destruction on `res.on('close')`.
+  - **Frontend Video Player Optimization (`index.html`)**:
+    - Added `src="${data.videoUrl}"` directly on `<video>` alongside `playsinline`, `webkit-playsinline="true"`, and `x5-playsinline="true"`.
+    - Added automatic `video.load()` upon modal opening and clean pause with `currentTime = 0` reset on modal closing.
+    - Sized mobile video player to `max-height: 260px; aspect-ratio: 16 / 9;` with border radius.
+  - **Professional Mobile Card Layout (`index.html`)**:
+    - Overrode legacy mobile card padding: `.project-card { padding: 0 !important; border-radius: 14px; overflow: hidden; }`.
+    - Set `.project-thumb-wrap` to responsive `aspect-ratio: 16 / 9; min-height: 155px;` flush to the card's top edge matching the web version.
+    - Set `.project-card-content` mobile padding to clean `1.15rem 1.1rem 1.25rem`.
+    - Unified `.project-card-actions` with clean side-by-side flex alignment and matching 36px/38px button heights (`VIEW DETAILS →` flexes naturally, `GitHub ↗` aligns beside it).
+    - Tuned mobile modal gallery tabs with horizontal swipe scrolling (`overflow-x: auto; flex-wrap: nowrap;`) to prevent vertical clutter.
+- **Verification**:
+  - Verified `server.js` with 5 automated range tests (Safari probe, Chrome probe, suffix moov probe, HEAD, and seek) all passing with HTTP 206 / 200.
+  - Verified video playback in Chrome DevTools mobile emulation with `readyState: 4` (HAVE_ENOUGH_DATA) and `duration: 245.9s`.
+  - Verified visual fidelity in both mobile (390x844) and desktop (1200x800) viewports with zero regressions.
+- **Outcome**: Seamless video playback across mobile and desktop devices with clean, edge-to-edge professional card aesthetics matching the web version.
+
 ---
 
 ## 3. Approved Design System Tokens
@@ -863,9 +894,20 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
     - **Card Text Formatting & Layout Refinement**: Streamlined the lower section of the LedgerAdvance card with concise, impactful overview copy, clean monospace tech tags row (`API Integration · Alpha Vantage · Twelve Data · Custom MCP · Netlify`), and balanced flex actions container (`VIEW DETAILS →` and `GitHub ↗`).
     - **Full Light & Dark Theme Support**: Engineered cohesive styling for both Dark (`#0a0a0a`) and Light (`#ffffff` / `#f8fafc`) modes across gallery tabs, caption bar, stage container, meta pills, video card, and GitHub buttons.
     - **Zero Regressions**: All other 5 project cards and website sections remain 100% intact and functional.
+  - **Customer Complaint Automation & Custom MCP Server Multimedia, Gallery, GitHub & Native Video Popup Integration (2026-11-23)**:
+    - **Original Demonstration Videos via Native Popup Player**: Integrated authentic demo videos for Project 1 (Customer Complaint Management Automation, file ID `1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2`) and Project 2 (Custom MCP Server, file ID `1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP`) using Google Drive preview streaming inside a custom, responsive video popup player modal (`#projectVideoPopupModal`). Zero local video files downloaded/uploaded to the project repository, preventing git bloat while maintaining a seamless native feel matching the site's dark obsidian and warm orange design tokens.
+    - **Interactive Video Stage in Project Modals**: Styled `.project-video-stage` inside project detail modals featuring a high-definition poster preview, animated glowing play button, `WATCH FULL DEMO` pill, and caption bar. One-click or keyboard activation launches `#projectVideoPopupModal`. Closing the popup automatically clears `iframe.src`, immediately stopping video and audio.
+    - **Authentic 3-Screenshot Interactive Galleries**: Extracted and deployed authentic screenshots from Sandeep's Notion workspace:
+      - Complaint Automation: `Workflow Overview`, `Routing Logic`, and `Execution Result` with real high-resolution screenshots.
+      - Custom MCP Server: `MCP Server Workflow`, `Claude Connectors`, and `Tool Permissions` with real high-resolution screenshots.
+    - **Verified Notion Metadata & Architecture**:
+      - Complaint Automation: Completed October 22, 2026; Status: Completed; AI Automation n8n; Tools: n8n, Generative AI, Google Sheets, Gmail Automation, Data Extraction.
+      - Custom MCP Server: Completed July 8, 2026; Status: Completed; AI Integration & Protocol; Tools: n8n, Claude, Gmail, Google Calendar, Tavily, HTTP REST APIs.
+    - **Card Layout & Dual Actions Symmetry**: Updated project cards in the Selected Work grid with flush 16:9 thumbnails, verified monospace tech stack rows, and symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗` with direct repo links and click propagation interception).
+    - **Mobile & Desktop Layout Verification**: Tested and validated on both 390px mobile viewport (iPhone/Android) and 1440px desktop screens via Chrome DevTools. Verified flush thumbnails, side-by-side action buttons, smooth gallery tab switching, responsive 16:9 video popup playback, and keyboard accessibility.
 - **Starting Point for Next Session**:
   - Codebase is 100% clean, verified, and hardened with 0 errors/warnings across HTML, CSS, and JS.
   - Development server operational on `http://localhost:3000/`.
-  - LedgerAdvance Finance Dashboard project is completely upgraded with live demo video, interactive 5-tab gallery, GitHub links, verified metadata, and refined card formatting.
+  - All top 3 projects (LedgerAdvance, Customer Complaint Automation, Custom MCP Server) are fully upgraded with authentic demonstration videos, interactive multi-tab screenshot galleries, official GitHub repositories, verified Notion metadata, and responsive dual CTAs.
   - Ready for public GitHub deployment, Vercel hosting, or further refinements per Sandeep's guidance.
 

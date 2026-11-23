@@ -4,16 +4,41 @@ Tracking active, completed, and upcoming milestones for Sandeep Kumar's personal
 
 ---
 
-## Current Status: Phase 1, Phase 2, Phase 3 & LedgerAdvance Showcase Complete
+## Current Status: Phase 1, Phase 2, Phase 3 & Top 3 Projects Showcase Complete
 
 ```
-[██████████████████████████████] 100% Phase 1, Phase 2, Phase 3 & LedgerAdvance Showcase Complete
+[██████████████████████████████] 100% Top 3 Projects Showcase Complete (LedgerAdvance, Complaint Automation, Custom MCP Server)
 Status: index.html fully built with 3D robot hero, Profile, Skills, Projects, Job Market card, AI Pulse live radar, and Contact.
-Dedicated Job Market Command Center (/jobs) operational behind PIN 9999 with Find Jobs, Discover More Jobs, and multi-platform Apify scraper data.
-AI Pulse real-time news radar integrated between Job Market and Contact with Tavily live data, 30-min cache, and category filters.
-LedgerAdvance Finance Dashboard upgraded with authentic 222MB demonstration video streaming, 5-tab interactive screenshot gallery, official GitHub repository connection, verified Notion metadata, and polished card formatting.
-Dev server verified HTTP 200/206 on all endpoints.
+Top 3 Projects upgraded with authentic demonstration videos, multi-tab interactive screenshot galleries, official GitHub repositories, verified Notion metadata, and responsive dual CTAs (VIEW DETAILS → and GitHub ↗).
+Customer Complaint Management Automation (n8n) & Custom MCP Server feature custom native video popup player streaming via Google Drive preview without local repository bloat.
+Both desktop and mobile layouts verified in DevTools (390px mobile and 1440px desktop).
+Dev server running on http://localhost:3000/.
 ```
+
+---
+
+## Milestone Breakdown
+
+### Phase 1: Portfolio Foundation & Documentation Setup
+- [x] **Top 3 Projects Showcase Upgrade (LedgerAdvance, Complaint Automation, Custom MCP Server)**
+  - **LedgerAdvance — Finance Dashboard**: Authentic local demo video with HTTP 206 streaming, 5-tab screenshot gallery, GitHub repo link, and verified Notion metadata.
+  - **Customer Complaint Management Automation (n8n)**:
+    - GitHub Repo: `https://github.com/Sandeep600-ai/customer-complaint-management-automation`
+    - Google Drive Demo Video: Embedded via native video popup player (`https://drive.google.com/file/d/1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2/preview`).
+    - 3-tab Screenshot Gallery: `Workflow Overview`, `Routing Logic`, and `Execution Result` with real high-resolution screenshots.
+    - Verified Notion Metadata: Completion Date (October 22, 2026), Status Completed, AI Automation n8n, Google Sheets & Gmail tools.
+    - Symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗`).
+  - **Custom MCP Server**:
+    - GitHub Repo: `https://github.com/Sandeep600-ai/custom-mcp-server`
+    - Google Drive Demo Video: Embedded via native video popup player (`https://drive.google.com/file/d/1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP/preview`).
+    - 3-tab Screenshot Gallery: `MCP Server Workflow`, `Claude Connectors`, and `Tool Permissions` with real high-resolution screenshots.
+    - Verified Notion Metadata: Completion Date (July 8, 2026), Status Completed, AI Integration & Protocol, Claude, Gmail, Google Calendar, Tavily, HTTP tools.
+    - Symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗`).
+  - **Custom Responsive Video Player Popup (`#projectVideoPopupModal`)**:
+    - Styled in obsidian dark (`#0a0a0a` / `#141414`) and warm orange (`#e8622a`) matching site design tokens.
+    - Video stage inside project details modal with play icon, ambient glow, and poster image.
+    - One-click launch into dedicated popup dialog. Unloads `iframe.src` on close to stop playback and audio cleanly.
+    - Full mobile support with 16:9 ratio, clear close button, and backdrop tap to dismiss.
 
 ---
 
@@ -106,6 +131,7 @@ Dev server verified HTTP 200/206 on all endpoints.
 
 | Date / Timestamp | Action | Status | Notes |
 | :--- | :--- | :--- | :--- |
+| 2026-11-23 16:15 | LedgerAdvance Mobile Video Playback & Professional Card Layout Fix | Done | Fixed HTTP 206 suffix range parser & HEAD method for mobile video playback; added webkit-playsinline & direct src on video; removed legacy card padding for edge-to-edge 16:9 thumbnail and balanced dual CTAs on mobile view |
 | 2026-11-22 14:35 | LedgerAdvance Finance Dashboard Enhancement | Done | Integrated 222MB demo video with partial content streaming, 5-tab screenshot gallery, GitHub repo links, Notion metadata, fixed card formatting and dual action CTAs with full Dark/Light theme support |
 | 2026-11-05 17:30 | Implementation plan created | Done | Initial design and project specs planned |
 | 2026-11-05 17:54 | Plan updated with documentation suite | Done | Added AGENTS.md, MEMORY.md, PROGRESS.md, README.md, .gitignore, .env |

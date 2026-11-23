@@ -475,6 +475,44 @@
       color: var(--accent) !important;
     }
 
+    /* Native Video Popup & Video Stage Light Mode */
+    [data-theme="light"] .video-popup-container {
+      background: #ffffff !important;
+      border-color: rgba(212, 83, 31, 0.35) !important;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25), 0 0 35px rgba(212, 83, 31, 0.15) !important;
+    }
+
+    [data-theme="light"] .video-popup-header {
+      background: #f8fafc !important;
+      border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    [data-theme="light"] .video-popup-title {
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .video-popup-close {
+      background: rgba(0, 0, 0, 0.05) !important;
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .video-popup-close:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .project-video-stage {
+      border-color: rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    [data-theme="light"] .project-video-stage:hover {
+      border-color: rgba(212, 83, 31, 0.5) !important;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15), 0 0 25px rgba(212, 83, 31, 0.18) !important;
+    }
+
     /* Location Card & Modal Light Mode Polish */
     [data-theme="light"] .about-card-arrow {
       background: rgba(0, 0, 0, 0.03) !important;
@@ -4600,6 +4638,278 @@
       outline: none;
     }
 
+    /* Project Video Stage (Custom Interactive Player Card) */
+    .project-video-stage {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      margin-top: 0.75rem;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+    }
+
+    .project-video-stage:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232, 98, 42, 0.35);
+    }
+
+    .project-video-stage:hover {
+      border-color: rgba(232, 98, 42, 0.65);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(232, 98, 42, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .video-stage-poster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-video-stage:hover .video-stage-poster {
+      transform: scale(1.04);
+    }
+
+    .video-stage-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.35) 0%, rgba(10, 10, 10, 0.75) 100%);
+      pointer-events: none;
+      transition: background 0.3s ease;
+    }
+
+    .project-video-stage:hover .video-stage-overlay {
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.65) 100%);
+    }
+
+    .video-stage-play-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn-stage-play {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff7538 0%, #e8622a 100%);
+      box-shadow: 0 0 25px rgba(232, 98, 42, 0.6), 0 8px 24px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-stage-play svg {
+      margin-left: 3px;
+    }
+
+    .project-video-stage:hover .btn-stage-play {
+      transform: scale(1.12);
+      box-shadow: 0 0 35px rgba(232, 98, 42, 0.85), 0 10px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    .video-stage-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.32rem 0.85rem;
+      border-radius: 20px;
+      background: rgba(14, 14, 18, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      transition: border-color 0.25s ease;
+    }
+
+    .project-video-stage:hover .video-stage-badge {
+      border-color: rgba(232, 98, 42, 0.5);
+      color: var(--accent);
+    }
+
+    .video-stage-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .video-stage-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+      font-size: 0.76rem;
+      color: #b0b0b0;
+      font-family: var(--font-mono);
+    }
+
+    .video-stage-caption-title {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .video-stage-caption-hint {
+      color: var(--accent);
+      font-size: 0.72rem;
+    }
+
+    /* Native Video Popup Modal */
+    .video-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1200;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .video-popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .video-popup-container {
+      width: 100%;
+      max-width: 960px;
+      background: #0d0e12;
+      border: 1px solid rgba(232, 98, 42, 0.3);
+      border-radius: 16px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(232, 98, 42, 0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .video-popup-overlay.active .video-popup-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .video-popup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.95rem 1.25rem;
+      background: rgba(20, 20, 20, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .video-popup-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      min-width: 0;
+    }
+
+    .video-popup-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      flex-shrink: 0;
+    }
+
+    .video-popup-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+
+    .video-popup-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+
+    .video-popup-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .video-popup-close:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    .video-popup-frame-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-popup-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
     .project-section-header-flex {
       display: flex;
       align-items: center;
@@ -6374,6 +6684,56 @@
 
       .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .project-card {
+        padding: 0 !important;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .project-thumb-wrap {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 160px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+      }
+
+      .project-card-content {
+        padding: 1.25rem 1.25rem 1.35rem;
+      }
+
+      .project-card-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        width: 100%;
+        margin-top: auto;
+      }
+
+      .project-card-actions .btn-project {
+        flex: 1 1 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.52rem 0.95rem;
+        font-size: 0.74rem;
+        height: 38px;
+        box-sizing: border-box;
+      }
+
+      .project-card-actions .btn-project-github {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.52rem 0.85rem;
+        font-size: 0.74rem;
+        height: 38px;
+        box-sizing: border-box;
       }
 
       .project-modal-overlay {
@@ -6395,6 +6755,51 @@
 
       .project-modal-title {
         font-size: 1.2rem;
+      }
+
+      .project-modal-meta-row {
+        gap: 0.45rem;
+        margin-bottom: 0.95rem;
+      }
+
+      .project-modal-meta-item,
+      .project-modal-meta-link {
+        font-size: 0.7rem;
+        padding: 0.28rem 0.6rem;
+      }
+
+      .project-gallery-tabs {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.35rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .project-gallery-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gallery-tab-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.32rem 0.65rem;
+        font-size: 0.68rem;
+      }
+
+      .project-video-card {
+        border-radius: 10px;
+        margin-top: 0.65rem;
+      }
+
+      .project-native-video {
+        width: 100%;
+        height: auto;
+        max-height: 260px;
+        aspect-ratio: 16 / 9;
       }
 
       .project-modal-footer {
@@ -6838,19 +7243,36 @@
         flex-shrink: 0;
       }
 
-      /* Projects on 375px */
+      /* Projects on mobile <= 480px: clean edge-to-edge flush thumbnail & balanced card content */
       .project-card {
-        padding: 1.25rem 1.1rem;
+        padding: 0 !important;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .project-thumb-wrap {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-height: 155px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+      }
+
+      .project-card-content {
+        padding: 1.15rem 1.1rem 1.25rem;
       }
 
       .project-title {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
+        line-height: 1.35;
+        margin-bottom: 0.55rem;
       }
 
       .project-desc {
         font-size: 0.84rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
+        line-height: 1.55;
+        margin-bottom: 0.95rem;
       }
 
       .project-tech-row {
@@ -6859,9 +7281,34 @@
         margin-bottom: 1.15rem;
       }
 
-      .btn-project {
-        padding: 0.45rem 1rem;
+      .project-card-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        width: 100%;
+        margin-top: auto;
+      }
+
+      .project-card-actions .btn-project {
+        flex: 1 1 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.85rem;
         font-size: 0.72rem;
+        height: 36px;
+        box-sizing: border-box;
+      }
+
+      .project-card-actions .btn-project-github {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.72rem;
+        height: 36px;
+        box-sizing: border-box;
       }
 
       /* Contact on 375px */
@@ -7497,23 +7944,32 @@
                 Customer Complaint Management Automation (n8n)
               </h3>
               <p class="project-desc">
-                AI-powered customer complaint handling using n8n to extract complaint details, classify issues, route them to the appropriate departments, log them in Google Sheets, and automate notifications and customer acknowledgment.
+                AI-powered complaint handling using n8n to extract issue details, apply IF/Switch routing logic, log records in Google Sheets, and automate departmental alerts and customer acknowledgment.
               </p>
               <div class="project-tech-row" aria-label="Tech Stack">
+                <span>AI Automation</span>
+                <span class="tech-sep">·</span>
                 <span>n8n</span>
                 <span class="tech-sep">·</span>
-                <span>AI Model</span>
+                <span>Generative AI</span>
                 <span class="tech-sep">·</span>
                 <span>Google Sheets</span>
                 <span class="tech-sep">·</span>
-                <span>Email Integration</span>
-                <span class="tech-sep">·</span>
-                <span>Switch &amp; IF Nodes</span>
+                <span>Gmail Automation</span>
               </div>
-              <button type="button" class="btn-project" data-project="complaint-automation"
-                aria-label="Open details for Customer Complaint Management Automation">
-                <span>VIEW PROJECT &rarr;</span>
-              </button>
+              <div class="project-card-actions">
+                <button type="button" class="btn-project" data-project="complaint-automation"
+                  aria-label="Open details for Customer Complaint Management Automation">
+                  <span>VIEW DETAILS &rarr;</span>
+                </button>
+                <a href="https://github.com/Sandeep600-ai/customer-complaint-management-automation" target="_blank" rel="noopener noreferrer"
+                  class="btn-project-github" aria-label="View Customer Complaint Management Automation repository on GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>GitHub ↗</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -7545,23 +8001,32 @@
                 Custom MCP Server
               </h3>
               <p class="project-desc">
-                Developed a custom MCP server using n8n to connect an AI assistant with Gmail, Google Calendar, and HTTP tools for seamless service integration.
+                Custom Model Context Protocol server built with n8n connecting Claude AI assistant directly to Gmail, Google Calendar, and external HTTP REST APIs for autonomous execution.
               </p>
               <div class="project-tech-row" aria-label="Tech Stack">
                 <span>Model Context Protocol</span>
                 <span class="tech-sep">·</span>
                 <span>n8n</span>
                 <span class="tech-sep">·</span>
+                <span>Claude</span>
+                <span class="tech-sep">·</span>
                 <span>Gmail</span>
                 <span class="tech-sep">·</span>
                 <span>Google Calendar</span>
-                <span class="tech-sep">·</span>
-                <span>Claude</span>
               </div>
-              <button type="button" class="btn-project" data-project="mcp-server"
-                aria-label="Open details for Custom MCP Server">
-                <span>VIEW PROJECT &rarr;</span>
-              </button>
+              <div class="project-card-actions">
+                <button type="button" class="btn-project" data-project="mcp-server"
+                  aria-label="Open details for Custom MCP Server">
+                  <span>VIEW DETAILS &rarr;</span>
+                </button>
+                <a href="https://github.com/Sandeep600-ai/custom-mcp-server" target="_blank" rel="noopener noreferrer"
+                  class="btn-project-github" aria-label="View Custom MCP Server repository on GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>GitHub ↗</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -7716,6 +8181,29 @@
         </button>
         <div class="project-modal-body" id="projectModalBody">
           <!-- Dynamic Content Injected via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Dedicated Native Video Popup Modal (Google Drive / Live Walkthrough Player) -->
+    <div class="video-popup-overlay" id="projectVideoPopupModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="videoPopupTitle">
+      <div class="video-popup-container">
+        <div class="video-popup-header">
+          <div class="video-popup-title-wrap">
+            <span class="video-popup-dot" aria-hidden="true"></span>
+            <span class="video-popup-eyebrow">DEMO WALKTHROUGH</span>
+            <h3 class="video-popup-title" id="videoPopupTitle">Project Demo Video</h3>
+          </div>
+          <button type="button" class="video-popup-close" id="btnCloseVideoPopup" aria-label="Close video player">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="video-popup-frame-wrap">
+          <iframe id="videoPopupIframe" src="" title="Project Demonstration Video" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -9990,6 +10478,41 @@
       const projectModalBody = document.getElementById('projectModalBody');
       const btnCloseProjectModal = document.getElementById('btnCloseProjectModal');
 
+      // Native Video Popup Modal elements & controls
+      const projectVideoPopupModal = document.getElementById('projectVideoPopupModal');
+      const videoPopupTitle = document.getElementById('videoPopupTitle');
+      const btnCloseVideoPopup = document.getElementById('btnCloseVideoPopup');
+      const videoPopupIframe = document.getElementById('videoPopupIframe');
+
+      function openProjectVideoPopup(embedUrl, title) {
+        if (!projectVideoPopupModal || !videoPopupIframe) return;
+        if (videoPopupTitle && title) {
+          videoPopupTitle.textContent = `${title} — Demo Walkthrough`;
+        }
+        videoPopupIframe.src = embedUrl;
+        projectVideoPopupModal.classList.add('active');
+        projectVideoPopupModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeProjectVideoPopup() {
+        if (!projectVideoPopupModal || !videoPopupIframe) return;
+        videoPopupIframe.src = '';
+        projectVideoPopupModal.classList.remove('active');
+        projectVideoPopupModal.setAttribute('aria-hidden', 'true');
+      }
+
+      if (btnCloseVideoPopup) {
+        btnCloseVideoPopup.addEventListener('click', closeProjectVideoPopup);
+      }
+
+      if (projectVideoPopupModal) {
+        projectVideoPopupModal.addEventListener('click', (e) => {
+          if (e.target === projectVideoPopupModal) {
+            closeProjectVideoPopup();
+          }
+        });
+      }
+
       const PROJECTS_DATA = {
         'ledger-advance': {
           title: 'LedgerAdvance — Finance Dashboard',
@@ -10075,76 +10598,131 @@
           category: 'AI Automation (n8n)',
           status: 'LIVE',
           image: 'assets/projects/complaint-automation.png',
+          completionDate: 'October 22, 2026',
+          githubUrl: 'https://github.com/Sandeep600-ai/customer-complaint-management-automation',
+          videoEmbedUrl: 'https://drive.google.com/file/d/1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2/preview',
+          videoPoster: 'assets/projects/complaint-automation/workflow-overview.png',
           overview: 'AI-powered customer complaint handling using n8n to extract complaint details, classify issues, route them to the appropriate departments, log them in Google Sheets, and automate notifications and customer acknowledgment.',
           problem: 'Manually reading, categorizing, routing, recording, and replying to customer complaints is time-consuming and can cause delays or errors.',
           solution: 'Automated complaint processing using n8n to extract details via AI, apply IF/switch routing logic, update Google Sheets, and dispatch notifications.',
           workflow: 'Incoming Email &rarr; AI Extraction &rarr; IF Condition &rarr; Switch-Based Routing &rarr; Department &rarr; Merge &rarr; Google Sheets &rarr; Internal Email Notification &rarr; Customer Acknowledgment',
           businessUseCases: [
-            'Customer Complaint Classification',
-            'Automated Department Routing',
-            'Centralized Complaint Record-Keeping',
-            'Automated Email Updates'
+            'Customer Complaint Classification & Sentiment Analysis',
+            'Automated Multi-Department Ticket Routing',
+            'Centralized Complaint Record-Keeping & Audit Log',
+            'Instant Automated Customer Acknowledgment Delivery'
           ],
           industryUseCases: [
-            'E-commerce',
-            'Banking & FinTech',
-            'Telecom Industries',
-            'Travel & Hospitality'
+            'E-commerce & Retail Customer Care',
+            'Banking, FinTech & Digital Payment Gateways',
+            'Telecom & Internet Service Providers (ISP)',
+            'Travel, Airlines & Hospitality Support'
           ],
           benefits: [
-            'Reduces manual work',
-            'Faster complaint routing',
-            'Centralized complaint records',
-            'Automatic customer acknowledgment'
+            'Reduces manual triage and human processing errors',
+            'Accelerates department routing from hours to seconds',
+            'Maintains structured, real-time records in Google Sheets',
+            'Delivers immediate automated email confirmation to customers'
           ],
           toolsIntegrations: [
-            'n8n — Workflow Automation',
-            'AI Model — Complaint Information Extraction',
-            'Email Integration — Complaint Processing & Notifications',
-            'Google Sheets — Complaint Record Management',
-            'IF, Switch & Merge Nodes — Routing and Data Processing'
+            'AI Automation: Autonomous event-driven customer support pipeline',
+            'n8n: Core workflow automation engine & node orchestration',
+            'Generative AI: Complaint detail extraction & intent categorization',
+            'Data Extraction: Structured parsing of sender, urgency & issue details',
+            'Google Sheets: Centralized audit database & ticket logging',
+            'Gmail Automation: Automated departmental dispatch & customer alerts',
+            'Switch & IF Routing: Deterministic rules-based issue triage'
           ],
           contributions: [
-            'Designed the complaint management workflow in n8n.',
-            'Configured AI-based complaint detail extraction and classification.',
-            'Set up conditional routing using IF and Switch nodes.',
-            'Integrated Google Sheets for complaint logging.'
+            'Designed the complete customer complaint automation architecture in n8n.',
+            'Configured AI-driven complaint extraction and classification logic.',
+            'Implemented multi-branch conditional routing using IF and Switch nodes.',
+            'Integrated Google Sheets for real-time ticket logging and Gmail for automated confirmations.'
           ],
-          tags: ['n8n', 'AI Model', 'Google Sheets', 'Email Integration', 'Switch Node', 'IF Node', 'Merge Node', 'Workflow Automation']
+          tags: ['AI Automation', 'n8n', 'Generative AI', 'Data Extraction', 'Google Sheets', 'Gmail Automation', 'Switch Node', 'IF Node'],
+          screenshots: [
+            {
+              tabTitle: 'Workflow Overview',
+              title: 'End-to-End n8n Complaint Automation Pipeline',
+              description: 'Complete visual workflow canvas showcasing automated email intake, AI issue parsing, IF/Switch logic routing, departmental branches, Google Sheets logging, and email acknowledgments.',
+              src: 'assets/projects/complaint-automation/workflow-overview.png'
+            },
+            {
+              tabTitle: 'Routing Logic',
+              title: 'AI Classification & Multi-Branch Switch Routing',
+              description: 'Detailed routing logic inspecting complaint categories (Technical, Billing, Account), priority scoring, and deterministic dispatch to relevant support queues.',
+              src: 'assets/projects/complaint-automation/routing-logic.png'
+            },
+            {
+              tabTitle: 'Execution Result',
+              title: 'Google Sheets Data Logging & Customer Confirmation',
+              description: 'Live execution view showing structured ticket row insertion into Google Sheets with ticket ID, timestamps, customer details, and automated Gmail acknowledgment delivery.',
+              src: 'assets/projects/complaint-automation/execution-result.png'
+            }
+          ]
         },
         'mcp-server': {
           title: 'Custom MCP Server',
           category: 'AI Integration & Protocol',
           status: 'LIVE',
           image: 'assets/projects/mcp-server.png',
-          overview: 'Developed a custom MCP server using n8n to connect an AI assistant with Gmail, Google Calendar, and HTTP tools for seamless service integration.',
+          completionDate: 'July 8, 2026',
+          githubUrl: 'https://github.com/Sandeep600-ai/custom-mcp-server',
+          videoEmbedUrl: 'https://drive.google.com/file/d/1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP/preview',
+          videoPoster: 'assets/projects/mcp-server/mcp-workflow-trigger.jpg',
+          overview: 'Developed a custom Model Context Protocol (MCP) server using n8n to connect Claude AI assistant directly with Gmail, Google Calendar, and external HTTP REST APIs for autonomous task execution.',
           problem: 'AI assistants lack direct connectivity to external services and internal communication tools, requiring manual intervention for task execution.',
           solution: 'A custom Model Context Protocol (MCP) server built with n8n enabling the AI assistant to interact with Gmail, Google Calendar, and HTTP APIs autonomously.',
-          workflow: 'AI Assistant &rarr; MCP Server (n8n) &rarr; Tool Routing &rarr; Gmail / Google Calendar / HTTP APIs &rarr; Results to AI Assistant',
+          workflow: 'AI Assistant (Claude) &rarr; MCP Server Trigger (n8n) &rarr; Tool Routing &rarr; Gmail (Send/Draft) / Google Calendar / HTTP API &rarr; Execution Response to Claude',
           businessUseCases: [
-            'Email Service Integration',
-            'Calendar Access & Management',
-            'External API Connectivity',
-            'AI-Assisted Task Execution',
-            'Workflow Automation'
+            'Autonomous Email Drafting & Dispatch via Gmail',
+            'Calendar Scheduling & Event Management',
+            'External REST API Connectivity (Cat Fact & Custom Endpoints)',
+            'Claude AI Assistant Workflow Orchestration',
+            'Custom Protocol-Based Tool Extension'
           ],
           benefits: [
-            'AI–Tool Connectivity',
-            'Cross-Platform Integration',
-            'Simplified Service Access',
-            'Streamlined Workflow Automation'
+            'Standardized Protocol: Uses open Model Context Protocol (MCP)',
+            'Direct Tool Execution: Allows Claude to execute actions without human copy-pasting',
+            'Cross-Platform Integration: Unifies Google Workspace and third-party APIs',
+            'Extensible Architecture: Easily attach new n8n nodes as MCP tools'
           ],
           toolsIntegrations: [
-            'Workflow Platform: n8n',
-            'Protocol: Model Context Protocol (MCP)',
-            'Connected Services: Gmail, Google Calendar',
-            'External Connectivity: HTTP Tool, Tavily',
-            'AI Integration: Connected to Claude'
+            'n8n: Core workflow automation platform hosting the custom MCP server',
+            'Claude (Anthropic): AI assistant integrated via Claude Custom Connectors',
+            'Gmail Integration: Custom tools for sending messages and creating email drafts',
+            'Google Calendar: Custom tool for creating and checking calendar events',
+            'Tavily: Web research and search integration for frontier intelligence',
+            'HTTP / REST APIs: Dynamic API connectivity (Cat Fact API and custom endpoints)',
+            'Model Context Protocol: Standardized protocol bridging LLMs with local/remote tools'
           ],
           contributions: [
-            'Built a custom MCP server using n8n and connected Gmail, Google Calendar, Tavily, and HTTP tools to an AI assistant, enabling it to access external services and support task automation.'
+            'Built a custom Model Context Protocol (MCP) server workflow in n8n from scratch.',
+            'Configured 4 dedicated MCP tools: Send message in Gmail, Create draft in Gmail, Create event in Google Calendar, and Get Cat fact via HTTP.',
+            'Connected and verified the server as an active Web Custom Connector inside Claude.ai settings.',
+            'Configured granular tool permissions, webhook routing, and end-to-end task execution.'
           ],
-          tags: ['Model Context Protocol', 'n8n', 'Gmail API', 'Google Calendar', 'Claude', 'Tavily', 'HTTP Tools', 'Workflow Automation']
+          tags: ['n8n', 'Model Context Protocol', 'Claude', 'Gmail API', 'Google Calendar', 'Tavily', 'REST APIs', 'Workflow Automation'],
+          screenshots: [
+            {
+              tabTitle: 'MCP Server Workflow',
+              title: 'n8n Model Context Protocol Server & Custom Tools',
+              description: 'Visual n8n canvas showing the MCP Server Trigger connected to 4 custom tools: Send a message in Gmail, Create a draft in Gmail, Create an event in Google Calendar, and Get Cat fact HTTP request.',
+              src: 'assets/projects/mcp-server/mcp-workflow-trigger.jpg'
+            },
+            {
+              tabTitle: 'Claude Connectors',
+              title: 'Claude.ai Custom Web Connectors Dashboard',
+              description: 'Official Claude.ai settings interface displaying "Sandeep MCP server" registered and verified as an active Custom Web Connector alongside Tavily.',
+              src: 'assets/projects/mcp-server/claude-connectors-list.jpg'
+            },
+            {
+              tabTitle: 'Tool Permissions',
+              title: 'Claude.ai Tool Permissions & Execution Controls',
+              description: 'Claude.ai connector permission settings showing configured tool access for Gmail drafting, Google Calendar scheduling, Cat fact API calls, and Gmail messaging.',
+              src: 'assets/projects/mcp-server/claude-mcp-permissions.jpg'
+            }
+          ]
         },
         'custom-rag': {
           title: 'Custom RAG System',
@@ -10280,7 +10858,7 @@
 
         // Meta row (Completion Date, GitHub link, Jump to Video)
         let metaRowMarkup = '';
-        if (data.completionDate || data.githubUrl || data.videoUrl) {
+        if (data.completionDate || data.githubUrl || data.videoUrl || data.videoEmbedUrl) {
           metaRowMarkup = `
             <div class="project-modal-meta-row">
               ${data.completionDate ? `
@@ -10295,7 +10873,7 @@
                   <span>Repository ↗</span>
                 </a>
               ` : ''}
-              ${data.videoUrl ? `
+              ${(data.videoUrl || data.videoEmbedUrl) ? `
                 <a href="#projectVideoSection" class="project-modal-meta-link project-meta-video-btn" id="btnScrollToVideo" aria-label="Jump to Video Demo">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                   <span>Watch Demo Video ↓</span>
@@ -10338,9 +10916,38 @@
           `;
         }
 
-        // Live demonstration video section
+        // Live demonstration video section (Native Video or Dedicated Interactive Video Stage)
         let videoSection = '';
-        if (data.videoUrl) {
+        if (data.videoEmbedUrl) {
+          videoSection = `
+            <div class="project-modal-section" id="projectVideoSection">
+              <div class="project-section-header-flex">
+                <h3 class="project-modal-sec-title" style="margin-bottom: 0;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Live Demonstration Video
+                </h3>
+                <span class="project-sec-pill">Interactive Demo</span>
+              </div>
+              <div class="project-video-stage" id="btnOpenVideoStage" role="button" tabindex="0" aria-label="Play ${data.title} Demonstration Video" data-embed="${data.videoEmbedUrl}" data-title="${data.title}">
+                <img class="video-stage-poster" src="${data.videoPoster || data.image}" alt="${data.title} Video Preview" loading="lazy">
+                <div class="video-stage-overlay"></div>
+                <div class="video-stage-play-wrap">
+                  <div class="btn-stage-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                  </div>
+                  <div class="video-stage-badge">
+                    <span class="live-dot" aria-hidden="true"></span>
+                    <span>WATCH FULL DEMO</span>
+                  </div>
+                </div>
+                <div class="video-stage-caption">
+                  <div class="video-stage-caption-title">Original Walkthrough &amp; Execution Demo</div>
+                  <div class="video-stage-caption-sub">Click to launch the high-definition video player</div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (data.videoUrl) {
           videoSection = `
             <div class="project-modal-section" id="projectVideoSection">
               <div class="project-section-header-flex">
@@ -10351,7 +10958,7 @@
                 <span class="project-sec-pill">Original Walkthrough</span>
               </div>
               <div class="project-video-card">
-                <video class="project-native-video" controls playsinline preload="metadata" poster="${data.image}">
+                <video class="project-native-video" controls playsinline webkit-playsinline="true" x5-playsinline="true" preload="metadata" poster="${data.image}" src="${data.videoUrl}">
                   <source src="${data.videoUrl}" type="video/mp4">
                   Your browser does not support HTML5 video streaming.
                 </video>
@@ -10633,6 +11240,21 @@
           });
         }
 
+        // Bind video stage if present (Dedicated Google Drive / Interactive Player Popup)
+        const btnOpenVideoStage = document.getElementById('btnOpenVideoStage');
+        if (btnOpenVideoStage && data.videoEmbedUrl) {
+          const launchStage = () => {
+            openProjectVideoPopup(data.videoEmbedUrl, data.title);
+          };
+          btnOpenVideoStage.addEventListener('click', launchStage);
+          btnOpenVideoStage.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              launchStage();
+            }
+          });
+        }
+
         // Bind jump to video if present
         const btnScrollToVideo = document.getElementById('btnScrollToVideo');
         if (btnScrollToVideo) {
@@ -10644,13 +11266,25 @@
             }
           });
         }
+
+        // Initialize and load video for mobile & web playback
+        const modalNativeVideo = projectModalBody.querySelector('.project-native-video');
+        if (modalNativeVideo) {
+          try {
+            modalNativeVideo.load();
+          } catch (vErr) { }
+        }
       }
 
       function closeProjectModal() {
         if (!projectModalOverlay) return;
+        closeProjectVideoPopup();
         const activeVideo = projectModalOverlay.querySelector('video');
         if (activeVideo) {
           activeVideo.pause();
+          try {
+            activeVideo.currentTime = 0;
+          } catch (pErr) { }
         }
         projectModalOverlay.classList.remove('active');
         projectModalOverlay.setAttribute('aria-hidden', 'true');
@@ -10670,8 +11304,14 @@
       }
 
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && projectModalOverlay && projectModalOverlay.classList.contains('active')) {
-          closeProjectModal();
+        if (e.key === 'Escape') {
+          if (projectVideoPopupModal && projectVideoPopupModal.classList.contains('active')) {
+            closeProjectVideoPopup();
+            return;
+          }
+          if (projectModalOverlay && projectModalOverlay.classList.contains('active')) {
+            closeProjectModal();
+          }
         }
       });
 

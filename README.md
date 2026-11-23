@@ -14,13 +14,14 @@ Designed with an obsidian dark aesthetic (`#0a0a0a`), warm orange accents (`#e86
 - **Universal Dual Theme System**: Comprehensive **Dark Mode** (`#0a0a0a` / `#141414`) and **Light Mode** (`#f8fafc` / `#ffffff`) with instant anti-flicker `<head>` loader, persistent `localStorage` synchronization, and a header Sun/Moon toggle.
 - **Skills & Toolkit Matrix**: Curated 2x2 category grid (AI Tools, Automation, Content, Business) with developer tech tags, glowing status dots, and a responsive symmetrical 2-column layout on mobile screens.
 - **6 Featured Real-World AI Projects**:
-  1. **LedgerAdvance — Finance Dashboard**: Centralized market analytics workstation integrating Alpha Vantage, Twelve Data, and Tavily with Netlify Functions and personal budget surplus planning.
-  2. **Customer Complaint Management Automation (n8n)**: Omnichannel support automation leveraging AI extraction, IF/Switch department routing, Google Sheets logging, and email updates.
-  3. **Custom MCP Server**: Production Model Context Protocol server built with n8n bridging Claude to Gmail, Google Calendar, Tavily, and external HTTP APIs.
+  1. **LedgerAdvance — Finance Dashboard**: Centralized market analytics workstation integrating Alpha Vantage, Twelve Data, and Tavily with Netlify Functions, personal budget surplus planning, 5-tab screenshot gallery, and local 222MB demonstration video streaming with HTTP 206 byte-range seeking.
+  2. **Customer Complaint Management Automation (n8n)**: Omnichannel support automation leveraging AI extraction, IF/Switch department routing, Google Sheets logging, automated customer confirmations, 3-tab screenshot gallery, and Google Drive walkthrough demo video streaming via native video popup player. Official GitHub: [`Sandeep600-ai/customer-complaint-management-automation`](https://github.com/Sandeep600-ai/customer-complaint-management-automation).
+  3. **Custom MCP Server**: Production Model Context Protocol server built with n8n bridging Claude to Gmail, Google Calendar, Tavily, and external HTTP APIs, 3-tab screenshot gallery, and Google Drive walkthrough demo video streaming via native video popup player. Official GitHub: [`Sandeep600-ai/custom-mcp-server`](https://github.com/Sandeep600-ai/custom-mcp-server).
   4. **Custom RAG System**: Retrieval-Augmented Generation pipeline using n8n, OpenAI Embeddings, and Pinecone vector database for secure, hallucination-free document QA.
   5. **Excitel Customer Support Chatbot**: Botpress Studio conversational broadband assistant for plan inquiries, billing, and connectivity troubleshooting.
   6. **AI Interview Scheduling Agent**: Real-time voice agent powered by Vapi, OpenAI GPT-4.1, and ElevenLabs (Emma) with bidirectional Google Calendar booking.
-- **Interactive Project Details Modal**: Deep-dive modal presenting verified business problems, solution overviews, 6-stage workflow pipelines, business & industry use cases, key benefits, and implementation contributions.
+- **Interactive Project Details Modal & Multi-Tab Galleries**: Deep-dive modal presenting verified business problems, solution overviews, 6-stage workflow pipelines, multi-tab high-resolution interface galleries (LedgerAdvance 5 tabs, Complaint Automation 3 tabs, Custom MCP Server 3 tabs), business & industry use cases, key benefits, and implementation contributions.
+- **Native Video Popup Player (`#projectVideoPopupModal`)**: Custom responsive video dialog styled in obsidian dark (`#0a0a0a` / `#141414`) and warm orange (`#e8622a`) design tokens. Streams high-definition Google Drive demo walkthroughs seamlessly inside the website without external redirects or downloading video files into the local repository. Includes interactive video stage with glowing play button, auto-unloading on close, and backdrop dismissal.
 - **Ultra-Crisp Visual Assets**: Dedicated 16:9 widescreen high-definition visual assets (`assets/projects/`) optimized for high-DPI, Retina, and 4K displays.
 - **Job Market Command Center (`/jobs`)**: Standalone private AI job search dashboard protected behind authentication (private tool for owner; not accessible by the public), featuring 45 verified roles across LinkedIn, Indeed, and Naukri with AI profile match scoring.
 - **AI Pulse Live News Radar**: Real-time AI news feed with strict 50/50 symmetrical card grid, content sanitizer (strips raw markdown tables and login fragments), medium-level perimeter edge glow, natural brand accent action buttons, 5 category filter pills (All, AI Tools, Automation, LLMs, Business Tech), dynamic feed pool cycling on manual refresh, 30-minute client caching, and live Tavily Search API integration.
@@ -41,17 +42,25 @@ Portfolio-website/
 │   ├── logo.png                        # High-resolution transparent SK monogram logo
 │   ├── logo.svg                        # Vector SVG SK monogram logo
 │   └── projects/                       # High-definition 16:9 project preview graphics
-│       ├── complaint-automation.jpg
+│       ├── complaint-automation/       # Customer Complaint Automation gallery assets
+│       │   ├── execution-result.png
+│       │   ├── routing-logic.png
+│       │   └── workflow-overview.png
+│       ├── ledger-advance/             # LedgerAdvance dashboard gallery & video demo
+│       │   ├── budget-allocation-growth.png
+│       │   ├── budget-planner.png
+│       │   ├── company-analysis.png
+│       │   ├── dashboard-overview.png
+│       │   └── stock-comparison.png
+│       ├── mcp-server/                 # Custom MCP Server workflow & connector assets
+│       │   ├── claude-connectors-list.jpg
+│       │   ├── claude-mcp-permissions.jpg
+│       │   └── mcp-workflow-trigger.jpg
 │       ├── complaint-automation.png
-│       ├── custom-rag.jpg
 │       ├── custom-rag.png
-│       ├── excitel-chatbot.jpg
 │       ├── excitel-chatbot.png
-│       ├── interview-agent.jpg
 │       ├── interview-agent.png
-│       ├── ledger-advance.jpg
 │       ├── ledger-advance.png
-│       ├── mcp-server.jpg
 │       └── mcp-server.png
 ├── data/                               # Static catalogs & verified fallback datasets
 │   ├── jobs.json                       # 45 verified AI jobs (LinkedIn, Indeed, Naukri)

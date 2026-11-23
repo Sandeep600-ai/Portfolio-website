@@ -309,35 +309,88 @@ const server = http.createServer(async (req, res) => {
 
     const ext = path.extname(filePath).toLowerCase();
 
-    // Stream video files with HTTP 206 Partial Content support for seeking
+    // Stream video files with robust HTTP 206 Partial Content & HEAD support for mobile seeking
     if (ext === '.mp4' || ext === '.webm') {
       const range = req.headers.range;
       const fileSize = stats.size;
+      const mime = MIME_TYPES[ext] || 'video/mp4';
 
-      if (range) {
-        const parts = range.replace(/bytes=/, '').split('-');
-        const start = parseInt(parts[0], 10);
-        const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
-        const chunksize = (end - start) + 1;
-        const fileStream = fs.createReadStream(filePath, { start, end });
-
-        res.writeHead(206, {
-          'Content-Range': `bytes ${start}-${end}/${fileSize}`,
-          'Accept-Ranges': 'bytes',
-          'Content-Length': chunksize,
-          'Content-Type': MIME_TYPES[ext] || 'video/mp4'
-        });
-        fileStream.pipe(res);
-        return;
-      } else {
+      if (req.method === 'HEAD') {
         res.writeHead(200, {
           'Content-Length': fileSize,
           'Accept-Ranges': 'bytes',
-          'Content-Type': MIME_TYPES[ext] || 'video/mp4'
+          'Content-Type': mime,
+          'Cache-Control': 'no-cache'
         });
-        fs.createReadStream(filePath).pipe(res);
+        res.end();
         return;
       }
+
+      if (range) {
+        const match = range.match(/bytes=(\d*)-(\d*)/);
+        if (match) {
+          let startStr = match[1];
+          let endStr = match[2];
+          let start = 0;
+          let end = fileSize - 1;
+
+          if (!startStr && endStr) {
+            // Suffix range: bytes=-65536 (e.g. mobile Safari fetching moov atom at end of file)
+            const suffix = parseInt(endStr, 10);
+            start = Math.max(0, fileSize - suffix);
+            end = fileSize - 1;
+          } else {
+            start = startStr ? parseInt(startStr, 10) : 0;
+            end = endStr ? parseInt(endStr, 10) : fileSize - 1;
+          }
+
+          if (isNaN(start) || start < 0) start = 0;
+          if (isNaN(end) || end >= fileSize) end = fileSize - 1;
+
+          if (start > end || start >= fileSize) {
+            res.writeHead(416, {
+              'Content-Range': `bytes */${fileSize}`,
+              'Accept-Ranges': 'bytes'
+            });
+            res.end();
+            return;
+          }
+
+          const chunksize = (end - start) + 1;
+          res.writeHead(206, {
+            'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+            'Accept-Ranges': 'bytes',
+            'Content-Length': chunksize,
+            'Content-Type': mime,
+            'Cache-Control': 'no-cache'
+          });
+
+          const fileStream = fs.createReadStream(filePath, { start, end });
+          fileStream.on('error', () => {
+            if (!res.headersSent) {
+              res.writeHead(500, { 'Content-Type': 'text/plain' });
+            }
+            res.end();
+          });
+          res.on('close', () => {
+            fileStream.destroy();
+          });
+          fileStream.pipe(res);
+          return;
+        }
+      }
+
+      res.writeHead(200, {
+        'Content-Length': fileSize,
+        'Accept-Ranges': 'bytes',
+        'Content-Type': mime,
+        'Cache-Control': 'no-cache'
+      });
+      const fullStream = fs.createReadStream(filePath);
+      fullStream.on('error', () => res.end());
+      res.on('close', () => fullStream.destroy());
+      fullStream.pipe(res);
+      return;
     }
 
     fs.readFile(filePath, (readErr, content) => {
