@@ -971,7 +971,7 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
       - Converted all project walkthroughs to standard HTML5 `<video controls playsinline>` with responsive styling. Tested and verified in DevTools across Desktop and Mobile (iOS/Android viewports) with `paused: false` and `readyState: 3`.
       - Replaced hardcoded `<h3>Dashboard Interface & Modules</h3>` with dynamic `${data.galleryHeading}` and replaced generic tab labels with exact titles from Sandeep's Notion pages (`RAG-Pinecone Workflow Canvas`, `Loaded The Data onto a 3rd party RAG Store`, `Query our RAG`, `Excitel Customer Support — Botpress Cloud Overview`, `Botpress Studio Node Flow & Chat Simulation`, `Interview Schedule — Vapi Voice Assistant Configuration`, `Appointment_Booking_Tool & Google Calendar Settings`).
       - Trimmed Excitel and Interview Agent galleries to exactly the 2 authentic Notion screenshots.
-      - Dev server running on `http://localhost:3000/` for user inspection.
+      - Dev server stopped cleanly per On-Demand Local Dev Server Policy.
 - **Starting Point for Next Session**:
   - Codebase is 100% clean, verified, and hardened with 0 errors/warnings across HTML, CSS, and JS.
   - All 6 projects (LedgerAdvance, Customer Complaint Automation, Custom MCP Server, Custom RAG System, Excitel Customer Support Chatbot, AI Interview Scheduling Agent) are fully upgraded with authentic demonstration videos, interactive multi-tab screenshot galleries, verified Notion metadata, and consistent lightweight in-place video playback.

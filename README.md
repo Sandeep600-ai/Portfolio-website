@@ -37,25 +37,18 @@ Portfolio-website/
 ├── api/                                # Vercel Serverless Functions
 │   ├── jobs.js                         # Job catalog filtering & platform query endpoint
 │   ├── news.js                         # Tavily live AI news radar with cache fallback
-│   └── status.js                       # Service telemetry & environment status
+│   ├── status.js                       # Service telemetry & environment status
+│   └── video.js                        # Google Drive HTTP 206 byte-range video streaming proxy
 ├── assets/                             # Static visual assets
 │   ├── logo.png                        # High-resolution transparent SK monogram logo
 │   ├── logo.svg                        # Vector SVG SK monogram logo
-│   └── projects/                       # High-definition 16:9 project preview graphics
+│   └── projects/                       # High-definition 16:9 project preview graphics & galleries
 │       ├── complaint-automation/       # Customer Complaint Automation gallery assets
-│       │   ├── execution-result.png
-│       │   ├── routing-logic.png
-│       │   └── workflow-overview.png
+│       ├── custom-rag/                 # Custom RAG System workflow & vector store assets
+│       ├── excitel-chatbot/            # Excitel Botpress Cloud & Studio simulation assets
+│       ├── interview-agent/            # Vapi Voice Assistant & Google Calendar tool assets
 │       ├── ledger-advance/             # LedgerAdvance dashboard gallery & video demo
-│       │   ├── budget-allocation-growth.png
-│       │   ├── budget-planner.png
-│       │   ├── company-analysis.png
-│       │   ├── dashboard-overview.png
-│       │   └── stock-comparison.png
 │       ├── mcp-server/                 # Custom MCP Server workflow & connector assets
-│       │   ├── claude-connectors-list.jpg
-│       │   ├── claude-mcp-permissions.jpg
-│       │   └── mcp-workflow-trigger.jpg
 │       ├── complaint-automation.png
 │       ├── custom-rag.png
 │       ├── excitel-chatbot.png
