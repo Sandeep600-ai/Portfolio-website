@@ -4,41 +4,16 @@ Tracking active, completed, and upcoming milestones for Sandeep Kumar's personal
 
 ---
 
-## Current Status: Phase 1, Phase 2, Phase 3 & Top 3 Projects Showcase Complete
+## Current Status: Phase 1, Phase 2, Phase 3 & All 6 Projects Showcase Complete
 
 ```
-[██████████████████████████████] 100% Top 3 Projects Showcase Complete (LedgerAdvance, Complaint Automation, Custom MCP Server)
+[██████████████████████████████] 100% All 6 Projects Showcase Complete (LedgerAdvance, Complaint Automation, Custom MCP Server, Custom RAG System, Excitel Chatbot, AI Interview Scheduling Agent)
 Status: index.html fully built with 3D robot hero, Profile, Skills, Projects, Job Market card, AI Pulse live radar, and Contact.
-Top 3 Projects upgraded with authentic demonstration videos, multi-tab interactive screenshot galleries, official GitHub repositories, verified Notion metadata, and responsive dual CTAs (VIEW DETAILS → and GitHub ↗).
-Customer Complaint Management Automation (n8n) & Custom MCP Server feature custom native video popup player streaming via Google Drive preview without local repository bloat.
-Both desktop and mobile layouts verified in DevTools (390px mobile and 1440px desktop).
-Dev server running on http://localhost:3000/.
+All 6 Projects upgraded with authentic demonstration videos, multi-tab interactive screenshot galleries, official GitHub repositories (where applicable), verified Notion metadata, and responsive action CTAs.
+Consistent lightweight in-place video playback solution implemented with Google Drive streaming, -56px top mask removing Google Drive branding, hover overlay controls, and automatic audio cleanup on modal dismissal.
+Both desktop (1280px) and mobile (390px) layouts verified in DevTools with zero horizontal overflow.
+Dev server operational on-demand.
 ```
-
----
-
-## Milestone Breakdown
-
-### Phase 1: Portfolio Foundation & Documentation Setup
-- [x] **Top 3 Projects Showcase Upgrade (LedgerAdvance, Complaint Automation, Custom MCP Server)**
-  - **LedgerAdvance — Finance Dashboard**: Authentic local demo video with HTTP 206 streaming, 5-tab screenshot gallery, GitHub repo link, and verified Notion metadata.
-  - **Customer Complaint Management Automation (n8n)**:
-    - GitHub Repo: `https://github.com/Sandeep600-ai/customer-complaint-management-automation`
-    - Google Drive Demo Video: Embedded via native video popup player (`https://drive.google.com/file/d/1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2/preview`).
-    - 3-tab Screenshot Gallery: `Workflow Overview`, `Routing Logic`, and `Execution Result` with real high-resolution screenshots.
-    - Verified Notion Metadata: Completion Date (October 22, 2026), Status Completed, AI Automation n8n, Google Sheets & Gmail tools.
-    - Symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗`).
-  - **Custom MCP Server**:
-    - GitHub Repo: `https://github.com/Sandeep600-ai/custom-mcp-server`
-    - Google Drive Demo Video: Embedded via native video popup player (`https://drive.google.com/file/d/1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP/preview`).
-    - 3-tab Screenshot Gallery: `MCP Server Workflow`, `Claude Connectors`, and `Tool Permissions` with real high-resolution screenshots.
-    - Verified Notion Metadata: Completion Date (July 8, 2026), Status Completed, AI Integration & Protocol, Claude, Gmail, Google Calendar, Tavily, HTTP tools.
-    - Symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗`).
-  - **Custom Responsive Video Player Popup (`#projectVideoPopupModal`)**:
-    - Styled in obsidian dark (`#0a0a0a` / `#141414`) and warm orange (`#e8622a`) matching site design tokens.
-    - Video stage inside project details modal with play icon, ambient glow, and poster image.
-    - One-click launch into dedicated popup dialog. Unloads `iframe.src` on close to stop playback and audio cleanly.
-    - Full mobile support with 16:9 ratio, clear close button, and backdrop tap to dismiss.
 
 ---
 
@@ -124,6 +99,40 @@ Dev server running on http://localhost:3000/.
   - Polished lower section formatting of the LedgerAdvance card with concise description, clean monospace tech row, and balanced dual-action buttons.
   - Engineered cohesive Dark and Light theme fidelity across all new elements.
   - Maintained zero regressions across all other 5 project cards and website sections.
+- [x] **Customer Complaint Management Automation (n8n)**:
+  - GitHub Repo: `https://github.com/Sandeep600-ai/customer-complaint-management-automation`.
+  - Google Drive Demo Video: Embedded via native video popup player (`https://drive.google.com/file/d/1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2/preview`).
+  - 3-tab Screenshot Gallery: `Workflow Overview`, `Routing Logic`, and `Execution Result` with real high-resolution screenshots.
+  - Verified Notion Metadata: Completion Date (`October 22, 2026`), Status `Completed`, AI Automation n8n, Google Sheets & Gmail tools.
+  - Symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗`).
+- [x] **Custom MCP Server**:
+  - GitHub Repo: `https://github.com/Sandeep600-ai/custom-mcp-server`.
+  - Google Drive Demo Video: Embedded via native video popup player (`https://drive.google.com/file/d/1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP/preview`).
+  - 3-tab Screenshot Gallery: `MCP Server Workflow`, `Claude Connectors`, and `Tool Permissions` with real high-resolution screenshots.
+  - Verified Notion Metadata: Completion Date (`July 8, 2026`), Status `Completed`, AI Integration & Protocol, Claude, Gmail, Google Calendar, Tavily, HTTP tools.
+  - Symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗`).
+- [x] **Custom RAG System**:
+  - Demonstration Video: Google Drive file ID `1JRrSoI9ohZ8jOmaNdzJBKHnl2pU2FMSe` (`Rag With Pinecone.mp4`) streamed directly in-place.
+  - 3-tab Screenshot Gallery: `Workflow Overview`, `Data Ingestion`, and `Query & AI Agent` deployed in `assets/projects/custom-rag/`.
+  - Verified Notion Metadata: Completion Date (`September 26, 2026`), Category `AI-Powered Information Retrieval`, Status `Completed`, Tools: `OpenAI`, `n8n`, `Pinecone`, `Supabase`, `Gemini`.
+  - Streamlined Action CTA: Single `VIEW DETAILS →` (without GitHub per user specification).
+- [x] **Excitel Customer Support Chatbot**:
+  - Demonstration Video: Google Drive file ID `1flTYJVm_bokHvQ1xq2xDL3m7dowh6__v` (`Excitel Customer Support.mp4`) streamed directly in-place.
+  - 3-tab Screenshot Gallery: `Conversation Flow`, `Chat Simulation`, and `Assistant Overview` deployed in `assets/projects/excitel-chatbot/`.
+  - Verified Notion Metadata: Completion Date (`June 17, 2026`), Category `AI Chatbot`, Status `Completed`, Tools: `Botpress Studio`, `Claude`, `ChatGPT`, `Custom MCP`.
+  - Streamlined Action CTA: Single `VIEW DETAILS →` (without GitHub per user specification).
+- [x] **AI Interview Scheduling Agent**:
+  - GitHub Repo: `https://github.com/Sandeep600-ai/ai-interview-scheduling-agent`.
+  - Demonstration Video: Google Drive file ID `1Ch9fRSOgrNY6139OiYbg8pJCqK3W0aLI` (`interview Appointment Booking.mp4`) streamed directly in-place.
+  - 3-tab Screenshot Gallery: `Voice Assistant`, `Calendar Booking`, and `Integration Tools` deployed in `assets/projects/interview-agent/`.
+  - Verified Notion Metadata: Completion Date (`July 17, 2026`), Category `Voice AI Agent`, Status `Completed`, Tools: `VAPI`, `ElevenLabs`, `OpenAI`, `Google Calendar`, `Gmail`.
+  - Symmetrical Dual Action CTAs: `VIEW DETAILS →` and `GitHub ↗` with direct repo link and click propagation handling.
+- [x] **Consistent Lightweight In-Place Video Playback Architecture**:
+  - Videos mount directly inside `.project-video-stage` within the project section upon clicking the play button without redirecting users to Google Drive.
+  - Clean `-56px` top-mask CSS architecture (`position: absolute; top: -56px; height: calc(100% + 56px); width: 100%; overflow: hidden;`) that cleanly crops out Google Drive's default title bar, pop-out icon, and branding while leaving standard playback controls intact.
+  - Interactive hover bar (`.project-video-inline-bar`) with "Now Playing", "Theatre View ↗" (which launches `#projectVideoPopupModal` for full cinema viewing), and "Reset" button.
+  - Automatic iframe unmounting and stage reset in `closeProjectModal()`, ensuring audio pauses immediately upon modal closure.
+  - Consistent 16:9 container dimensions and spacing across all 6 projects following the established layout.
 
 ---
 
@@ -131,6 +140,7 @@ Dev server running on http://localhost:3000/.
 
 | Date / Timestamp | Action | Status | Notes |
 | :--- | :--- | :--- | :--- |
+| 2026-11-24 17:00 | Complete 6-Project Showcase Upgrade & Lightweight In-Place Video Playback | Done | Upgraded Custom RAG System, Excitel Chatbot, and Interview Agent with 3-tab screenshot galleries, Google Drive video streaming, Notion metadata, and proper CTAs; implemented lightweight in-place player with -56px Google Drive brand mask, hover controls, and automatic audio cleanup |
 | 2026-11-23 16:15 | LedgerAdvance Mobile Video Playback & Professional Card Layout Fix | Done | Fixed HTTP 206 suffix range parser & HEAD method for mobile video playback; added webkit-playsinline & direct src on video; removed legacy card padding for edge-to-edge 16:9 thumbnail and balanced dual CTAs on mobile view |
 | 2026-11-22 14:35 | LedgerAdvance Finance Dashboard Enhancement | Done | Integrated 222MB demo video with partial content streaming, 5-tab screenshot gallery, GitHub repo links, Notion metadata, fixed card formatting and dual action CTAs with full Dark/Light theme support |
 | 2026-11-05 17:30 | Implementation plan created | Done | Initial design and project specs planned |
@@ -227,6 +237,8 @@ Dev server running on http://localhost:3000/.
 | 2026-11-22 00:38 | Dedicated About Profile Detail Modal & Main Card Arrow (Version 2) | Done | Preserved homepage About card 100% intact and added subtle interactive arrow icon (media_1795287266017_04e7a735.png). Built dedicated, premium About Profile detail modal following Version 2 reference design (media_1795287230311_36517fff.jpg) with #DF5E29 burnt orange accent, dark charcoal #0d0e12 background, white headings, soft grey text #B8BEC3, 3D abstract AI visual stage (isometric pedestal, AI chip, orbit rings, ascending columns), 3-card What I'm Interested In grid, 3-row What I Bring container, 5-category accordion Skills & Tools with official brand logos, editorial A Bit More About Me text, and Let's Connect cards with verified links. Full light mode and mobile responsiveness verified with 0 errors |
 | 2026-11-22 01:25 | About Profile Modal Version 2 Refinement (Visual Enlargement, Logo Expansion & Header Polish) | Done | Removed "PROFILE" text label from modal top-right header bar; enlarged 3D isometric AI visual design stage to 380x250px with glowing chip, ascending metric columns, cyber orbit rings, and floating glassmorphic AI badges filling the card quadrant without dead space; integrated official brand-colored logos for Claude, ChatGPT, Gemini, n8n, Antigravity, Notion, and Copilot into Skills & Tools accordion; compacted conversation context cleanly with zero regressions |
 | 2026-11-22 13:45 | About Profile Modal & Connect Cards Universal Light/Dark Contrast Polish | Done | Resolved visibility issues in Light Mode: fixed invisible GitHub connect button (now crisp slate #f1f5f9 with #0f172a text & icon, inverting to solid on hover); fixed low-contrast LinkedIn button (now crisp blue #f0f7ff with #0a66c2 text & icon); polished Email connect button (#fff5f0 with #DF5E29); fixed invisible ElevenLabs icon in accordion (converted to currentColor, rendering #0f172a in light and #f0f0f0 in dark); added stroke to Notion logo; adapted 3D stage floating badges; styled accordion active headers and chevrons in light mode; ensured Contact section cards retain crisp high-contrast icon boxes; verified 100% readability across both Light and Dark modes with zero regressions |
+| 2026-11-24 17:45 | 3 New AI Projects (Custom RAG, Excitel Chatbot, Interview Agent) Multi-Tab Galleries & Video Integration | Done | Added full Notion metadata, authentic screenshots, and video walkthroughs with in-place playback |
+| 2026-11-24 18:15 | Authentic Gallery Headings & Native Video Streaming Proxy Architecture | Done | Fixed mobile Google Drive login block with /api/video HTTP 206 streaming proxy; replaced generic dashboard heading with dynamic galleryHeading and exact Notion tab titles (RAG-Pinecone, Botpress Studio, Vapi Assistant); verified playback on desktop & mobile |
 
 ---
 
@@ -237,7 +249,7 @@ Dev server running on http://localhost:3000/.
   - **Main Portfolio (`index.html`)**:
     - **Hero Section**: Custom high-res SK monogram logo (`assets/logo.svg`, `assets/logo.png`), commanding bold title (`Sandeep` at `clamp(5.4rem, 13vw, 9.25rem)` and `Kumar.` proportionally smaller at `clamp(4.4rem, 10.5vw, 7.5rem)`), interactive typing terminal box (`• sandeep@ai:~$ [typewriter] ▌`), life-sized 3D Spline robot with fluid `0.6s cubic-bezier` transitions, ambient chest/shoulder backlight aura, seamless obsidian floor alpha blending, and strict side-by-side single-row CTA buttons (`View Projects →` on the left and `Get in Touch` on the right) with zero vertical wrapping on mobile.
     - **Navigation & Controls**: Sticky glassmorphic top navigation with custom SK monogram logo, compact rounded-rectangular 'Let's Talk' button in deeper warm orange (`#d4531f`, `border-radius: 7px`), Sun/Moon theme toggle button, and adaptive 860px breakpoint for seamless mobile/tablet drawer presentation; floating 7-dot section navigation on the left edge with hover tooltips (`Home`, `Profile`, `Skills`, `Projects`, `Job Market`, `AI Pulse`, `Contact`); persistent vertical social sidebar on the right edge (auto-collapses on mobile).
-    - **Content Sections**: Profile / About Me (with main narrative card `.about-narrative-card` preserved with subtle interactive arrow `#btnOpenAboutProfile` opening dedicated `#aboutProfileModalOverlay` featuring #DF5E29 accent, enlarged 380x250 3D AI visual stage, 3-card What I'm Interested In grid, 3-row What I Bring container, 5-category accordion with official logos for Claude, ChatGPT, Gemini, n8n, Antigravity, Notion, and Copilot, editorial text, and contact links; and all 3 interactive Profile cards upgraded: Card 01 Location with India Gate cityscape modal, Card 02 AI Focus with atmospheric 300x160 3D AI chip visual stage banner, 12 AI tool logos with orange-highlighted Claude, 7 capabilities, and 5 integrations modal, and Card 03 Academic Profile with atmospheric 300x160 graduation books/cap visual stage banner, academic degrees, and 3 professional learning credential cards modal), Toolkit / Skills & Tools (4 curated categories), Selected Work / Featured Projects (6 real AI project cards with live status badges and interactive expanded modal), Job Market teaser card (`.private-jobs-card`) with smooth passcode modal, AI Pulse real-time AI news feed (live Tavily MCP crawl dataset, 5 category filter pills, dynamic feed pool rotation on manual refresh, medium perimeter edge glow cards, natural orange accent CTA buttons), and accessible Contact form with copy email action.
+    - **Content Sections**: Profile / About Me (with main narrative card `.about-narrative-card` preserved with subtle interactive arrow `#btnOpenAboutProfile` opening dedicated `#aboutProfileModalOverlay` featuring #DF5E29 accent, enlarged 380x250 3D AI visual stage, 3-card What I'm Interested In grid, 3-row What I Bring container, 5-category accordion with official logos for Claude, ChatGPT, Gemini, n8n, Antigravity, Notion, and Copilot, editorial text, and contact links; and all 3 interactive Profile cards upgraded: Card 01 Location with India Gate cityscape modal, Card 02 AI Focus with atmospheric 300x160 3D AI chip visual stage banner, 12 AI tool logos with orange-highlighted Claude, 7 capabilities, and 5 integrations modal, and Card 03 Academic Profile with atmospheric 300x160 graduation books/cap visual stage banner, academic degrees, and 3 professional learning credential cards modal), Toolkit / Skills & Tools (4 curated categories), Selected Work / Featured Projects (all 6 authentic AI project cards upgraded with live status badges, multi-tab screenshot galleries, authentic demonstration videos, verified Notion metadata, and consistent lightweight in-place video player with -56px Google Drive brand mask), Job Market teaser card (`.private-jobs-card`) with smooth passcode modal, AI Pulse real-time AI news feed (live Tavily MCP crawl dataset, 5 category filter pills, dynamic feed pool rotation on manual refresh, medium perimeter edge glow cards, natural orange accent CTA buttons), and accessible Contact form with copy email action.
     - **Global Theme Engine**: Complete Dark (`#0a0a0a`) and Light (`#f8fafc` / `#ffffff`) mode system with persistent `localStorage` support and instant anti-flicker loader.
   - **Job Market Command Center (`/jobs`)**:
     - Standalone private dashboard, protected behind passcode gate.
@@ -248,7 +260,7 @@ Dev server running on http://localhost:3000/.
     - Sidebar Navigation: Overview, Find Jobs, Discover More Jobs, Saved Jobs.
     - Real Apify Multi-Platform Integration: 45 verified AI jobs across LinkedIn, Indeed, and Naukri.
     - AI Profile Skill Match Scoring: Strong Match (green), Good Match (orange), Explore (grey).
-  - **Dev Server**: Node server (`server.js`) with zero-dependency `.env` loader, live Tavily API querying support, and clean static file serving.
+  - **Dev Server**: Node server (`server.js`) with zero-dependency `.env` loader, live Tavily API querying support, HTTP 206 byte-range streaming, and clean static file serving.
   - **Deployment Ready**: Zero hardcoded secrets, hardened `.gitignore`, Vercel serverless API routes (`api/news.js`, `api/jobs.js`, `api/status.js`), and static framework preset confirmed.
   - **Linter & Code Health**: 0 VS Code warnings, 0 TypeScript errors, 100% valid JavaScript and CSS.
 

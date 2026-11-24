@@ -804,6 +804,51 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
   - Verified visual fidelity in both mobile (390x844) and desktop (1200x800) viewports with zero regressions.
 - **Outcome**: Seamless video playback across mobile and desktop devices with clean, edge-to-edge professional card aesthetics matching the web version.
 
+### Decision 56: Complete 6-Project Showcase Upgrade & Lightweight In-Place Video Playback Architecture (2026-11-24)
+- **Context**: The user requested adding authentic demonstration videos, multi-tab screenshot galleries, verified Notion metadata, and proper action CTAs to the remaining 3 projects on the website:
+  1. **Custom RAG System**: Walkthrough Drive folder (`https://drive.google.com/drive/folders/12cSzNMyeAalrhS-5VqMB6IqnnL_z3Ixh?usp=sharing`, direct preview ID `1JRrSoI9ohZ8jOmaNdzJBKHnl2pU2FMSe`), screenshots from user uploads, without GitHub link for now per user instruction.
+  2. **Excitel Customer Support Chatbot**: Walkthrough Drive folder (`https://drive.google.com/drive/folders/1XO9HkIjqOspqf_JeC3GQ2_Y0lhPztugM?usp=sharing`, direct preview ID `1flTYJVm_bokHvQ1xq2xDL3m7dowh6__v`), screenshots from user uploads, without GitHub link per user instruction.
+  3. **AI Interview Scheduling Agent**: GitHub repo `https://github.com/Sandeep600-ai/ai-interview-scheduling-agent`, Walkthrough Drive folder (`https://drive.google.com/drive/folders/1R1v23ARCAioBOpDGj9rIcAZS6UMx41iS?usp=sharing`, direct preview ID `1Ch9fRSOgrNY6139OiYbg8pJCqK3W0aLI`), screenshots from user uploads.
+  - **Core Requirements**: Keep video files on Google Drive (zero local video file bloat); videos play directly within the project section without external redirects; clean custom player masking Google Drive's default interface and branding; maintain consistent 16:9 container dimensions and spacing across all projects; apply the architecture universally; preserve existing website design, theme, layout, animations, and functionality.
+- **Architectural Implementation**:
+  - **Lightweight In-Place Video Playback Architecture**:
+    - Videos mount directly inside the `.project-video-stage` within the project section upon clicking the play button or poster.
+    - Google Drive preview URLs (`https://drive.google.com/file/d/<fileId>/preview`) have a default 56px top bar with file title and pop-out icon. By applying `overflow: hidden` on `.project-video-embed-wrap` and `position: absolute; top: -56px; height: calc(100% + 56px); width: 100%; border: none;` on the `iframe`, the entire Google Drive toolstrip is seamlessly cropped out, leaving only the pristine video frame and bottom playback controls (play/pause, progress scrubber, volume, fullscreen).
+    - Added an interactive hover bar (`.project-video-inline-bar`) with "Now Playing", "Theatre View ↗" (which launches `#projectVideoPopupModal` for full cinema viewing), and "Reset" button.
+    - Updated `#projectVideoPopupModal`'s frame wrap to also use the `-56px` top mask for consistent brand-free theatre viewing.
+    - Updated `closeProjectModal()` to cleanly unmount the active iframe and reset the stage, pausing audio playback immediately upon modal closure.
+  - **Asset Deployment**:
+    - Created `assets/projects/custom-rag/` containing `workflow-overview.jpg`, `data-ingestion.jpg`, `query-rag.jpg`, and high-res video poster `rag-video-poster.jpg`.
+    - Created `assets/projects/excitel-chatbot/` containing `botpress-conversation-flow.png`, `botpress-chat-simulation.png`, `botpress-assistant-overview.png`, and high-res video poster `excitel-video-poster.jpg`.
+    - Created `assets/projects/interview-agent/` containing `vapi-assistant-config.jpg`, `vapi-calendar-tool.jpg`, `vapi-tools-ecosystem.jpg`, and high-res video poster `interview-video-poster.jpg`.
+  - **Notion Metadata & Card Content Alignment**:
+    - **Custom RAG System**: Completion Date: September 26, 2026; Category: AI-Powered Information Retrieval; Status: Completed; Tools: OpenAI, n8n, Pinecone, Supabase, Gemini; CTA: Single `VIEW DETAILS →`.
+    - **Excitel Customer Support Chatbot**: Completion Date: June 17, 2026; Category: AI Chatbot; Status: Completed; Tools: Botpress Studio, Claude, ChatGPT, Custom MCP; CTA: Single `VIEW DETAILS →`.
+    - **AI Interview Scheduling Agent**: Completion Date: July 17, 2026; Category: Voice AI Agent; Status: Completed; Tools: VAPI, ElevenLabs, OpenAI, Google Calendar, Gmail; CTAs: Symmetrical dual-action `VIEW DETAILS →` and `GitHub ↗` linking to `https://github.com/Sandeep600-ai/ai-interview-scheduling-agent`.
+  - **Responsive & Design System Fidelity**:
+    - Tested on both desktop (1280x800) and mobile (390x844) viewports with zero horizontal overflow (`hasHorizontalOverflow: false`).
+    - Full Light Mode (`[data-theme="light"]`) and Dark Mode support with cohesive obsidian `#0a0a0a`, surface `#141414`, and warm orange `#e8622a` / `#d4531f` styling.
+- **Outcome**: All 6 projects on the website now feature authentic demonstration videos, interactive multi-tab screenshot galleries, verified Notion metadata, and consistent, lightweight in-place video playback without Google Drive branding or repository bloat.
+
+### Decision 57: Authentic Image Headings Alignment & Native Video Streaming Proxy Architecture (2026-11-24)
+- **Context**: During responsive testing and user inspection of the 3 latest projects (Custom RAG System, Excitel Customer Support Chatbot, AI Interview Scheduling Agent):
+  1. Google Drive preview iframes (`https://drive.google.com/file/d/<id>/preview`) failed on mobile viewports: Google Drive returns `drive-viewer-video: false` when queried with mobile user agents and redirects the iframe to `accounts.google.com` (forcing an unwanted Google Sign-in screen).
+  2. The project detail modal displayed a generic hardcoded heading `DASHBOARD INTERFACE & MODULES` and generic tab names across all projects, which did not reflect the authentic, real-world tools and workflows shown in Sandeep's screenshots (e.g. n8n RAG-Pinecone canvas, Botpress Cloud Studio, and Vapi Voice Assistant).
+- **Architectural Implementation**:
+  - **HTTP 206 Video Streaming Proxy (`/api/video`)**:
+    - Built an on-the-fly streaming proxy in `server.js` and serverless handler `api/video.js` that takes `?id=<googleDriveFileId>`.
+    - Streams directly from `https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t&authuser=0`.
+    - Seamlessly forwards client `Range` headers, passing HTTP `206 Partial Content`, `Content-Range`, `Content-Length`, and `Accept-Ranges: bytes` directly to the client browser.
+    - Switched all project walkthroughs to standard HTML5 `<video class="project-native-video" controls playsinline webkit-playsinline="true" x5-playsinline="true" preload="metadata">`, allowing native video playback across desktop and mobile (iOS & Android) with zero login walls, zero Google Drive branding, and zero local repository bloat.
+    - Sourced a clean "Theatre View ↗" action in the header that launches `#projectVideoPopupModal` for cinema viewing without interrupting in-place playback.
+  - **Dynamic Gallery Headings & Authentic Tab Alignment**:
+    - Replaced hardcoded `<h3>Dashboard Interface & Modules</h3>` with `${data.galleryHeading || 'Dashboard Interface & Modules'}`.
+    - Aligned gallery headings and tab titles to 100% authentic titles from Sandeep's Notion pages and screenshots:
+      - **Custom RAG System**: Gallery Heading: `n8n Workflow Canvas & Vector Stores`. Tabs: `RAG-Pinecone Workflow Canvas (Overview)`, `Loaded The Data onto a 3rd party RAG Store`, `Query our RAG (AI Agent & Supabase Vector Store)`.
+      - **Excitel Customer Support Chatbot**: Gallery Heading: `Botpress Studio & Conversation Interface`. Tabs (trimmed to exact 2 Notion screenshots): `Excitel Customer Support — Botpress Cloud Overview`, `Botpress Studio Node Flow & Chat Simulation`.
+      - **AI Interview Scheduling Agent**: Gallery Heading: `Vapi Voice Assistant & Tool Architecture`. Tabs (trimmed to exact 2 Notion screenshots): `Interview Schedule — Vapi Voice Assistant Configuration`, `Appointment_Booking_Tool & Google Calendar Settings`.
+- **Outcome**: Natural, authentic tool titles that reflect real use cases, and seamless high-performance native video playback across both desktop and mobile layouts.
+
 ---
 
 ## 3. Approved Design System Tokens
@@ -905,9 +950,30 @@ Sandeep Kumar is an aspiring AI solutions professional exploring Generative AI, 
       - Custom MCP Server: Completed July 8, 2026; Status: Completed; AI Integration & Protocol; Tools: n8n, Claude, Gmail, Google Calendar, Tavily, HTTP REST APIs.
     - **Card Layout & Dual Actions Symmetry**: Updated project cards in the Selected Work grid with flush 16:9 thumbnails, verified monospace tech stack rows, and symmetrical dual-action CTAs (`VIEW DETAILS →` and `GitHub ↗` with direct repo links and click propagation interception).
     - **Mobile & Desktop Layout Verification**: Tested and validated on both 390px mobile viewport (iPhone/Android) and 1440px desktop screens via Chrome DevTools. Verified flush thumbnails, side-by-side action buttons, smooth gallery tab switching, responsive 16:9 video popup playback, and keyboard accessibility.
+  - **Completed in Session (2026-11-24)**:
+    - **Custom RAG System, Excitel Customer Support Chatbot & AI Interview Scheduling Agent Upgrades**:
+      - Enriched all 3 remaining projects with verified Notion metadata (Completion Dates: Sep 26, 2026 for RAG; Jun 17, 2026 for Excitel; Jul 17, 2026 for Interview Agent), categories, authentic tools, workflows, use cases, benefits, and personal contributions.
+      - Extracted, organized, and deployed 3-tab screenshot galleries for each project in `assets/projects/` with high-resolution imagery and video posters (`rag-video-poster.jpg`, `excitel-video-poster.jpg`, `interview-video-poster.jpg`).
+      - Connected authentic demonstration videos hosted on Google Drive (Custom RAG: `1JRrSoI9ohZ8jOmaNdzJBKHnl2pU2FMSe`, Excitel: `1flTYJVm_bokHvQ1xq2xDL3m7dowh6__v`, Interview Agent: `1Ch9fRSOgrNY6139OiYbg8pJCqK3W0aLI`).
+      - Linked verified GitHub repository for AI Interview Scheduling Agent (`https://github.com/Sandeep600-ai/ai-interview-scheduling-agent`) with click propagation handling, while maintaining single `VIEW DETAILS →` buttons for Custom RAG and Excitel per user specifications.
+    - **Consistent Lightweight In-Place Video Playback Architecture**:
+      - Videos mount and play directly within `.project-video-stage` in the project section upon clicking the play button or poster without redirecting to Google Drive.
+      - Applied a clean `-56px` top-mask CSS architecture (`position: absolute; top: -56px; height: calc(100% + 56px); width: 100%; overflow: hidden;`) that cleanly crops out Google Drive's default title bar, pop-out icon, and branding while leaving standard playback controls intact.
+      - Added an interactive hover bar (`.project-video-inline-bar`) with "Now Playing", "Theatre View ↗" (which launches `#projectVideoPopupModal` for full-screen dialog playback), and "Reset" button.
+      - Configured automatic iframe unmounting and stage reset in `closeProjectModal()`, ensuring audio pauses immediately upon modal closure.
+    - **Verification & Zero Regressions**:
+      - JavaScript syntax verified with 0 errors across all scripts.
+      - CSS brace balance verified 100% (1010 open, 1010 close braces).
+      - HTTP 200 OK verified across all 14 project asset URLs.
+      - Chrome DevTools responsive verification: Desktop (1280x800) and mobile (390x844) modals open cleanly, galleries switch seamlessly, inline video player loads on click, and mobile layout has zero horizontal overflow (`hasHorizontalOverflow: false`).
+    - **Authentic Image Headings & Native Video Streaming Proxy Architecture (2026-11-24 Update)**:
+      - Diagnosed mobile Google Drive iframe failure: Google Drive sends `drive-viewer-video: false` on mobile User Agents, redirecting to Google sign-in. Fixed by implementing `/api/video` on-the-fly streaming proxy with HTTP 206 byte-range pass-through in `server.js` and `api/video.js`.
+      - Converted all project walkthroughs to standard HTML5 `<video controls playsinline>` with responsive styling. Tested and verified in DevTools across Desktop and Mobile (iOS/Android viewports) with `paused: false` and `readyState: 3`.
+      - Replaced hardcoded `<h3>Dashboard Interface & Modules</h3>` with dynamic `${data.galleryHeading}` and replaced generic tab labels with exact titles from Sandeep's Notion pages (`RAG-Pinecone Workflow Canvas`, `Loaded The Data onto a 3rd party RAG Store`, `Query our RAG`, `Excitel Customer Support — Botpress Cloud Overview`, `Botpress Studio Node Flow & Chat Simulation`, `Interview Schedule — Vapi Voice Assistant Configuration`, `Appointment_Booking_Tool & Google Calendar Settings`).
+      - Trimmed Excitel and Interview Agent galleries to exactly the 2 authentic Notion screenshots.
+      - Dev server running on `http://localhost:3000/` for user inspection.
 - **Starting Point for Next Session**:
   - Codebase is 100% clean, verified, and hardened with 0 errors/warnings across HTML, CSS, and JS.
-  - Development server operational on `http://localhost:3000/`.
-  - All top 3 projects (LedgerAdvance, Customer Complaint Automation, Custom MCP Server) are fully upgraded with authentic demonstration videos, interactive multi-tab screenshot galleries, official GitHub repositories, verified Notion metadata, and responsive dual CTAs.
-  - Ready for public GitHub deployment, Vercel hosting, or further refinements per Sandeep's guidance.
+  - All 6 projects (LedgerAdvance, Customer Complaint Automation, Custom MCP Server, Custom RAG System, Excitel Customer Support Chatbot, AI Interview Scheduling Agent) are fully upgraded with authentic demonstration videos, interactive multi-tab screenshot galleries, verified Notion metadata, and consistent lightweight in-place video playback.
+  - Ready for public GitHub deployment, Vercel hosting, or further portfolio enhancements per Sandeep's guidance.
 

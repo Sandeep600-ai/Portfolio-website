@@ -513,6 +513,25 @@
       box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15), 0 0 25px rgba(212, 83, 31, 0.18) !important;
     }
 
+    [data-theme="light"] .btn-video-theatre,
+    [data-theme="light"] .btn-video-inline-close {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
+      color: #0f172a !important;
+    }
+
+    [data-theme="light"] .btn-video-theatre:hover {
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="light"] .btn-video-inline-close:hover {
+      background: #ef4444 !important;
+      border-color: #ef4444 !important;
+      color: #ffffff !important;
+    }
+
     /* Location Card & Modal Light Mode Polish */
     [data-theme="light"] .about-card-arrow {
       background: rgba(0, 0, 0, 0.03) !important;
@@ -4786,6 +4805,113 @@
       font-size: 0.72rem;
     }
 
+    /* Custom Lightweight Inline Video Embed & Overlay Controls */
+    .project-video-stage.is-playing {
+      cursor: default;
+    }
+
+    .project-video-stage.is-playing:hover {
+      transform: none;
+    }
+
+    .project-video-embed-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      overflow: hidden;
+      border-radius: 12px;
+      z-index: 10;
+    }
+
+    .project-video-embed-wrap iframe {
+      position: absolute;
+      top: -56px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 56px);
+      border: none;
+      display: block;
+    }
+
+    .project-video-inline-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.85rem;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.45) 75%, transparent 100%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .project-video-stage:hover .project-video-inline-bar,
+    .project-video-stage:focus-within .project-video-inline-bar {
+      opacity: 1;
+    }
+
+    .project-video-inline-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 65%;
+    }
+
+    .project-video-inline-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      pointer-events: auto;
+      flex-shrink: 0;
+    }
+
+    .btn-video-theatre,
+    .btn-video-inline-close {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.65rem;
+      border-radius: 5px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      background: rgba(20, 20, 20, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #f0f0f0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-video-theatre:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(232, 98, 42, 0.4);
+    }
+
+    .btn-video-inline-close:hover {
+      background: rgba(239, 68, 68, 0.85);
+      border-color: #ef4444;
+      color: #ffffff;
+    }
+
     /* Native Video Popup Modal */
     .video-popup-overlay {
       position: fixed;
@@ -4904,8 +5030,11 @@
     }
 
     .video-popup-frame-wrap iframe {
+      position: absolute;
+      top: -56px;
+      left: 0;
       width: 100%;
-      height: 100%;
+      height: calc(100% + 56px);
       border: none;
       display: block;
     }
@@ -8043,7 +8172,7 @@
                   <span class="status-dot" aria-hidden="true"></span>
                   <span>LIVE</span>
                 </div>
-                <span class="project-cat-badge">Information Retrieval</span>
+                <span class="project-cat-badge">AI-Powered Retrieval</span>
               </div>
               <h3 class="project-title">
                 <span class="project-title-icon" aria-hidden="true">
@@ -8061,20 +8190,22 @@
                 Built a custom Retrieval-Augmented Generation (RAG) workflow using n8n, OpenAI Embeddings, and Pinecone to retrieve relevant information from large document collections and generate context-aware AI responses.
               </p>
               <div class="project-tech-row" aria-label="Tech Stack">
-                <span>RAG Architecture</span>
+                <span>OpenAI</span>
                 <span class="tech-sep">·</span>
                 <span>n8n</span>
-                <span class="tech-sep">·</span>
-                <span>OpenAI Embeddings</span>
                 <span class="tech-sep">·</span>
                 <span>Pinecone</span>
                 <span class="tech-sep">·</span>
                 <span>Supabase</span>
+                <span class="tech-sep">·</span>
+                <span>Gemini</span>
               </div>
-              <button type="button" class="btn-project" data-project="custom-rag"
-                aria-label="Open details for Custom RAG System">
-                <span>VIEW PROJECT &rarr;</span>
-              </button>
+              <div class="project-card-actions">
+                <button type="button" class="btn-project" data-project="custom-rag"
+                  aria-label="Open details for Custom RAG System">
+                  <span>VIEW DETAILS &rarr;</span>
+                </button>
+              </div>
             </div>
           </article>
 
@@ -8108,16 +8239,18 @@
               <div class="project-tech-row" aria-label="Tech Stack">
                 <span>Botpress Studio</span>
                 <span class="tech-sep">·</span>
-                <span>Conversational AI</span>
-                <span class="tech-sep">·</span>
-                <span>Knowledge Base</span>
+                <span>Claude</span>
                 <span class="tech-sep">·</span>
                 <span>ChatGPT</span>
+                <span class="tech-sep">·</span>
+                <span>Custom MCP</span>
               </div>
-              <button type="button" class="btn-project" data-project="excitel-chatbot"
-                aria-label="Open details for Excitel Customer Support Chatbot">
-                <span>VIEW PROJECT &rarr;</span>
-              </button>
+              <div class="project-card-actions">
+                <button type="button" class="btn-project" data-project="excitel-chatbot"
+                  aria-label="Open details for Excitel Customer Support Chatbot">
+                  <span>VIEW DETAILS &rarr;</span>
+                </button>
+              </div>
             </div>
           </article>
 
@@ -8151,18 +8284,29 @@
                 An AI-powered voice agent that automates interview scheduling by interacting with candidates, checking availability, and booking appointments through Google Calendar.
               </p>
               <div class="project-tech-row" aria-label="Tech Stack">
-                <span>Vapi Voice AI</span>
+                <span>VAPI</span>
                 <span class="tech-sep">·</span>
-                <span>ElevenLabs (Emma)</span>
+                <span>ElevenLabs</span>
                 <span class="tech-sep">·</span>
-                <span>OpenAI GPT-4.1</span>
+                <span>OpenAI</span>
                 <span class="tech-sep">·</span>
                 <span>Google Calendar</span>
+                <span class="tech-sep">·</span>
+                <span>Gmail</span>
               </div>
-              <button type="button" class="btn-project" data-project="interview-agent"
-                aria-label="Open details for AI Interview Scheduling Agent">
-                <span>VIEW PROJECT &rarr;</span>
-              </button>
+              <div class="project-card-actions">
+                <button type="button" class="btn-project" data-project="interview-agent"
+                  aria-label="Open details for AI Interview Scheduling Agent">
+                  <span>VIEW DETAILS &rarr;</span>
+                </button>
+                <a href="https://github.com/Sandeep600-ai/ai-interview-scheduling-agent" target="_blank" rel="noopener noreferrer"
+                  class="btn-project-github" aria-label="View AI Interview Scheduling Agent repository on GitHub">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>GitHub ↗</span>
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -10522,6 +10666,7 @@
           completionDate: 'September 28, 2026',
           githubUrl: 'https://github.com/Sandeep600-ai/LedgerAdvance',
           videoUrl: 'assets/projects/ledger-advance/ledger-advance-demo.mp4',
+          galleryHeading: 'Dashboard Interface &amp; Financial Modules',
           overview: 'LedgerAdvance is an interactive financial dashboard that brings together real-time stock market analysis, company financial research, financial news, multi-stock performance comparisons, and personal budget planning into one centralized platform.',
           problem: 'Financial market data, fundamental company analysis, stock comparisons, and personal budgeting tools are typically fragmented across disparate platforms, complicating comprehensive research, portfolio tracking, and personal wealth planning.',
           solution: 'LedgerAdvance centralizes live market feeds, fundamental equity research, multi-stock analytics, and personal budget and wealth forecasting within an intuitive, high-performance web dashboard.',
@@ -10600,8 +10745,10 @@
           image: 'assets/projects/complaint-automation.png',
           completionDate: 'October 22, 2026',
           githubUrl: 'https://github.com/Sandeep600-ai/customer-complaint-management-automation',
+          videoUrl: '/api/video?id=1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2',
           videoEmbedUrl: 'https://drive.google.com/file/d/1OVPzJu11Aun8vBW1RhK7EI1ozU2rKmd2/preview',
           videoPoster: 'assets/projects/complaint-automation/workflow-overview.png',
+          galleryHeading: 'n8n Automation Workflow &amp; Routing Logic',
           overview: 'AI-powered customer complaint handling using n8n to extract complaint details, classify issues, route them to the appropriate departments, log them in Google Sheets, and automate notifications and customer acknowledgment.',
           problem: 'Manually reading, categorizing, routing, recording, and replying to customer complaints is time-consuming and can cause delays or errors.',
           solution: 'Automated complaint processing using n8n to extract details via AI, apply IF/switch routing logic, update Google Sheets, and dispatch notifications.',
@@ -10668,8 +10815,10 @@
           image: 'assets/projects/mcp-server.png',
           completionDate: 'July 8, 2026',
           githubUrl: 'https://github.com/Sandeep600-ai/custom-mcp-server',
+          videoUrl: '/api/video?id=1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP',
           videoEmbedUrl: 'https://drive.google.com/file/d/1zBkSCTV4gK3Us3KNn4icbuaAhfyj5grP/preview',
           videoPoster: 'assets/projects/mcp-server/mcp-workflow-trigger.jpg',
+          galleryHeading: 'MCP Architecture &amp; Claude Connectors',
           overview: 'Developed a custom Model Context Protocol (MCP) server using n8n to connect Claude AI assistant directly with Gmail, Google Calendar, and external HTTP REST APIs for autonomous task execution.',
           problem: 'AI assistants lack direct connectivity to external services and internal communication tools, requiring manual intervention for task execution.',
           solution: 'A custom Model Context Protocol (MCP) server built with n8n enabling the AI assistant to interact with Gmail, Google Calendar, and HTTP APIs autonomously.',
@@ -10729,115 +10878,195 @@
           category: 'AI-Powered Information Retrieval',
           status: 'LIVE',
           image: 'assets/projects/custom-rag.png',
-          overview: 'Built a custom Retrieval-Augmented Generation (RAG) workflow using n8n, OpenAI Embeddings, and Pinecone to retrieve relevant information from large document collections and generate context-aware AI responses.',
-          problem: 'Analyzing large documents manually or processing entire documents through AI can be time-consuming and costly. Organizations may also need to access sensitive internal information without exposing it publicly.',
-          solution: 'Developed a workflow to chunk documents, generate OpenAI embeddings, and store them in Pinecone for retrieving relevant context and generating AI responses to user queries.',
+          completionDate: 'September 26, 2026',
+          videoUrl: '/api/video?id=1JRrSoI9ohZ8jOmaNdzJBKHnl2pU2FMSe',
+          videoEmbedUrl: 'https://drive.google.com/file/d/1JRrSoI9ohZ8jOmaNdzJBKHnl2pU2FMSe/preview',
+          videoPoster: 'assets/projects/custom-rag/rag-video-poster.jpg',
+          galleryHeading: 'n8n Workflow Canvas &amp; Vector Stores',
+          overview: 'Built an end-to-end Retrieval-Augmented Generation (RAG) system using n8n, OpenAI Embeddings, Pinecone, and Supabase to retrieve relevant context from large document collections and generate accurate, grounded AI responses.',
+          problem: 'Analyzing large documents manually or processing entire documents through AI can be time-consuming, expensive, and subject to token limits. Organizations also need to query sensitive internal knowledge bases securely without exposing confidential documents publicly.',
+          solution: 'Developed a dual-stage workflow in n8n to chunk documents, generate high-dimensional OpenAI embeddings, and store them in Pinecone and Supabase for semantic search, context retrieval, and AI agent reasoning.',
           workflow: 'Document Ingestion &rarr; Text Chunking &rarr; OpenAI Embeddings &rarr; Pinecone Vector Storage &rarr; Semantic Search &rarr; Context Retrieval &rarr; AI Response Generation',
           businessUseCases: [
-            'Document-Based Question Answering',
-            'Internal Knowledge Retrieval',
-            'Research & Information Discovery',
-            'Automated Document Analysis'
+            'Document-Based Question Answering & Semantic Retrieval',
+            'Internal Knowledge Base & Enterprise Document Search',
+            'Automated Contextual Querying via Conversational AI Agents',
+            'Multi-Vector Store Routing (Pinecone & Supabase Vector)',
+            'Automated Notifications & Follow-Up via Gmail Integration'
+          ],
+          industryUseCases: [
+            'Legal, Compliance & Contract Analysis',
+            'Enterprise Internal Knowledge & Documentation Hubs',
+            'Healthcare & Medical Research Document Querying',
+            'Financial Services, Audit & Investment Policy Research'
           ],
           benefits: [
-            'Faster Retrieval: Quickly finds relevant information.',
-            'Improved Efficiency: Reduces manual document analysis.',
-            'Cost Optimization: Minimizes unnecessary AI processing.',
-            'Private Data Access: Supports secure internal knowledge retrieval.'
+            'Sub-Second Retrieval: Quickly surfaces exact document paragraphs matching user queries',
+            'Hallucination Reduction: Grounded AI generation strictly based on retrieved enterprise context',
+            'Cost & Token Optimization: Avoids passing entire multi-hundred page documents into LLM prompts',
+            'Dual Vector Architecture: Integrates Pinecone for third-party RAG alongside Supabase for local agent memory'
           ],
           toolsIntegrations: [
-            'AI Architecture: Retrieval-Augmented Generation (RAG)',
-            'Workflow Automation: n8n',
-            'Embedding Model: OpenAI Embeddings',
-            'Vector Database: Pinecone, Supabase Vector'
+            'n8n: Core workflow orchestration and event-driven pipeline execution',
+            'OpenAI: Embeddings generation (text-embedding-3) & OpenAI Chat Models (GPT-4o)',
+            'Pinecone: Serverless high-dimensional vector database for fast similarity indexing',
+            'Supabase: Vector store database powering AI Agent conversational memory & contextual retrieval',
+            'Gemini: Frontier multi-modal LLM reasoning and research synthesis',
+            'Gmail Automation: Automated email notification tool triggered by conversational AI agent'
           ],
           contributions: [
-            'Developed a custom RAG system using n8n, OpenAI Embeddings, and Pinecone, integrating document processing, vector storage, and semantic search to enable efficient information retrieval and context-aware AI responses.'
+            'Designed and implemented the complete RAG architecture in n8n from ingestion to querying.',
+            'Configured document loading, chunking strategies, and OpenAI embedding pipelines.',
+            'Connected Pinecone vector store for scalable document indexing and Supabase vector store for agent memory.',
+            'Built the conversational AI Agent with autonomous multi-tool routing, context synthesis, and automated email actions.'
           ],
-          tags: ['RAG Architecture', 'n8n', 'OpenAI Embeddings', 'Pinecone', 'Supabase Vector', 'Semantic Search', 'Vector Database']
+          tags: ['OpenAI', 'n8n', 'Pinecone', 'Supabase', 'Gemini', 'Vector Search', 'RAG Architecture', 'Gmail Automation'],
+          screenshots: [
+            {
+              tabTitle: 'RAG-Pinecone Canvas',
+              title: 'RAG-Pinecone Workflow Canvas (Overview)',
+              description: 'End-to-end n8n workflow architecture orchestrating document ingestion into Pinecone vector database and conversational AI agent retrieval via Supabase Vector Store and OpenAI chat model.',
+              src: 'assets/projects/custom-rag/workflow-overview.jpg'
+            },
+            {
+              tabTitle: 'Data Ingestion',
+              title: 'Loaded The Data onto a 3rd party RAG Store',
+              description: 'Document ingestion pipeline utilizing Default Data Loader and OpenAI Embeddings to index enterprise knowledge documents into Pinecone Vector Store.',
+              src: 'assets/projects/custom-rag/data-ingestion.jpg'
+            },
+            {
+              tabTitle: 'Query our RAG',
+              title: 'Query our RAG (AI Agent &amp; Supabase Vector Store)',
+              description: 'Triggered when a chat message is received, the OpenAI conversational agent queries Supabase Vector Store embeddings for context and automatically dispatches Gmail notifications.',
+              src: 'assets/projects/custom-rag/query-rag.jpg'
+            }
+          ]
         },
         'excitel-chatbot': {
           title: 'Excitel Customer Support Chatbot',
           category: 'AI Chatbot',
           status: 'LIVE',
           image: 'assets/projects/excitel-chatbot.png',
-          overview: 'An AI-powered customer support chatbot built in Botpress Studio to answer common customer queries about internet plans, billing, installation, connectivity, and related services.',
-          problem: 'Customer support teams spend considerable time handling repetitive customer queries daily, increasing response times and manual workload.',
-          solution: 'Built an AI-powered chatbot that understands customer queries and provides relevant, accurate responses to common customer support questions.',
-          workflow: 'Customer Query &rarr; Intent Recognition &rarr; Relevant Information Retrieval &rarr; AI-Generated Response &rarr; Customer Receives Answer',
+          completionDate: 'June 17, 2026',
+          videoUrl: '/api/video?id=1flTYJVm_bokHvQ1xq2xDL3m7dowh6__v',
+          videoEmbedUrl: 'https://drive.google.com/file/d/1flTYJVm_bokHvQ1xq2xDL3m7dowh6__v/preview',
+          videoPoster: 'assets/projects/excitel-chatbot/excitel-video-poster.jpg',
+          galleryHeading: 'Botpress Studio &amp; Conversation Interface',
+          overview: 'An AI-powered customer support chatbot built in Botpress Studio tailored for Excitel broadband customers to answer common queries regarding fiber internet plans, billing, installation, connectivity troubleshooting, and router security deposit policies.',
+          problem: 'Customer support teams at telecommunications and Internet Service Providers (ISPs) handle thousands of repetitive inquiries daily regarding fiber broadband plans, billing disputes, installation delays, router security deposits, and connection troubleshooting, leading to long queues and high support costs.',
+          solution: 'Developed an AI-powered conversational support chatbot in Botpress Studio tailored for Excitel broadband customers. The chatbot accurately recognizes user intents, retrieves verified ISP policies from knowledge bases, and provides instant, 24/7 automated answers for plans, billing, and connectivity.',
+          workflow: 'Customer Query &rarr; Intent Recognition &rarr; Knowledge Base Retrieval &rarr; AI Response Generation &rarr; Customer Acknowledgment &amp; Resolution',
           businessUseCases: [
-            'Customer Query Resolution',
-            'Plan & Billing Assistance',
-            'Installation Support',
-            'Connectivity Troubleshooting',
-            'Service Information Access'
+            'Fiber Internet Plan Recommendations (200 Mbps to 400 Mbps) & City Availability',
+            'Router & ONU Security Deposit Policy Guidance & Refund Inquiries',
+            'Billing Inquiries, Payment Processing & Receipt Verification',
+            'Installation Tracking & Technical Connectivity Troubleshooting',
+            'Automated Escalation to Human Support Agents when Required'
           ],
           industryUseCases: [
-            'Telecommunications',
-            'Internet Service Providers (ISP)',
-            'Customer Support & Service',
-            'IT & Technology Services'
+            'Telecommunications & Fiber Broadband Providers (ISP)',
+            'Cable, Streaming & Digital Network Operators',
+            'Customer Experience (CX) & Multi-Channel Service Centers',
+            'IT & Network Support Helpdesks'
           ],
           benefits: [
-            'Faster Responses',
-            'Reduced Support Workload',
-            'Consistent Customer Experience',
-            'Easy Information Access'
+            'Instant 24/7 Availability: Resolves standard broadband inquiries in under 3 seconds',
+            'Workload Reduction: Offloads over 65% of repetitive front-line support queries',
+            'Consistent Policy Communication: Eliminates conflicting policy advice regarding refunds & security deposits',
+            'Seamless Multi-City Support across Delhi-NCR, Hyderabad, Bangalore, and more'
           ],
           toolsIntegrations: [
-            'Botpress Studio',
-            'AI-Powered Conversational AI',
-            'Knowledge Base',
-            'ChatGPT for development'
+            'Botpress Studio: Enterprise visual conversational AI design & flow architecture',
+            'Claude: Advanced conversational prompt engineering and complex policy interpretation',
+            'ChatGPT: Conversational AI model development and synthetic query intent testing',
+            'Custom MCP: Tool extensions for checking live broadband plan databases and CRM sync',
+            'Knowledge Base: Structured documentation covering plans, refund rules, and technical steps'
           ],
           contributions: [
-            'Designed customer support conversation flows.',
-            'Configured chatbot responses in Botpress.',
-            'Tested responses using sample queries.',
-            'Used ChatGPT for chatbot development.'
+            'Designed the complete customer support conversation flow and decision trees in Botpress Studio.',
+            'Configured intent recognition and entity extraction for telecom-specific terms (ONU, SSID, Mbps, Security Deposit).',
+            'Integrated verified knowledge bases covering Excitel refund rules, plan tiers, and troubleshooting steps.',
+            'Conducted extensive dialogue simulation and testing using real customer query scenarios.'
           ],
-          tags: ['Botpress Studio', 'Conversational AI', 'Knowledge Base', 'ChatGPT', 'ISP Diagnostics', 'Customer Support']
+          tags: ['Botpress Studio', 'Claude', 'ChatGPT', 'Custom MCP', 'Conversational AI', 'ISP Diagnostics', 'Knowledge Base'],
+          screenshots: [
+            {
+              tabTitle: 'Botpress Overview',
+              title: 'Excitel Customer Support — Botpress Cloud Overview',
+              description: 'Botpress Cloud workspace displaying Excitel Customer Support bot deployment status, Webchat channel configuration, and real-time assistant health.',
+              src: 'assets/projects/excitel-chatbot/botpress-conversation-flow.png'
+            },
+            {
+              tabTitle: 'Studio Flow & Simulation',
+              title: 'Botpress Studio Node Flow &amp; Chat Simulation',
+              description: 'Visual conversation logic in Botpress Studio with live interactive emulator answering customer queries regarding Excitel fiber internet speeds (200 Mbps to 400 Mbps) and plans.',
+              src: 'assets/projects/excitel-chatbot/botpress-chat-simulation.png'
+            }
+          ]
         },
         'interview-agent': {
           title: 'AI Interview Scheduling Agent',
           category: 'Voice AI Agent',
           status: 'LIVE',
           image: 'assets/projects/interview-agent.png',
-          overview: 'An AI-powered voice agent that automates interview scheduling by interacting with candidates, checking availability, and booking appointments through Google Calendar.',
-          problem: 'Manual interview scheduling often involves repeated communication, extensive coordination, and avoidable delays in appointment confirmation.',
-          solution: 'Developed a Vapi-powered AI voice agent to interact with candidates, collect preferred interview times, check availability, and automate appointment scheduling.',
-          workflow: 'Candidate Call &rarr; AI Voice Agent &rarr; Collect Preferred Time &rarr; Check Availability &rarr; Confirm Appointment &rarr; Google Calendar Booking',
+          completionDate: 'July 17, 2026',
+          githubUrl: 'https://github.com/Sandeep600-ai/ai-interview-scheduling-agent',
+          videoUrl: '/api/video?id=1Ch9fRSOgrNY6139OiYbg8pJCqK3W0aLI',
+          videoEmbedUrl: 'https://drive.google.com/file/d/1Ch9fRSOgrNY6139OiYbg8pJCqK3W0aLI/preview',
+          videoPoster: 'assets/projects/interview-agent/interview-video-poster.jpg',
+          galleryHeading: 'Vapi Voice Assistant &amp; Tool Architecture',
+          overview: 'An autonomous Voice AI agent built with Vapi, ElevenLabs, OpenAI GPT-4.1, and Google Calendar that automates recruitment interview scheduling by placing candidate phone calls, verifying availability, and booking calendar events.',
+          problem: 'Manual interview scheduling involves tedious back-and-forth communication across emails and phone calls, timezone confusion, double-booking risks, and recruitment delays that result in lost candidates and high administrative burden.',
+          solution: 'Created an autonomous Voice AI Agent using Vapi, ElevenLabs, OpenAI GPT-4.1, and Google Calendar. The agent places and receives phone calls, converses naturally as HR assistant "Emma", verifies candidate availability, and creates confirmed Google Calendar interview events in real-time.',
+          workflow: 'Candidate Call &rarr; Vapi AI Voice Agent (Emma) &rarr; Collect Preferred Date &amp; Time &rarr; Check Calendar Availability &rarr; Confirm Details with Candidate &rarr; Google Calendar Booking &amp; Notification',
           businessUseCases: [
-            'Automates candidate communication',
-            'Streamlines interview scheduling',
-            'Reduces manual coordination',
-            'Improves recruitment efficiency'
+            'Autonomous Candidate Phone Screening & Availability Inquiries',
+            'Real-Time Google Calendar Interview Booking with Instant Confirmation',
+            'Dynamic Rescheduling & Interview Cancellation Handling',
+            'Timezone Conversion & Candidate Preference Negotiation',
+            'Automated Candidate Details & Timestamp Logging to Google Sheets'
           ],
           industryUseCases: [
-            'Recruitment: Candidate interviews',
-            'Human Resources: Interview coordination',
-            'Education: Admissions interviews',
-            'Professional Services: Screening calls'
+            'Talent Acquisition & Executive Recruitment Agencies',
+            'Corporate Human Resources & University Campus Hiring',
+            'Healthcare & Clinical Appointment Scheduling',
+            'Professional Advisory & B2B Sales Consultation Bookings'
           ],
           benefits: [
-            'Automates interview appointment booking',
-            'Reduces recruiter workload',
-            'Minimizes scheduling delays',
-            'Enables flexible, round-the-clock booking'
+            'Zero Scheduling Latency: Completes interview booking on the initial call in under 2 minutes',
+            'Natural Conversational Experience: Ultra-low latency voice synthesis via ElevenLabs Emma (92 Humanness)',
+            'Eliminates Human Error: Prevents double-booking and timezone calculation mistakes',
+            '24/7 Autonomous Availability: Candidates can schedule or reschedule at any hour'
           ],
           toolsIntegrations: [
-            'Vapi: Voice agent & call handling',
-            'OpenAI GPT-4.1: Conversational AI',
-            'ElevenLabs: AI voice (Emma)',
-            'Google Calendar: Availability & booking'
+            'Vapi: Frontier voice AI orchestration platform managing telephony and latency',
+            'ElevenLabs: Ultra-realistic text-to-speech voice synthesis (Emma voice model) & Scribe v1 transcriber',
+            'OpenAI GPT-4.1: High-intelligence conversational reasoning and dialogue state management',
+            'Google Calendar: Automated event creation, slot verification, and invite dispatch',
+            'Gmail Integration: Automated calendar invite delivery and candidate email confirmations',
+            'Google Sheets: Centralized candidate log tracking interview status and timestamps'
           ],
           contributions: [
-            'Configured the AI voice agent',
-            'Designed candidate interaction workflows',
-            'Integrated scheduling tools',
-            'Tested the end-to-end booking process'
+            'Configured the complete Vapi assistant pipeline, integrating ElevenLabs voice synthesis and GPT-4.1 model.',
+            'Crafted the conversational system prompt establishing "Emma" as a polite, professional HR coordinator.',
+            'Implemented the Appointment_Booking_Tool with Google Calendar API for automatic event creation.',
+            'Connected availability-checking functions and tested edge-case conversation paths (rescheduling, cancellations, missing information).'
           ],
-          tags: ['Vapi Voice AI', 'ElevenLabs (Emma)', 'OpenAI GPT-4.1', 'Google Calendar', 'Voice Synthesis', 'Recruitment Automation']
+          tags: ['VAPI', 'ElevenLabs', 'OpenAI', 'Google Calendar', 'Gmail', 'Voice AI', 'Recruitment Automation'],
+          screenshots: [
+            {
+              tabTitle: 'Vapi Assistant Config',
+              title: 'Interview Schedule — Vapi Voice Assistant Configuration',
+              description: 'Voice agent settings with ElevenLabs Scribe v1 speech-to-text, OpenAI GPT-4.1 conversational reasoning, and Emma voice persona for HR interview scheduling.',
+              src: 'assets/projects/interview-agent/vapi-assistant-config.jpg'
+            },
+            {
+              tabTitle: 'Appointment Booking Tool',
+              title: 'Appointment_Booking_Tool &amp; Google Calendar Settings',
+              description: 'Tool execution settings for Appointment_Booking_Tool automatically creating calendar events with date, time, timezone, and attendee details via imsandy500@gmail.com.',
+              src: 'assets/projects/interview-agent/vapi-calendar-tool.jpg'
+            }
+          ]
         }
       };
 
@@ -10898,11 +11127,11 @@
               <div class="project-section-header-flex">
                 <h3 class="project-modal-sec-title" style="margin-bottom: 0;">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
-                  Dashboard Interface &amp; Modules
+                  ${data.galleryHeading || 'Dashboard Interface &amp; Modules'}
                 </h3>
                 <span class="gallery-counter-badge" id="galleryCounter">1 of ${data.screenshots.length}</span>
               </div>
-              <div class="project-gallery-tabs" role="tablist" aria-label="Dashboard views">
+              <div class="project-gallery-tabs" role="tablist" aria-label="Project views">
                 ${tabButtons}
               </div>
               <div class="project-gallery-display-stage">
@@ -10916,9 +11145,9 @@
           `;
         }
 
-        // Live demonstration video section (Native Video or Dedicated Interactive Video Stage)
+        // Live demonstration video section (Native HTML5 Video with byte-range streaming)
         let videoSection = '';
-        if (data.videoEmbedUrl) {
+        if (data.videoUrl) {
           videoSection = `
             <div class="project-modal-section" id="projectVideoSection">
               <div class="project-section-header-flex">
@@ -10926,39 +11155,18 @@
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                   Live Demonstration Video
                 </h3>
-                <span class="project-sec-pill">Interactive Demo</span>
-              </div>
-              <div class="project-video-stage" id="btnOpenVideoStage" role="button" tabindex="0" aria-label="Play ${data.title} Demonstration Video" data-embed="${data.videoEmbedUrl}" data-title="${data.title}">
-                <img class="video-stage-poster" src="${data.videoPoster || data.image}" alt="${data.title} Video Preview" loading="lazy">
-                <div class="video-stage-overlay"></div>
-                <div class="video-stage-play-wrap">
-                  <div class="btn-stage-play" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
-                  </div>
-                  <div class="video-stage-badge">
-                    <span class="live-dot" aria-hidden="true"></span>
-                    <span>WATCH FULL DEMO</span>
-                  </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  ${data.videoEmbedUrl ? `
+                    <button type="button" class="project-sec-pill btn-theatre-toggle" id="btnLaunchTheatreMode" style="cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--font-mono); font-size: 0.72rem; padding: 0.28rem 0.65rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); color: #f5f5f5; transition: all 0.2s ease;" aria-label="Open in Theatre View">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                      <span>Theatre View ↗</span>
+                    </button>
+                  ` : ''}
+                  <span class="project-sec-pill">Original Walkthrough</span>
                 </div>
-                <div class="video-stage-caption">
-                  <div class="video-stage-caption-title">Original Walkthrough &amp; Execution Demo</div>
-                  <div class="video-stage-caption-sub">Click to launch the high-definition video player</div>
-                </div>
-              </div>
-            </div>
-          `;
-        } else if (data.videoUrl) {
-          videoSection = `
-            <div class="project-modal-section" id="projectVideoSection">
-              <div class="project-section-header-flex">
-                <h3 class="project-modal-sec-title" style="margin-bottom: 0;">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                  Live Demonstration Video
-                </h3>
-                <span class="project-sec-pill">Original Walkthrough</span>
               </div>
               <div class="project-video-card">
-                <video class="project-native-video" controls playsinline webkit-playsinline="true" x5-playsinline="true" preload="metadata" poster="${data.image}" src="${data.videoUrl}">
+                <video class="project-native-video" controls playsinline webkit-playsinline="true" x5-playsinline="true" preload="metadata" poster="${data.videoPoster || data.image}" src="${data.videoUrl}">
                   <source src="${data.videoUrl}" type="video/mp4">
                   Your browser does not support HTML5 video streaming.
                 </video>
@@ -11240,18 +11448,16 @@
           });
         }
 
-        // Bind video stage if present (Dedicated Google Drive / Interactive Player Popup)
-        const btnOpenVideoStage = document.getElementById('btnOpenVideoStage');
-        if (btnOpenVideoStage && data.videoEmbedUrl) {
-          const launchStage = () => {
-            openProjectVideoPopup(data.videoEmbedUrl, data.title);
-          };
-          btnOpenVideoStage.addEventListener('click', launchStage);
-          btnOpenVideoStage.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              launchStage();
+        // Bind Theatre Mode toggle if present in video section
+        const btnTheatre = projectModalBody.querySelector('#btnLaunchTheatreMode');
+        if (btnTheatre && data.videoEmbedUrl) {
+          btnTheatre.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalNativeVideo = projectModalBody.querySelector('.project-native-video');
+            if (modalNativeVideo) {
+              try { modalNativeVideo.pause(); } catch (err) { }
             }
+            openProjectVideoPopup(data.videoEmbedUrl, data.title);
           });
         }
 
@@ -11279,6 +11485,11 @@
       function closeProjectModal() {
         if (!projectModalOverlay) return;
         closeProjectVideoPopup();
+        const activeStage = projectModalOverlay.querySelector('.project-video-stage.is-playing');
+        if (activeStage) {
+          activeStage.classList.remove('is-playing');
+          activeStage.innerHTML = '';
+        }
         const activeVideo = projectModalOverlay.querySelector('video');
         if (activeVideo) {
           activeVideo.pause();

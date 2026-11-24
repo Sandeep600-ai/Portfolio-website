@@ -1,4 +1,5 @@
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const { URL } = require('url');
@@ -272,6 +273,47 @@ const server = http.createServer(async (req, res) => {
       res.end(JSON.stringify({ error: 'Failed to read news data', details: e.message }));
       return;
     }
+  }
+
+  // 3.5. Video Streaming Proxy from Google Drive (Byte-Range Supported)
+  if (pathname === '/api/video' || pathname.startsWith('/api/video')) {
+    const id = parsedUrl.searchParams.get('id');
+    if (!id || !/^[a-zA-Z0-9_-]{20,60}$/.test(id)) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Invalid or missing video file ID' }));
+      return;
+    }
+
+    const driveUrl = `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t&authuser=0`;
+    const driveHeaders = {};
+    if (req.headers.range) driveHeaders['Range'] = req.headers.range;
+    if (req.headers['user-agent']) driveHeaders['User-Agent'] = req.headers['user-agent'];
+
+    const driveReq = https.request(driveUrl, { method: req.method, headers: driveHeaders }, (driveRes) => {
+      const responseHeaders = {
+        'Content-Type': driveRes.headers['content-type'] || 'video/mp4',
+        'Accept-Ranges': 'bytes',
+        'Cache-Control': 'public, max-age=3600',
+        'Access-Control-Allow-Origin': '*'
+      };
+      if (driveRes.headers['content-range']) responseHeaders['Content-Range'] = driveRes.headers['content-range'];
+      if (driveRes.headers['content-length']) responseHeaders['Content-Length'] = driveRes.headers['content-length'];
+
+      res.writeHead(driveRes.statusCode, responseHeaders);
+      driveRes.pipe(res);
+    });
+
+    driveReq.on('error', (err) => {
+      console.error('[Video Proxy Error]:', err.message);
+      if (!res.headersSent) {
+        res.writeHead(502, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Failed to stream video from Google Drive' }));
+      }
+    });
+
+    req.on('close', () => driveReq.destroy());
+    driveReq.end();
+    return;
   }
 
   // 4. Static File Serving
